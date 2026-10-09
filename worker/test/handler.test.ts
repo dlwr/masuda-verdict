@@ -24,6 +24,7 @@ function deps(overrides: Partial<Deps> = {}): Deps & { aiCalls: number; store: M
       },
     },
     perIp: { limit: async () => ({ success: true }) },
+    bookmarksLimiter: { limit: async () => ({ success: true }) },
     global: { limit: async () => ({ success: true }) },
     fetchText: async (url: string) =>
       url.startsWith("https://b.hatena.ne.jp/entry/jsonlite/")
@@ -75,6 +76,16 @@ describe("handle", () => {
   it("returns the suspicion over all sampled comments", async () => {
     const body = await (await judge(deps())).json();
     expect(body.suspicion).toBe(1);
+  });
+
+  it("returns each sampled comment with its verdict", async () => {
+    const body = await (await judge(deps())).json();
+    expect(body.comments[0]).toEqual({ user: "alice", comment: "創作乙。設定盛りすぎ", fiction: 1, fact: 0 });
+  });
+
+  it("returns the entry id", async () => {
+    const body = await (await judge(deps())).json();
+    expect(body.eid).toBe("4789012345");
   });
 
   it("returns the gap", async () => {
@@ -137,5 +148,41 @@ describe("handle", () => {
 
   it("answers preflight requests", async () => {
     expect((await handle(request("", { method: "OPTIONS" }), deps())).status).toBe(204);
+  });
+});
+
+const bookmarks = (d: Deps, url = URL_) =>
+  handle(new Request(`https://api.example/api/bookmarks?url=${encodeURIComponent(url)}`, { headers: { Origin: ORIGIN } }), d);
+
+describe("bookmarks", () => {
+  it("returns all comments with users", async () => {
+    const body = await (await bookmarks(deps())).json();
+    expect(body.comments).toEqual([
+      { user: "alice", comment: "創作乙。設定盛りすぎ" },
+      { user: "carol", comment: "うちも同じだったのでわかる" },
+    ]);
+  });
+
+  it("returns the entry id", async () => {
+    const body = await (await bookmarks(deps())).json();
+    expect(body.eid).toBe("4789012345");
+  });
+
+  it("does not call the model", async () => {
+    const d = deps();
+    await bookmarks(d);
+    expect(d.aiCalls).toBe(0);
+  });
+
+  it("rejects non-anond URLs", async () => {
+    expect((await bookmarks(deps(), "https://example.com/1")).status).toBe(400);
+  });
+
+  it("returns 429 when its limit is hit", async () => {
+    expect((await bookmarks(deps({ bookmarksLimiter: { limit: async () => ({ success: false }) } }))).status).toBe(429);
+  });
+
+  it("allows the site origin", async () => {
+    expect((await bookmarks(deps())).headers.get("Access-Control-Allow-Origin")).toBe(ORIGIN);
   });
 });

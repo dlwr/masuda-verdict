@@ -22,10 +22,20 @@ export function extractBody(html: string): string | null {
   return content === undefined ? null : decodeEntities(content);
 }
 
-type Jsonlite = { title: string; count: number; bookmarks: { comment: string }[] };
+type Jsonlite = { eid: string; title: string; count: number; bookmarks: { user: string; comment: string }[] };
+
+export type BookmarkComment = { user: string; comment: string };
 
 export function parseBookmarks(raw: string, limit: number) {
   const data: Jsonlite = JSON.parse(raw);
-  const all = data.bookmarks.map((b) => b.comment).filter((c) => c);
-  return { title: data.title, count: data.count, comments: all.slice(0, limit), totalComments: all.length };
+  const all: BookmarkComment[] = data.bookmarks
+    .filter((b) => b.comment)
+    .map((b) => ({ user: b.user, comment: b.comment }));
+  return {
+    eid: data.eid,
+    title: data.title,
+    count: data.count,
+    comments: all.slice(0, limit),
+    totalComments: all.length,
+  };
 }

@@ -54,11 +54,18 @@ describe("parseBookmarks", () => {
   });
 
   it("keeps only bookmarks with comments", () => {
-    expect(parseBookmarks(fixture("jsonlite.json"), 10).comments).toEqual(["創作乙。設定盛りすぎ", "うちも同じだったのでわかる"]);
+    expect(parseBookmarks(fixture("jsonlite.json"), 10).comments).toEqual([
+      { user: "alice", comment: "創作乙。設定盛りすぎ" },
+      { user: "carol", comment: "うちも同じだったのでわかる" },
+    ]);
   });
 
   it("takes at most the given number of comments from the top", () => {
-    expect(parseBookmarks(fixture("jsonlite.json"), 1).comments).toEqual(["創作乙。設定盛りすぎ"]);
+    expect(parseBookmarks(fixture("jsonlite.json"), 1).comments.map((c) => c.user)).toEqual(["alice"]);
+  });
+
+  it("returns the entry id", () => {
+    expect(parseBookmarks(fixture("jsonlite.json"), 10).eid).toBe("4789012345");
   });
 
   it("reports how many comments exist in total", () => {

@@ -6,6 +6,8 @@ import { BODY_QUESTION, COMMENT_QUESTION, NARRATIVE_QUESTION } from "./questions
 const MAX_COMMENTS = 50;
 const BODY_MAX_CHARS = 4000;
 const AI_CONCURRENCY = 6;
+const JUDGMENT_TTL_SECONDS = 6 * 60 * 60;
+const BOOKMARKS_TTL_SECONDS = 60 * 60;
 
 type RateLimit = { limit(options: { key: string }): Promise<{ success: boolean }> };
 
@@ -13,8 +15,9 @@ export type Deps = {
   ai: Ai;
   perIp: RateLimit;
   global: RateLimit;
+  bookmarksLimiter: RateLimit;
   fetchText(url: string): Promise<{ status: number; text: string }>;
-  cache: { get(key: string): Promise<unknown | null>; put(key: string, value: unknown): Promise<void> };
+  cache: { get(key: string): Promise<unknown | null>; put(key: string, value: unknown, ttlSeconds: number): Promise<void> };
   allowedOrigins: string[];
   minMentions?: number;
 };
@@ -43,18 +46,18 @@ async function judge(url: string, deps: Deps) {
   const body = page.status === 200 ? extractBody(page.text) : null;
   if (body === null) return null;
 
-  const bookmarks = await deps.fetchText(`https://b.hatena.ne.jp/entry/jsonlite/?url=${encodeURIComponent(url)}`);
-  const { title, count, comments, totalComments } =
+  const bookmarks = await fetchBookmarks(url, deps);
+  const { eid, title, count, comments, totalComments } =
     bookmarks.status === 200
       ? parseBookmarks(bookmarks.text, MAX_COMMENTS)
-      : { title: body.split("\n")[0], count: 0, comments: [], totalComments: 0 };
+      : { eid: null, title: body.split("\n")[0], count: 0, comments: [], totalComments: 0 };
 
   const bodyText = `タイトル: ${title}\n\n${body.slice(0, BODY_MAX_CHARS)}`;
   const tasks = [
     () => decide(deps.ai, bodyText, BODY_QUESTION),
     () => decide(deps.ai, bodyText, NARRATIVE_QUESTION),
     ...comments.map(
-      (c) => () => decide(deps.ai, `記事タイトル: ${title}\nブックマークコメント: ${c}`, COMMENT_QUESTION),
+      (c) => () => decide(deps.ai, `記事タイトル: ${title}\nブックマークコメント: ${c.comment}`, COMMENT_QUESTION),
     ),
   ];
   const [model, narrative, ...commentVerdicts] = await mapLimit(tasks, AI_CONCURRENCY, (t) => t());
@@ -62,6 +65,7 @@ async function judge(url: string, deps: Deps) {
 
   return {
     url,
+    eid,
     title,
     bookmark_count: count,
     models: { clef: model as Verdict },
@@ -70,7 +74,16 @@ async function judge(url: string, deps: Deps) {
     suspicion: comments.length ? fictionSum / comments.length : null,
     comment_count: comments.length,
     total_comments: totalComments,
+    comments: comments.map((c, i) => ({
+      ...c,
+      fiction: commentVerdicts[i].fiction ?? 0,
+      fact: commentVerdicts[i].fact ?? 0,
+    })),
   };
+}
+
+function fetchBookmarks(url: string, deps: Deps) {
+  return deps.fetchText(`https://b.hatena.ne.jp/entry/jsonlite/?url=${encodeURIComponent(url)}`);
 }
 
 export async function handle(request: Request, deps: Deps): Promise<Response> {
@@ -81,17 +94,33 @@ export async function handle(request: Request, deps: Deps): Promise<Response> {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
 
   const { pathname, searchParams } = new URL(request.url);
-  if (pathname !== "/api/judge") return json(404, { error: "not found" });
+  if (pathname !== "/api/judge" && pathname !== "/api/bookmarks") return json(404, { error: "not found" });
 
   const url = parseAnondUrl(searchParams.get("url"));
   if (!url) return json(400, { error: "anond.hatelabo.jp の記事 URL を指定してください" });
+
+  const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
+
+  if (pathname === "/api/bookmarks") {
+    const key = `bookmarks:${url}`;
+    const cached = await deps.cache.get(key);
+    if (cached) return json(200, cached);
+    if (!(await deps.bookmarksLimiter.limit({ key: ip })).success) {
+      return json(429, { error: "混み合っています。少し待ってから試してください" });
+    }
+    const res = await fetchBookmarks(url, deps);
+    if (res.status !== 200) return json(502, { error: "ブコメを取得できませんでした" });
+    const { eid, comments } = parseBookmarks(res.text, Number.POSITIVE_INFINITY);
+    const data = { eid, comments };
+    await deps.cache.put(key, data, BOOKMARKS_TTL_SECONDS);
+    return json(200, data);
+  }
 
   if (searchParams.get("fresh") !== "1") {
     const cached = await deps.cache.get(url);
     if (cached) return json(200, cached);
   }
 
-  const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
   if (!(await deps.perIp.limit({ key: ip })).success || !(await deps.global.limit({ key: "all" })).success) {
     return json(429, { error: "混み合っています。少し待ってから試してください" });
   }
@@ -105,6 +134,6 @@ export async function handle(request: Request, deps: Deps): Promise<Response> {
   }
   if (!result) return json(404, { error: "記事が見つかりません" });
 
-  await deps.cache.put(url, result);
+  await deps.cache.put(url, result, JUDGMENT_TTL_SECONDS);
   return json(200, result);
 }
