@@ -43,9 +43,15 @@ jobs:
         working-directory: .
         run: |
           url=$(tail -n 1 data/judged/$(ls data/judged | tail -n 1) | jq -r .url)
-          res=$(curl -sS -w '\n%{http_code}' "https://masuda-verdict-api.yuta25.workers.dev/api/judge?fresh=1&url=$(jq -rn --arg u "$url" '$u|@uri')")
-          status=$(echo "$res" | tail -n 1)
-          body=$(echo "$res" | sed '$d')
-          echo "$status $body"
-          test "$status" = 200
-          echo "$body" | jq -e '(.models.clef.fiction | type) == "number" and (.narrative | type) == "number" and (.comment_count | type) == "number"'
+          endpoint="https://masuda-verdict-api.yuta25.workers.dev/api/judge?fresh=1&url=$(jq -rn --arg u "$url" '$u|@uri')"
+          for attempt in 1 2 3 4 5; do
+            sleep 25
+            res=$(curl -sS -w '\n%{http_code}' "$endpoint")
+            status=$(echo "$res" | tail -n 1)
+            body=$(echo "$res" | sed '$d')
+            echo "attempt $attempt: $status $body"
+            if [ "$status" = 200 ] && echo "$body" | jq -e '(.models.clef.fiction | type) == "number" and (.narrative | type) == "number" and (.comment_count | type) == "number"'; then
+              exit 0
+            fi
+          done
+          exit 1
