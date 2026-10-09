@@ -1,7 +1,7 @@
 ---
 import summary from "../data/summary.json";
 
-type Probs = { fishing: number; fiction: number; fact: number };
+type Probs = { fiction: number; fact: number };
 type Entry = {
   url: string;
   title: string;
@@ -15,7 +15,6 @@ type Entry = {
 };
 
 const VERDICTS = [
-  { key: "fishing", label: "釣り" },
   { key: "fiction", label: "創作" },
   { key: "fact", label: "事実" },
 ] as const;
@@ -35,13 +34,13 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>増田判定</title>
-    <meta name="description" content="増田の人気エントリーを、本文だけを読んだモデルとブコメ民意で釣り・創作・事実に判定して並べる" />
+    <meta name="description" content="増田の人気エントリーを、本文だけを読んだモデルとブコメ民意で創作か事実かに判定して並べる" />
   </head>
   <body>
     <header>
       <h1>増田判定</h1>
       <p class="lead">
-        はてな匿名ダイアリーの人気エントリーを、本文だけを読んだモデルと、ブコメ民の反応の両方で「釣り・創作・事実」に振り分ける。ブコメが出揃う48時間後に判定。
+        はてな匿名ダイアリーの人気エントリーを、本文だけを読んだモデルと、ブコメ民の反応の両方で「創作（釣り・ネタを含む）」か「事実」かに振り分ける。ブコメが出揃う48時間後に判定。
       </p>
       <div class="controls">
         <ul class="legend" aria-label="凡例">
@@ -112,7 +111,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
 
     <footer>
       <p>
-        モデルは記事タイトルと本文だけを読んで判定。ブコメ民意は各コメントを {primary} で「釣り・創作・事実・言及なし」に分類し、言及なし以外を平均したもの。ズレはモデルと民意の分布の差（0〜100%）。
+        モデルは記事タイトルと本文だけを読んで判定。ブコメ民意は各コメントを {primary} で「創作・事実・言及なし」に分類し、言及なし以外を平均したもの。ズレはモデルと民意の分布の差（0〜100%）。
       </p>
       <p>更新: {new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })} · <a href="https://github.com/dlwr/masuda-verdict">GitHub</a></p>
     </footer>
@@ -143,8 +142,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
         --rule: #e4e3df;
         --track: #f0efec;
         --accent: #1c5cab;
-        --fishing: #eb6834;
-        --fiction: #1baf7a;
+        --fiction: #eb6834;
         --fact: #2a78d6;
       }
       @media (prefers-color-scheme: dark) {
@@ -156,8 +154,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
           --rule: #33322f;
           --track: #2a2a28;
           --accent: #86b6ef;
-          --fishing: #d95926;
-          --fiction: #199e70;
+          --fiction: #d95926;
           --fact: #3987e5;
         }
       }
@@ -169,8 +166,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
         --rule: #33322f;
         --track: #2a2a28;
         --accent: #86b6ef;
-        --fishing: #d95926;
-        --fiction: #199e70;
+        --fiction: #d95926;
         --fact: #3987e5;
       }
       * { box-sizing: border-box; }
@@ -215,7 +211,6 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
       .row.sub .bar { height: 8px; }
       .bar { display: flex; gap: 2px; height: 14px; background: var(--track); border-radius: 4px; overflow: hidden; }
       .seg { display: block; min-width: 2px; }
-      .fishing { background: var(--fishing); }
       .fiction { background: var(--fiction); }
       .fact { background: var(--fact); }
       .verdict { font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }

@@ -1,7 +1,7 @@
 [project]
 name = "masuda-verdict"
 version = "0.1.0"
-description = "増田の人気エントリーを釣り・創作・事実で判定し、ブコメ民意と比べる"
+description = "増田の人気エントリーを創作か事実か判定し、ブコメ民意と比べる"
 authors = [
     { name = "dlwr", email = "yuta25.a.k.a.djbudo.a.k.a.dlwr@gmail.com" }
 ]

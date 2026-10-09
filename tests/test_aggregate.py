@@ -16,14 +16,12 @@ def store(tmp_path):
         "seen", {"url": URL, "title": "t", "bookmark_count": 150, "bookmarked_at": "2026-10-07T00:00:00+00:00"}, NOW
     )
     s.append("judged", {"url": URL, "judged_at": NOW.isoformat()}, NOW)
-    s.append(
-        "body_verdicts", {"url": URL, "model": "clef", "probs": {"fishing": 0.0, "fiction": 0.0, "fact": 1.0}}, NOW
-    )
+    s.append("body_verdicts", {"url": URL, "model": "clef", "probs": {"fiction": 0.0, "fact": 1.0}}, NOW)
     return s
 
 
 def add_comment(store, user, **probs):
-    full = {"fishing": 0.0, "fiction": 0.0, "fact": 0.0, "none": 0.0, **probs}
+    full = {"fiction": 0.0, "fact": 0.0, "none": 0.0, **probs}
     store.append("comment_verdicts", {"url": URL, "user": user, "model": "clef", "probs": full}, NOW)
 
 
@@ -34,13 +32,13 @@ def entry(store):
 def test_crowd_ignores_none_mass(store):
     add_comment(store, "a", fiction=1.0)
     add_comment(store, "b", none=1.0)
-    assert entry(store)["crowd"] == {"fishing": 0.0, "fiction": 1.0, "fact": 0.0}
+    assert entry(store)["crowd"] == {"fiction": 1.0, "fact": 0.0}
 
 
 def test_crowd_averages_mentions(store):
     add_comment(store, "a", fiction=1.0)
     add_comment(store, "b", fact=0.5, none=0.5)
-    assert entry(store)["crowd"] == pytest.approx({"fishing": 0.0, "fiction": 2 / 3, "fact": 1 / 3})
+    assert entry(store)["crowd"] == pytest.approx({"fiction": 2 / 3, "fact": 1 / 3})
 
 
 def test_mentions_counts_non_none_mass(store):
@@ -71,7 +69,7 @@ def test_gap_is_null_without_crowd(store):
 
 
 def test_models_keyed_by_name(store):
-    assert entry(store)["models"] == {"clef": {"fishing": 0.0, "fiction": 0.0, "fact": 1.0}}
+    assert entry(store)["models"] == {"clef": {"fiction": 0.0, "fact": 1.0}}
 
 
 def test_excludes_unjudged_entries(store):
@@ -89,3 +87,8 @@ def test_entries_ordered_by_bookmarked_at_desc(store):
         store.append("judged", {"url": url, "judged_at": NOW.isoformat()}, NOW)
     urls = [e["url"] for e in summarize(store, primary_model="clef")["entries"]]
     assert urls == ["u3", URL, "u4", "u2"]
+
+
+def test_crowd_ignores_labels_outside_verdicts(store):
+    add_comment(store, "a", fiction=1.0, fishing=1.0)
+    assert entry(store)["crowd"] == {"fiction": 1.0, "fact": 0.0}

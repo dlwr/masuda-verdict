@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from .store import Store
 
-VERDICTS = ("fishing", "fiction", "fact")
+VERDICTS = ("fiction", "fact")
 
 
 def summarize(store: Store, primary_model: str, min_mentions: float = 3.0) -> dict:
