@@ -171,3 +171,9 @@ def test_budgeted_carries_over_beyond_limit():
     d.decide("t", QUESTION)
     with pytest.raises(CarryOver):
         d.decide("t", QUESTION)
+
+
+def test_clef_reports_unexpected_answer_shape():
+    post = FakePost({"result": {"answers": {"verdict": {"type": "choice", "choice": "fact"}}}, "success": True})
+    with pytest.raises(ValueError, match='"choice": "fact"'):
+        ClefDecider(account_id="acc", token="tok", post=post).decide("本文", QUESTION)

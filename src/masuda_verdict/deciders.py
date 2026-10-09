@@ -70,7 +70,9 @@ def _systemone_body(model: str, text: str, question: Question) -> dict:
 
 def _systemone_probabilities(answers: dict, question: Question) -> dict[str, float]:
     answer = answers[question.name]
-    scores = answer[answer["type"]]
+    scores = answer.get(answer["type"])
+    if not isinstance(scores, dict):
+        raise ValueError(f"unexpected answer shape: {json.dumps(answer, ensure_ascii=False)}")
     return {value: float(scores.get(value, 0.0)) for value in question.choices}
 
 
