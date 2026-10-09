@@ -52,7 +52,7 @@ const judgeApi = import.meta.env.PUBLIC_JUDGE_API ?? "https://masuda-verdict-api
 
     <footer>
       <p>
-        AI は記事タイトルと本文だけを読んで判定（Cloudflare の Clef）。ブコメ民は、各ブコメを「創作扱い・事実扱い・真偽に触れていない」に分類し、真偽に触れたものを平均したもの。ズレは AI とブコメ民の判定の差、疑われ度は全ブコメのうち創作扱いしたものの割合。
+        AI は記事タイトルと本文だけを読んで判定（Cloudflare の Clef）。ブコメ民は、各ブコメを「創作扱い・事実扱い・真偽に触れていない」のどれかに振り分け、創作扱いと事実扱いの票の割合で点を置いたもの。ズレは AI の確率とブコメ民の票の割合の差、疑われ度は全ブコメのうち創作扱いの割合。
       </p>
       <p>意見・質問・愚痴など体験談でない増田（{excluded} 件）は一覧に出していない。ブコメ本文は表示するときにはてなから取得し、このサイトには保存していない。</p>
       <p>更新: {new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })} · <a href="https://github.com/dlwr/masuda-verdict">GitHub</a></p>

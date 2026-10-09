@@ -80,7 +80,7 @@ describe("handle", () => {
 
   it("returns each sampled comment with its verdict", async () => {
     const body = await (await judge(deps())).json();
-    expect(body.comments[0]).toEqual({ user: "alice", comment: "創作乙。設定盛りすぎ", fiction: 1, fact: 0 });
+    expect(body.comments[0]).toEqual({ user: "alice", comment: "創作乙。設定盛りすぎ", label: "fiction", score: 1 });
   });
 
   it("returns the entry id", async () => {

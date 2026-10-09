@@ -3,6 +3,11 @@ from collections import defaultdict
 from .store import Store
 
 VERDICTS = ("fiction", "fact")
+COMMENT_LABELS = ("fiction", "fact", "none")
+
+
+def comment_label(probs: dict) -> str:
+    return max(COMMENT_LABELS, key=lambda label: probs.get(label, 0.0))
 
 
 def summarize(store: Store, primary_model: str, min_mentions: float = 3.0) -> dict:
@@ -16,22 +21,22 @@ def summarize(store: Store, primary_model: str, min_mentions: float = 3.0) -> di
     for r in store.read("narrative_verdicts"):
         narratives[r["url"]] = r["probs"]["experience"] if r["probs"] else None
 
-    crowd_sums = defaultdict(lambda: dict.fromkeys(VERDICTS, 0.0))
+    votes = defaultdict(lambda: dict.fromkeys(COMMENT_LABELS, 0))
     comment_counts = defaultdict(int)
     comments = defaultdict(list)
     for r in store.read("comment_verdicts"):
+        label = comment_label(r["probs"])
         comment_counts[r["url"]] += 1
-        comments[r["url"]].append({"user": r["user"], **{v: r["probs"].get(v, 0.0) for v in VERDICTS}})
-        for v in VERDICTS:
-            crowd_sums[r["url"]][v] += r["probs"].get(v, 0.0)
+        votes[r["url"]][label] += 1
+        comments[r["url"]].append({"user": r["user"], "label": label, "score": r["probs"].get(label, 0.0)})
 
     entries = []
     for seen in store.read("seen"):
         url = seen["url"]
         if url not in judged:
             continue
-        sums = crowd_sums[url]
-        mentions = sum(sums.values())
+        sums = votes[url]
+        mentions = sums["fiction"] + sums["fact"]
         crowd = {v: sums[v] / mentions for v in VERDICTS} if mentions >= min_mentions else None
         primary = models[url].get(primary_model)
         gap = (
