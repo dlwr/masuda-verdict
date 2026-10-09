@@ -1,4 +1,160 @@
 {
  "primary_model": "clef",
- "entries": []
+ "entries": [
+  {
+   "url": "https://anond.hatelabo.jp/20261007141905",
+   "title": "0年以降のゲームが面白く無いのは、ゲームで育った人達が作ったから",
+   "bookmark_count": 139,
+   "bookmarked_at": "2026-10-07T05:34:03+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2139,
+     "fact": 0.7861
+    }
+   },
+   "crowd": {
+    "fiction": 0.49778037279040127,
+    "fact": 0.5022196272095988
+   },
+   "mentions": 22.4362,
+   "comment_count": 84,
+   "gap": 0.28388037279040124
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261007131427",
+   "title": "飽きた",
+   "bookmark_count": 268,
+   "bookmarked_at": "2026-10-07T04:14:48+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0123,
+     "fact": 0.9877
+    }
+   },
+   "crowd": {
+    "fiction": 0.1512292094308131,
+    "fact": 0.8487707905691868
+   },
+   "mentions": 83.40320000000001,
+   "comment_count": 149,
+   "gap": 0.13892920943081316
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261007122939",
+   "title": "津田健次郎裁判の「声もパブリシティ権がある」がよくわかんない",
+   "bookmark_count": 73,
+   "bookmarked_at": "2026-10-07T03:32:24+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0542,
+     "fact": 0.9458
+    }
+   },
+   "crowd": {
+    "fiction": 0.0658249423707942,
+    "fact": 0.9341750576292058
+   },
+   "mentions": 26.6358,
+   "comment_count": 43,
+   "gap": 0.011624942370794172
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261007063355",
+   "title": "ファミマは後輩キャラだよね？",
+   "bookmark_count": 57,
+   "bookmarked_at": "2026-10-06T21:34:22+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.801,
+     "fact": 0.199
+    }
+   },
+   "crowd": {
+    "fiction": 0.7385416621382521,
+    "fact": 0.2614583378617479
+   },
+   "mentions": 23.002899999999997,
+   "comment_count": 42,
+   "gap": 0.0624583378617479
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006200248",
+   "title": "Fableを使いこなせない",
+   "bookmark_count": 284,
+   "bookmarked_at": "2026-10-06T11:03:01+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.062,
+     "fact": 0.938
+    }
+   },
+   "crowd": {
+    "fiction": 0.21502094787028447,
+    "fact": 0.7849790521297155
+   },
+   "mentions": 53.96729999999997,
+   "comment_count": 112,
+   "gap": 0.15302094787028445
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006112333",
+   "title": "はてブにいる野党支持者の人たち、もうすっかり消費減税って言わなくなっちゃったな",
+   "bookmark_count": 64,
+   "bookmarked_at": "2026-10-06T05:14:15+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1836,
+     "fact": 0.8164
+    }
+   },
+   "crowd": {
+    "fiction": 0.0818753953447406,
+    "fact": 0.9181246046552594
+   },
+   "mentions": 24.978200000000005,
+   "comment_count": 46,
+   "gap": 0.10172460465525937
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006130853",
+   "title": "「好きなことを仕事にしろ」は成功した人だけが言える言葉だと思う。 好き..",
+   "bookmark_count": 160,
+   "bookmarked_at": "2026-10-06T04:09:58+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {},
+   "crowd": {
+    "fiction": 0.1268098656248893,
+    "fact": 0.8731901343751107
+   },
+   "mentions": 36.680899999999994,
+   "comment_count": 109,
+   "gap": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006123337",
+   "title": "なんで庵野秀明さんが作るアニメって、 なんて読むか分からない記号をタイ..",
+   "bookmark_count": 101,
+   "bookmarked_at": "2026-10-06T03:33:51+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1588,
+     "fact": 0.8412
+    }
+   },
+   "crowd": {
+    "fiction": 0.21116257163042626,
+    "fact": 0.7888374283695738
+   },
+   "mentions": 29.299699999999994,
+   "comment_count": 66,
+   "gap": 0.052362571630426194
+  }
+ ]
 }
