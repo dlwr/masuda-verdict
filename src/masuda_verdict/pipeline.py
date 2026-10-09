@@ -16,6 +16,7 @@ BODY_MAX_CHARS = 4000
 _QUESTIONS = json.loads(files(__package__).joinpath("questions.json").read_text())
 BODY_QUESTION = Question(**_QUESTIONS["body"])
 COMMENT_QUESTION = Question(**_QUESTIONS["comment"])
+NARRATIVE_QUESTION = Question(**_QUESTIONS["narrative"])
 
 
 def collect(store: Store, entries: list[HotEntry], now: datetime) -> None:
@@ -76,10 +77,13 @@ def _judge_body(store, entry, fetch_body, primary, optional, now):
     url = entry["url"]
     done = {r["model"] for r in store.read("body_verdicts") if r["url"] == url}
     pending = [d for d in [primary, *optional] if d.name not in done]
-    if not pending:
+    narrative_done = any(r["url"] == url for r in store.read("narrative_verdicts"))
+    if not pending and narrative_done:
         return
     body = fetch_body(url)
     if body is None:
+        if not narrative_done:
+            store.append("narrative_verdicts", {"url": url, "model": primary.name, "probs": None}, now)
         return
     text = f"タイトル: {entry['title']}\n\n{body[:BODY_MAX_CHARS]}"
     for d in pending:
@@ -91,6 +95,9 @@ def _judge_body(store, entry, fetch_body, primary, optional, now):
             log.exception("optional body decider %s failed for %s", d.name, url)
             continue
         store.append("body_verdicts", {"url": url, "model": d.name, "probs": probs}, now)
+    if not narrative_done:
+        probs = primary.decide(text, NARRATIVE_QUESTION)
+        store.append("narrative_verdicts", {"url": url, "model": primary.name, "probs": probs}, now)
 
 
 def judge_due(
@@ -101,9 +108,13 @@ def judge_due(
     optional_body_deciders: list[Decider],
     now: datetime,
 ) -> None:
-    for entry in due_entries(store, now):
-        try:
+    judged = {r["url"] for r in store.read("judged")}
+    narrated = {r["url"] for r in store.read("narrative_verdicts")}
+    backfill = [r for r in store.read("seen") if r["url"] in judged and r["url"] not in narrated]
+    try:
+        for entry in backfill:
+            _judge_body(store, entry, fetch_body, primary, [], now)
+        for entry in due_entries(store, now):
             judge_entry(store, entry, fetch_body, fetch_comments, primary, optional_body_deciders, now)
-        except CarryOver as e:
-            log.info("carrying over from %s: %s", entry["url"], e)
-            return
+    except CarryOver as e:
+        log.info("carrying over: %s", e)

@@ -92,3 +92,22 @@ def test_entries_ordered_by_bookmarked_at_desc(store):
 def test_crowd_ignores_labels_outside_verdicts(store):
     add_comment(store, "a", fiction=1.0, fishing=1.0)
     assert entry(store)["crowd"] == {"fiction": 1.0, "fact": 0.0}
+
+
+def test_narrative_is_experience_probability(store):
+    store.append("narrative_verdicts", {"url": URL, "model": "clef", "probs": {"experience": 0.8, "other": 0.2}}, NOW)
+    assert entry(store)["narrative"] == 0.8
+
+
+def test_narrative_is_null_when_unknown(store):
+    assert entry(store)["narrative"] is None
+
+
+def test_suspicion_is_fiction_share_over_all_comments(store):
+    add_comment(store, "a", fiction=1.0)
+    add_comment(store, "b", none=1.0)
+    assert entry(store)["suspicion"] == pytest.approx(0.5)
+
+
+def test_suspicion_is_null_without_comments(store):
+    assert entry(store)["suspicion"] is None

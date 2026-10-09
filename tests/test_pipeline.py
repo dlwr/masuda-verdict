@@ -4,7 +4,15 @@ import pytest
 
 from masuda_verdict.deciders import CarryOver
 from masuda_verdict.hatena import BookmarkComment, HotEntry
-from masuda_verdict.pipeline import BODY_QUESTION, COMMENT_QUESTION, collect, due_entries, judge_due, judge_entry
+from masuda_verdict.pipeline import (
+    BODY_QUESTION,
+    COMMENT_QUESTION,
+    NARRATIVE_QUESTION,
+    collect,
+    due_entries,
+    judge_due,
+    judge_entry,
+)
 from masuda_verdict.store import Store
 
 NOW = datetime(2026, 10, 9, 12, 0, tzinfo=UTC)
@@ -123,7 +131,7 @@ def test_judge_entry_does_not_store_comment_text(store):
 def test_judge_entry_sends_title_with_comment(store):
     clef = FixedDecider("clef", {"none": 1.0})
     judge(store, clef)
-    assert clef.inputs[1] == "記事タイトル: 嫁が出ていった\nブックマークコメント: 創作乙"
+    assert "記事タイトル: 嫁が出ていった\nブックマークコメント: 創作乙" in clef.inputs
 
 
 def test_judge_entry_marks_entry_judged(store):
@@ -133,6 +141,7 @@ def test_judge_entry_marks_entry_judged(store):
 
 def test_judge_entry_skips_comments_already_judged(store):
     store.append("body_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
+    store.append("narrative_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
     store.append("comment_verdicts", {"url": URL, "user": "alice", "model": "clef", "probs": {}}, NOW)
     clef = FixedDecider("clef", {"none": 1.0})
     judge(store, clef)
@@ -141,6 +150,7 @@ def test_judge_entry_skips_comments_already_judged(store):
 
 def test_judge_entry_skips_body_already_judged(store):
     store.append("body_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
+    store.append("narrative_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
     clef = FixedDecider("clef", {"none": 1.0})
     judge(store, clef, comments=[])
     assert clef.inputs == []
@@ -209,3 +219,52 @@ def test_body_question_offers_fiction_and_fact():
 
 def test_comment_question_offers_fiction_fact_and_none():
     assert list(COMMENT_QUESTION.choices) == ["fiction", "fact", "none"]
+
+
+def test_narrative_question_offers_experience_and_other():
+    assert list(NARRATIVE_QUESTION.choices) == ["experience", "other"]
+
+
+class QuestionAwareDecider(FixedDecider):
+    def __init__(self, name):
+        super().__init__(name, {})
+        self.questions = []
+
+    def decide(self, text, question):
+        self.questions.append(question.name)
+        if question is NARRATIVE_QUESTION:
+            return {"experience": 0.9, "other": 0.1}
+        return {k: (1.0 if k == "none" or k == "fact" else 0.0) for k in question.choices}
+
+
+def test_judge_entry_records_narrative_verdict(store):
+    judge(store, QuestionAwareDecider("clef"))
+    assert [(r["model"], r["probs"]) for r in store.read("narrative_verdicts")] == [
+        ("clef", {"experience": 0.9, "other": 0.1})
+    ]
+
+
+def test_judge_entry_skips_narrative_already_judged(store):
+    store.append("narrative_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
+    clef = QuestionAwareDecider("clef")
+    judge(store, clef)
+    assert "narrative" not in clef.questions
+
+
+def test_judge_entry_records_null_narrative_when_deleted(store):
+    judge(store, QuestionAwareDecider("clef"), body=None)
+    assert [r["probs"] for r in store.read("narrative_verdicts")] == [None]
+
+
+def test_judge_due_backfills_narrative_for_judged_entries(store):
+    store.append("seen", seen_record(), NOW)
+    store.append("judged", {"url": URL, "judged_at": NOW.isoformat()}, NOW)
+    run_judge_due(store, QuestionAwareDecider("clef"))
+    assert [r["url"] for r in store.read("narrative_verdicts")] == [URL]
+
+
+def test_judge_due_backfill_does_not_rejudge_comments(store):
+    store.append("seen", seen_record(), NOW)
+    store.append("judged", {"url": URL, "judged_at": NOW.isoformat()}, NOW)
+    run_judge_due(store, QuestionAwareDecider("clef"))
+    assert list(store.read("comment_verdicts")) == []
