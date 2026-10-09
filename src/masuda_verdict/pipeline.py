@@ -2,7 +2,7 @@ import logging
 from collections.abc import Callable
 from datetime import datetime, timedelta
 
-from .deciders import Decider, Question
+from .deciders import CarryOver, Decider, Question
 from .hatena import BookmarkComment, HotEntry
 from .store import Store
 
@@ -64,33 +64,31 @@ def judge_entry(
     entry: dict,
     fetch_body: Callable[[str], str | None],
     fetch_comments: Callable[[str], list[BookmarkComment]],
-    body_deciders: list[Decider],
-    comment_decider: Decider,
+    primary: Decider,
+    optional_body_deciders: list[Decider],
     now: datetime,
 ) -> None:
     url = entry["url"]
-    _judge_body(store, entry, fetch_body, body_deciders, now)
+    _judge_body(store, entry, fetch_body, primary, optional_body_deciders, now)
 
     done_users = {r["user"] for r in store.read("comment_verdicts") if r["url"] == url}
     for c in fetch_comments(url):
         if c.user in done_users:
             continue
-        probs = comment_decider.decide(
-            f"記事タイトル: {entry['title']}\nブックマークコメント: {c.comment}", COMMENT_QUESTION
-        )
+        probs = primary.decide(f"記事タイトル: {entry['title']}\nブックマークコメント: {c.comment}", COMMENT_QUESTION)
         store.append(
             "comment_verdicts",
-            {"url": url, "user": c.user, "timestamp": c.timestamp, "model": comment_decider.name, "probs": probs},
+            {"url": url, "user": c.user, "timestamp": c.timestamp, "model": primary.name, "probs": probs},
             now,
         )
 
     store.append("judged", {"url": url, "judged_at": now.isoformat()}, now)
 
 
-def _judge_body(store, entry, fetch_body, deciders, now):
+def _judge_body(store, entry, fetch_body, primary, optional, now):
     url = entry["url"]
     done = {r["model"] for r in store.read("body_verdicts") if r["url"] == url}
-    pending = [d for d in deciders if d.name not in done]
+    pending = [d for d in [primary, *optional] if d.name not in done]
     if not pending:
         return
     body = fetch_body(url)
@@ -101,6 +99,24 @@ def _judge_body(store, entry, fetch_body, deciders, now):
         try:
             probs = d.decide(text, BODY_QUESTION)
         except Exception:
-            log.exception("body decider %s failed for %s", d.name, url)
+            if d is primary:
+                raise
+            log.exception("optional body decider %s failed for %s", d.name, url)
             continue
         store.append("body_verdicts", {"url": url, "model": d.name, "probs": probs}, now)
+
+
+def judge_due(
+    store: Store,
+    fetch_body: Callable[[str], str | None],
+    fetch_comments: Callable[[str], list[BookmarkComment]],
+    primary: Decider,
+    optional_body_deciders: list[Decider],
+    now: datetime,
+) -> None:
+    for entry in due_entries(store, now):
+        try:
+            judge_entry(store, entry, fetch_body, fetch_comments, primary, optional_body_deciders, now)
+        except CarryOver as e:
+            log.info("carrying over from %s: %s", entry["url"], e)
+            return

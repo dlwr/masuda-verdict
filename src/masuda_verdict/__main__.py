@@ -8,24 +8,25 @@ from pathlib import Path
 
 from . import hatena
 from .aggregate import summarize
-from .deciders import ClefDecider, JevDecider, OpenAIDecider
-from .pipeline import collect, due_entries, judge_entry
+from .deciders import Budgeted, ClefDecider, JevDecider, OpenAIDecider
+from .pipeline import collect, judge_due
 from .store import Store
 
 log = logging.getLogger("masuda_verdict")
 
 DATA_DIR = Path("data")
 SUMMARY_PATH = Path("site/src/data/summary.json")
+MAX_CLEF_CALLS_PER_RUN = 700
 
 
 def build_deciders():
     clef = ClefDecider(account_id=os.environ["CLOUDFLARE_ACCOUNT_ID"], token=os.environ["CLOUDFLARE_API_TOKEN"])
-    body = [clef]
+    optional = []
     if key := os.environ.get("TYPESAFE_API_KEY"):
-        body.append(JevDecider(api_key=key))
+        optional.append(JevDecider(api_key=key))
     if key := os.environ.get("OPENAI_API_KEY"):
-        body.append(OpenAIDecider(api_key=key))
-    return clef, body
+        optional.append(OpenAIDecider(api_key=key))
+    return Budgeted(clef, limit=MAX_CLEF_CALLS_PER_RUN), optional
 
 
 def cmd_collect(store):
@@ -33,21 +34,15 @@ def cmd_collect(store):
 
 
 def cmd_judge(store):
-    clef, body_deciders = build_deciders()
-    for entry in due_entries(store, datetime.now(UTC)):
-        try:
-            judge_entry(
-                store,
-                entry,
-                fetch_body=hatena.fetch_body,
-                fetch_comments=hatena.fetch_comments,
-                body_deciders=body_deciders,
-                comment_decider=clef,
-                now=datetime.now(UTC),
-            )
-        except Exception:
-            log.exception("stopped at %s; the rest carries over to the next run", entry["url"])
-            return
+    primary, optional = build_deciders()
+    judge_due(
+        store,
+        fetch_body=hatena.fetch_body,
+        fetch_comments=hatena.fetch_comments,
+        primary=primary,
+        optional_body_deciders=optional,
+        now=datetime.now(UTC),
+    )
 
 
 def cmd_aggregate(store):

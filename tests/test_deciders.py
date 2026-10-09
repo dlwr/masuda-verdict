@@ -1,4 +1,10 @@
-from masuda_verdict.deciders import ClefDecider, JevDecider, OpenAIDecider, Question
+import io
+import urllib.error
+
+import pytest
+
+from masuda_verdict import deciders
+from masuda_verdict.deciders import Budgeted, CarryOver, ClefDecider, JevDecider, OpenAIDecider, Question
 
 QUESTION = Question(
     name="verdict",
@@ -123,3 +129,45 @@ def test_openai_reads_probabilities_list():
     )
     probs = OpenAIDecider(api_key="k", post=post).decide("本文", QUESTION)
     assert probs == {"fishing": 0.05, "fiction": 0.9, "fact": 0.05}
+
+
+def raise_http(code):
+    def urlopen(req, timeout):
+        raise urllib.error.HTTPError(req.full_url, code, "error", {}, io.BytesIO(b"{}"))
+
+    return urlopen
+
+
+def test_http_post_turns_429_into_carry_over(monkeypatch):
+    monkeypatch.setattr(deciders.urllib.request, "urlopen", raise_http(429))
+    with pytest.raises(CarryOver):
+        deciders.http_post("https://example.com", {}, {})
+
+
+def test_http_post_keeps_other_http_errors(monkeypatch):
+    monkeypatch.setattr(deciders.urllib.request, "urlopen", raise_http(400))
+    with pytest.raises(urllib.error.HTTPError):
+        deciders.http_post("https://example.com", {}, {})
+
+
+class CountingDecider:
+    name = "clef"
+
+    def decide(self, text, question):
+        return {"fact": 1.0}
+
+
+def test_budgeted_keeps_inner_name():
+    assert Budgeted(CountingDecider(), limit=1).name == "clef"
+
+
+def test_budgeted_allows_calls_up_to_limit():
+    d = Budgeted(CountingDecider(), limit=2)
+    assert [d.decide("t", QUESTION), d.decide("t", QUESTION)] == [{"fact": 1.0}, {"fact": 1.0}]
+
+
+def test_budgeted_carries_over_beyond_limit():
+    d = Budgeted(CountingDecider(), limit=1)
+    d.decide("t", QUESTION)
+    with pytest.raises(CarryOver):
+        d.decide("t", QUESTION)
