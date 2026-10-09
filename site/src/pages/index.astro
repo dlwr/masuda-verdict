@@ -1,0 +1,231 @@
+---
+import summary from "../data/summary.json";
+
+type Probs = { fishing: number; fiction: number; fact: number };
+type Entry = {
+  url: string;
+  title: string;
+  bookmark_count: number;
+  bookmarked_at: string;
+  models: Record<string, Probs>;
+  crowd: Probs | null;
+  mentions: number;
+  comment_count: number;
+  gap: number | null;
+};
+
+const VERDICTS = [
+  { key: "fishing", label: "釣り" },
+  { key: "fiction", label: "創作" },
+  { key: "fact", label: "事実" },
+] as const;
+
+const entries = summary.entries as Entry[];
+const primary = summary.primary_model;
+
+const pct = (v: number) => `${Math.round(v * 100)}%`;
+const top = (p: Probs) => VERDICTS.reduce((a, b) => (p[b.key] > p[a.key] ? b : a));
+const date = (iso: string) =>
+  new Date(iso).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric" });
+const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v) => ({ ...v, value: p[v.key] }));
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>増田判定</title>
+    <meta name="description" content="増田の人気エントリーを、本文だけを読んだモデルとブコメ民意で釣り・創作・事実に判定して並べる" />
+  </head>
+  <body>
+    <header>
+      <h1>増田判定</h1>
+      <p class="lead">
+        はてな匿名ダイアリーの人気エントリーを、本文だけを読んだモデルと、ブコメ民の反応の両方で「釣り・創作・事実」に振り分ける。ブコメが出揃う48時間後に判定。
+      </p>
+      <div class="controls">
+        <ul class="legend" aria-label="凡例">
+          {VERDICTS.map((v) => <li><span class={`swatch ${v.key}`}></span>{v.label}</li>)}
+        </ul>
+        <div class="sort" role="group" aria-label="並び順">
+          <button type="button" data-sort="gap" aria-pressed="true">ズレが大きい順</button>
+          <button type="button" data-sort="date" aria-pressed="false">新しい順</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      {entries.length === 0 && <p class="empty">まだ判定済みのエントリーがない。</p>}
+      <ol class="entries">
+        {
+          entries.map((e) => (
+            <li class="entry" data-gap={e.gap ?? -1} data-date={e.bookmarked_at}>
+              <div class="head">
+                <a class="title" href={e.url}>{e.title}</a>
+                <span class="meta">
+                  {`${date(e.bookmarked_at)} · ${e.bookmark_count} users · `}<a href={`https://b.hatena.ne.jp/entry/s/${e.url.replace(/^https?:\/\//, "")}`}>ブコメ</a>
+                </span>
+              </div>
+              <dl class="rows">
+                {Object.entries(e.models)
+                  .sort(([a], [b]) => (a === primary ? -1 : b === primary ? 1 : a.localeCompare(b)))
+                  .map(([model, p]) => (
+                    <div class:list={["row", { sub: model !== primary }]}>
+                      <dt>{model}</dt>
+                      <dd>
+                        <span class="bar" role="img" aria-label={VERDICTS.map((v) => `${v.label}${pct(p[v.key])}`).join("、")}>
+                          {segments(p).map((s) => (
+                            <span class={`seg ${s.key}`} style={`flex-grow:${s.value}`} title={`${s.label} ${pct(s.value)}`} />
+                          ))}
+                        </span>
+                        <span class="verdict">{top(p).label} {pct(p[top(p).key])}</span>
+                      </dd>
+                    </div>
+                  ))}
+                <div class="row crowd">
+                  <dt>ブコメ民意</dt>
+                  <dd>
+                    {e.crowd ? (
+                      <>
+                        <span class="bar" role="img" aria-label={VERDICTS.map((v) => `${v.label}${pct(e.crowd![v.key])}`).join("、")}>
+                          {segments(e.crowd).map((s) => (
+                            <span class={`seg ${s.key}`} style={`flex-grow:${s.value}`} title={`${s.label} ${pct(s.value)}`} />
+                          ))}
+                        </span>
+                        <span class="verdict">{top(e.crowd).label} {pct(e.crowd[top(e.crowd).key])}</span>
+                      </>
+                    ) : (
+                      <span class="none">真偽に触れたブコメが少ない</span>
+                    )}
+                  </dd>
+                </div>
+              </dl>
+              <p class="foot">
+                {e.gap !== null && <span class="gap">ズレ {pct(e.gap)}</span>}
+                <span>コメント {e.comment_count} 件中、真偽に触れたもの約 {Math.round(e.mentions)} 件</span>
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </main>
+
+    <footer>
+      <p>
+        モデルは記事タイトルと本文だけを読んで判定。ブコメ民意は各コメントを {primary} で「釣り・創作・事実・言及なし」に分類し、言及なし以外を平均したもの。ズレはモデルと民意の分布の差（0〜100%）。
+      </p>
+      <p>更新: {new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })} · <a href="https://github.com/dlwr/masuda-verdict">GitHub</a></p>
+    </footer>
+
+    <script>
+      const list = document.querySelector(".entries")!;
+      const buttons = document.querySelectorAll<HTMLButtonElement>("[data-sort]");
+      const apply = (key: string) => {
+        const items = [...list.children] as HTMLElement[];
+        items.sort((a, b) =>
+          key === "gap"
+            ? Number(b.dataset.gap) - Number(a.dataset.gap)
+            : (b.dataset.date ?? "").localeCompare(a.dataset.date ?? ""),
+        );
+        list.append(...items);
+        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.sort === key)));
+      };
+      buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.sort!)));
+      apply("gap");
+    </script>
+
+    <style is:global>
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --text: #111111;
+        --text-sub: #55534f;
+        --rule: #e4e3df;
+        --track: #f0efec;
+        --accent: #1c5cab;
+        --fishing: #eb6834;
+        --fiction: #1baf7a;
+        --fact: #2a78d6;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          color-scheme: dark;
+          --bg: #161616;
+          --text: #f2f2f2;
+          --text-sub: #b5b3ab;
+          --rule: #33322f;
+          --track: #2a2a28;
+          --accent: #86b6ef;
+          --fishing: #d95926;
+          --fiction: #199e70;
+          --fact: #3987e5;
+        }
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #161616;
+        --text: #f2f2f2;
+        --text-sub: #b5b3ab;
+        --rule: #33322f;
+        --track: #2a2a28;
+        --accent: #86b6ef;
+        --fishing: #d95926;
+        --fiction: #199e70;
+        --fact: #3987e5;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0 auto;
+        max-width: 760px;
+        padding: 32px 16px 64px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+        line-height: 1.6;
+      }
+      a { color: var(--accent); }
+      h1 { margin: 0 0 8px; font-size: 1.75rem; letter-spacing: 0.02em; }
+      .lead { margin: 0 0 20px; color: var(--text-sub); font-size: 0.92rem; }
+      .controls {
+        display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;
+        padding-bottom: 16px; border-bottom: 1px solid var(--rule);
+      }
+      .legend { display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; font-size: 0.88rem; }
+      .legend li { display: flex; align-items: center; gap: 6px; }
+      .swatch { width: 12px; height: 12px; border-radius: 2px; }
+      .sort { display: flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+      .sort button {
+        border: 0; background: transparent; color: var(--text-sub); font: inherit; font-size: 0.85rem;
+        padding: 6px 12px; cursor: pointer;
+      }
+      .sort button + button { border-left: 1px solid var(--rule); }
+      .sort button[aria-pressed="true"] { background: var(--track); color: var(--text); font-weight: 600; }
+      .empty { color: var(--text-sub); }
+      .entries { margin: 0; padding: 0; list-style: none; }
+      .entry { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+      .head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 10px; }
+      .title { color: var(--text); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+      .title:hover { text-decoration: underline; }
+      .meta { color: var(--text-sub); font-size: 0.8rem; }
+      .rows { margin: 0; display: grid; gap: 6px; }
+      .row { display: grid; grid-template-columns: 6.5em 1fr; align-items: center; gap: 8px; }
+      .row dt { font-size: 0.82rem; color: var(--text-sub); }
+      .row.crowd dt { color: var(--text); font-weight: 600; }
+      .row dd { margin: 0; display: grid; grid-template-columns: 1fr 5.5em; align-items: center; gap: 10px; }
+      .row.sub .bar { height: 8px; }
+      .bar { display: flex; gap: 2px; height: 14px; background: var(--track); border-radius: 4px; overflow: hidden; }
+      .seg { display: block; min-width: 2px; }
+      .fishing { background: var(--fishing); }
+      .fiction { background: var(--fiction); }
+      .fact { background: var(--fact); }
+      .verdict { font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .none { grid-column: 1 / -1; font-size: 0.82rem; color: var(--text-sub); }
+      .foot { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 10px 0 0; font-size: 0.8rem; color: var(--text-sub); }
+      .gap { color: var(--text); font-weight: 600; }
+      footer { margin-top: 32px; font-size: 0.8rem; color: var(--text-sub); }
+      @media (max-width: 480px) {
+        .row { grid-template-columns: 1fr; gap: 2px; }
+      }
+    </style>
+  </body>
+</html>
