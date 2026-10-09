@@ -1,39 +1,13 @@
 ---
 import summary from "../data/summary.json";
-
-type Probs = { fiction: number; fact: number };
-type Entry = {
-  url: string;
-  title: string;
-  bookmark_count: number;
-  bookmarked_at: string;
-  models: Record<string, Probs>;
-  crowd: Probs | null;
-  mentions: number;
-  comment_count: number;
-  gap: number | null;
-  narrative: number | null;
-  suspicion: number | null;
-};
+import type { Entry } from "../scripts/render";
 
 const NARRATIVE_THRESHOLD = 0.5;
-
-const VERDICTS = [
-  { key: "fiction", label: "創作" },
-  { key: "fact", label: "事実" },
-] as const;
 
 const allEntries = summary.entries as Entry[];
 const entries = allEntries.filter((e) => (e.narrative ?? 0) >= NARRATIVE_THRESHOLD);
 const excluded = allEntries.length - entries.length;
-const primary = summary.primary_model;
 const judgeApi = import.meta.env.PUBLIC_JUDGE_API ?? "https://masuda-verdict-api.yuta25.workers.dev";
-
-const pct = (v: number) => `${Math.round(v * 100)}%`;
-const top = (p: Probs) => VERDICTS.reduce((a, b) => (p[b.key] > p[a.key] ? b : a));
-const date = (iso: string) =>
-  new Date(iso).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric" });
-const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v) => ({ ...v, value: p[v.key] }));
 ---
 
 <html lang="ja">
@@ -41,27 +15,17 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>増田判定</title>
-    <meta name="description" content="増田の人気エントリーを、本文だけを読んだモデルとブコメ民意で創作か事実かに判定して並べる" />
+    <meta name="description" content="体験談の増田を、本文だけを読んだ AI とブコメ民がそれぞれ創作か事実か判定する。どこで意見が割れたかを見る" />
   </head>
-  <body>
-    <header>
+  <body data-api={judgeApi}>
+    <header class="masthead">
       <h1>増田判定</h1>
       <p class="lead">
-        はてな匿名ダイアリーの人気エントリーのうち体験談として書かれたものを、本文だけを読んだモデルと、ブコメ民の反応の両方で「創作（釣り・ネタを含む）」か「事実」かに振り分ける。ブコメが出揃う48時間後に判定。
+        人気の増田のうち体験談として書かれたものを、本文だけを読んだ AI と、ブコメ民の反応でそれぞれ「創作」か「事実」か判定する。二つの点が離れているほど意見が割れている。
       </p>
-      <div class="controls">
-        <ul class="legend" aria-label="凡例">
-          {VERDICTS.map((v) => <li><span class={`swatch ${v.key}`}></span>{v.label}</li>)}
-        </ul>
-        <div class="sort" role="group" aria-label="並び順">
-          <button type="button" data-sort="gap" aria-pressed="true">ズレが大きい順</button>
-          <button type="button" data-sort="suspicion" aria-pressed="false">疑われ度順</button>
-          <button type="button" data-sort="date" aria-pressed="false">新しい順</button>
-        </div>
-      </div>
     </header>
 
-    <section class="lookup" data-api={judgeApi}>
+    <section class="lookup">
       <form id="lookup-form">
         <label for="lookup-url">好きな増田を判定する</label>
         <div class="field">
@@ -74,144 +38,69 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
     </section>
 
     <main>
+      <div class="toolbar">
+        <h2 class="section-title">判定済みの体験談 <span>{entries.length} 件</span></h2>
+        <div class="sort" role="group" aria-label="並び順">
+          <button type="button" data-sort="gap" aria-pressed="true">割れた順</button>
+          <button type="button" data-sort="suspicion" aria-pressed="false">疑われた順</button>
+          <button type="button" data-sort="date" aria-pressed="false">新しい順</button>
+        </div>
+      </div>
       {entries.length === 0 && <p class="empty">まだ判定済みの体験談がない。</p>}
-      <ol class="entries">
-        {
-          entries.map((e) => (
-            <li class="entry" data-gap={e.gap ?? -1} data-suspicion={e.suspicion ?? -1} data-date={e.bookmarked_at} data-url={e.url}>
-              <div class="head">
-                <a class="title" href={e.url}>{e.title}</a>
-                <span class="meta">
-                  {`${date(e.bookmarked_at)} · ${e.bookmark_count} users · `}<a href={`https://b.hatena.ne.jp/entry/s/${e.url.replace(/^https?:\/\//, "")}`}>ブコメ</a>
-                </span>
-              </div>
-              <dl class="rows">
-                {Object.entries(e.models)
-                  .sort(([a], [b]) => (a === primary ? -1 : b === primary ? 1 : a.localeCompare(b)))
-                  .map(([model, p]) => (
-                    <div class:list={["row", { sub: model !== primary }]}>
-                      <dt>{model}</dt>
-                      <dd>
-                        <span class="bar" role="img" aria-label={VERDICTS.map((v) => `${v.label}${pct(p[v.key])}`).join("、")}>
-                          {segments(p).map((s) => (
-                            <span class={`seg ${s.key}`} style={`flex-grow:${s.value}`} title={`${s.label} ${pct(s.value)}`} />
-                          ))}
-                        </span>
-                        <span class="verdict">{top(p).label} {pct(p[top(p).key])}</span>
-                      </dd>
-                    </div>
-                  ))}
-                <div class="row crowd">
-                  <dt>ブコメ民意</dt>
-                  <dd>
-                    {e.crowd ? (
-                      <>
-                        <span class="bar" role="img" aria-label={VERDICTS.map((v) => `${v.label}${pct(e.crowd![v.key])}`).join("、")}>
-                          {segments(e.crowd).map((s) => (
-                            <span class={`seg ${s.key}`} style={`flex-grow:${s.value}`} title={`${s.label} ${pct(s.value)}`} />
-                          ))}
-                        </span>
-                        <span class="verdict">{top(e.crowd).label} {pct(e.crowd[top(e.crowd).key])}</span>
-                      </>
-                    ) : (
-                      <span class="none">真偽に触れたブコメが少ない</span>
-                    )}
-                  </dd>
-                </div>
-              </dl>
-              <p class="foot">
-                {e.gap !== null && <span class="gap">ズレ {pct(e.gap)}</span>}
-                {e.suspicion !== null && <span>ブコメの {pct(e.suspicion)} が創作扱い</span>}
-                <span>コメント {e.comment_count} 件中、真偽に触れたもの約 {Math.round(e.mentions)} 件</span>
-              </p>
-            </li>
-          ))
-        }
-      </ol>
+      <div class="entries"></div>
     </main>
 
     <footer>
       <p>
-        モデルは記事タイトルと本文だけを読んで判定。ブコメ民意は各コメントを {primary} で「創作・事実・言及なし」に分類し、言及なし以外を平均したもの。ズレはモデルと民意の分布の差（0〜100%）。疑われ度は全ブコメのうち創作扱いしたものの割合。意見・質問・愚痴などの体験談でない増田（{excluded} 件）は一覧に出していない。
+        AI は記事タイトルと本文だけを読んで判定（Cloudflare の Clef）。ブコメ民は、各ブコメを「創作扱い・事実扱い・真偽に触れていない」に分類し、真偽に触れたものを平均したもの。ズレは AI とブコメ民の判定の差、疑われ度は全ブコメのうち創作扱いしたものの割合。
       </p>
+      <p>意見・質問・愚痴など体験談でない増田（{excluded} 件）は一覧に出していない。ブコメ本文は表示するときにはてなから取得し、このサイトには保存していない。</p>
       <p>更新: {new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })} · <a href="https://github.com/dlwr/masuda-verdict">GitHub</a></p>
     </footer>
 
+    <script type="application/json" id="entries-data" set:html={JSON.stringify(entries).replace(/</g, "\\u003c")} />
+
     <script>
-      const list = document.querySelector(".entries")!;
+      import { attachComments, renderEntry, type Entry } from "../scripts/render";
+
+      const api = document.body.dataset.api!;
+      const entries: Entry[] = JSON.parse(document.getElementById("entries-data")!.textContent!);
+      const list = document.querySelector<HTMLElement>(".entries")!;
+
+      const mount = (container: HTMLElement, entry: Entry, options: { sampled?: boolean } = {}) => {
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = renderEntry(entry, options);
+        const node = wrapper.firstElementChild as HTMLElement;
+        attachComments(node, entry, api);
+        container.append(node);
+        return node;
+      };
+
+      const sorters: Record<string, (a: Entry, b: Entry) => number> = {
+        gap: (a, b) => (b.gap ?? -1) - (a.gap ?? -1),
+        suspicion: (a, b) => (b.suspicion ?? -1) - (a.suspicion ?? -1),
+        date: (a, b) => (b.bookmarked_at ?? "").localeCompare(a.bookmarked_at ?? ""),
+      };
       const buttons = document.querySelectorAll<HTMLButtonElement>("[data-sort]");
-      const apply = (key: string) => {
-        const items = [...list.children] as HTMLElement[];
-        items.sort((a, b) =>
-          key === "date"
-            ? (b.dataset.date ?? "").localeCompare(a.dataset.date ?? "")
-            : Number(b.dataset[key]) - Number(a.dataset[key]),
-        );
-        list.append(...items);
+      const show = (key: string) => {
+        list.replaceChildren();
+        [...entries].sort(sorters[key]).forEach((e) => mount(list, e));
         buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.sort === key)));
       };
-      buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.sort!)));
-      apply("gap");
+      buttons.forEach((b) => b.addEventListener("click", () => show(b.dataset.sort!)));
+      show("gap");
 
-      type Probs = { fiction: number; fact: number };
-      type Judgment = {
-        url: string;
-        title: string;
-        bookmark_count: number;
-        models: { clef: Probs };
-        crowd: Probs | null;
-        mentions: number;
-        comment_count: number;
-        total_comments: number;
-        gap: number | null;
-        narrative: number;
-        suspicion: number | null;
-      };
-
-      const VERDICTS = [
-        { key: "fiction", label: "創作" },
-        { key: "fact", label: "事実" },
-      ] as const;
       const ANOND_URL = /^https?:\/\/anond\.hatelabo\.jp\/(\d{14})$/;
-
-      const lookup = document.querySelector<HTMLElement>(".lookup")!;
       const form = document.querySelector<HTMLFormElement>("#lookup-form")!;
       const input = document.querySelector<HTMLInputElement>("#lookup-url")!;
-      const status = lookup.querySelector<HTMLElement>(".status")!;
-      const result = lookup.querySelector<HTMLElement>(".result")!;
-
-      const escape = (s: string) =>
-        s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
-      const pct = (v: number) => `${Math.round(v * 100)}%`;
-      const top = (p: Probs) => VERDICTS.reduce((a, b) => (p[b.key] > p[a.key] ? b : a));
-      const bar = (p: Probs) =>
-        `<span class="bar" role="img" aria-label="${VERDICTS.map((v) => `${v.label}${pct(p[v.key])}`).join("、")}">` +
-        VERDICTS.filter((v) => p[v.key] >= 0.005)
-          .map((v) => `<span class="seg ${v.key}" style="flex-grow:${p[v.key]}" title="${v.label} ${pct(p[v.key])}"></span>`)
-          .join("") +
-        `</span><span class="verdict">${top(p).label} ${pct(p[top(p).key])}</span>`;
-
-      const render = (j: Judgment) => `
-        <div class="entry">
-          <div class="head">
-            <a class="title" href="${escape(j.url)}">${escape(j.title)}</a>
-            <span class="meta">${j.bookmark_count} users · <a href="https://b.hatena.ne.jp/entry/s/${escape(j.url.replace(/^https?:\/\//, ""))}">ブコメ</a></span>
-          </div>
-          <dl class="rows">
-            <div class="row"><dt>clef</dt><dd>${bar(j.models.clef)}</dd></div>
-            <div class="row crowd"><dt>ブコメ民意</dt><dd>${j.crowd ? bar(j.crowd) : '<span class="none">真偽に触れたブコメが少ない</span>'}</dd></div>
-          </dl>
-          ${j.narrative < 0.5 ? '<p class="note">体験談ではなさそうな増田なので、真偽の判定は参考程度。</p>' : ""}
-          <p class="foot">
-            ${j.gap !== null ? `<span class="gap">ズレ ${pct(j.gap)}</span>` : ""}
-            ${j.suspicion !== null ? `<span>ブコメの ${pct(j.suspicion)} が創作扱い</span>` : ""}
-            <span>コメント ${j.total_comments} 件のうち新しい ${j.comment_count} 件で判定、真偽に触れたもの約 ${Math.round(j.mentions)} 件</span>
-          </p>
-        </div>`;
+      const button = form.querySelector("button")!;
+      const status = document.querySelector<HTMLElement>(".lookup .status")!;
+      const result = document.querySelector<HTMLElement>(".lookup .result")!;
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         result.hidden = true;
+        result.replaceChildren();
         const id = input.value.trim().match(ANOND_URL)?.[1];
         if (!id) {
           status.textContent = "anond.hatelabo.jp の記事 URL を入れてください";
@@ -219,31 +108,30 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
         }
         const url = `https://anond.hatelabo.jp/${id}`;
 
-        const existing = list.querySelector<HTMLElement>(`[data-url="${url}"]`);
-        if (existing) {
-          status.textContent = "判定済みのエントリーです（ブコメ全件で集計）";
-          existing.scrollIntoView({ behavior: "smooth", block: "center" });
-          existing.classList.add("highlight");
-          setTimeout(() => existing.classList.remove("highlight"), 2000);
+        const known = entries.find((e) => e.url === url);
+        if (known) {
+          status.textContent = "判定済みの体験談です（ブコメ全件で集計）";
+          mount(result, known).classList.add("verdict-in");
+          result.hidden = false;
           return;
         }
 
-        status.textContent = "判定中…（ブコメを読むので十数秒かかることがあります）";
-        form.querySelector("button")!.disabled = true;
+        status.textContent = "判定中…（本文とブコメを読むので十秒ほどかかります）";
+        button.disabled = true;
         try {
-          const res = await fetch(`${lookup.dataset.api}/api/judge?url=${encodeURIComponent(url)}`);
+          const res = await fetch(`${api}/api/judge?url=${encodeURIComponent(url)}`);
           const data = await res.json();
           if (!res.ok) {
             status.textContent = data.error ?? "判定に失敗しました";
             return;
           }
           status.textContent = "";
-          result.innerHTML = render(data as Judgment);
+          mount(result, data as Entry, { sampled: true }).classList.add("verdict-in");
           result.hidden = false;
         } catch {
           status.textContent = "判定に失敗しました";
         } finally {
-          form.querySelector("button")!.disabled = false;
+          button.disabled = false;
         }
       });
     </script>
@@ -253,105 +141,168 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
         color-scheme: light;
         --bg: #ffffff;
         --text: #111111;
-        --text-sub: #55534f;
+        --text-sub: #5b5954;
         --rule: #e4e3df;
-        --track: #f0efec;
+        --track: #eeede9;
         --accent: #1c5cab;
         --fiction: #eb6834;
         --fact: #2a78d6;
+        --fiction-soft: #fbe3d8;
+        --fact-soft: #dbe8f8;
+        --ai: #111111;
+        --crowd: #ffffff;
       }
       @media (prefers-color-scheme: dark) {
         :root:not([data-theme="light"]) {
           color-scheme: dark;
-          --bg: #161616;
+          --bg: #141414;
           --text: #f2f2f2;
-          --text-sub: #b5b3ab;
+          --text-sub: #b0aea6;
           --rule: #33322f;
           --track: #2a2a28;
           --accent: #86b6ef;
           --fiction: #d95926;
           --fact: #3987e5;
+          --fiction-soft: #3a2419;
+          --fact-soft: #1a2a40;
+          --ai: #f2f2f2;
+          --crowd: #141414;
         }
       }
       :root[data-theme="dark"] {
         color-scheme: dark;
-        --bg: #161616;
+        --bg: #141414;
         --text: #f2f2f2;
-        --text-sub: #b5b3ab;
+        --text-sub: #b0aea6;
         --rule: #33322f;
         --track: #2a2a28;
         --accent: #86b6ef;
         --fiction: #d95926;
         --fact: #3987e5;
+        --fiction-soft: #3a2419;
+        --fact-soft: #1a2a40;
+        --ai: #f2f2f2;
+        --crowd: #141414;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0 auto;
         max-width: 760px;
-        padding: 32px 16px 64px;
+        padding: 40px 16px 64px;
         background: var(--bg);
         color: var(--text);
         font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
-        line-height: 1.6;
+        line-height: 1.65;
       }
       a { color: var(--accent); }
-      h1 { margin: 0 0 8px; font-size: 1.75rem; letter-spacing: 0.02em; }
-      .lead { margin: 0 0 20px; color: var(--text-sub); font-size: 0.92rem; }
-      .controls {
-        display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;
-        padding-bottom: 16px; border-bottom: 1px solid var(--rule);
+
+      .masthead h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 7vw, 3.2rem);
+        line-height: 1.1;
+        letter-spacing: 0.04em;
+        font-weight: 800;
       }
-      .legend { display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; font-size: 0.88rem; }
-      .legend li { display: flex; align-items: center; gap: 6px; }
-      .swatch { width: 12px; height: 12px; border-radius: 2px; }
+      .masthead .lead { margin: 14px 0 0; color: var(--text-sub); font-size: 0.95rem; max-width: 40em; }
+
+      .lookup { margin-top: 28px; padding: 20px 0 24px; border-top: 3px solid var(--text); border-bottom: 1px solid var(--rule); }
+      .lookup label { display: block; font-weight: 700; margin-bottom: 10px; }
+      .field { display: flex; gap: 8px; }
+      .field input {
+        flex: 1; min-width: 0; font: inherit; font-size: 0.95rem; padding: 10px 12px;
+        border: 1px solid var(--rule); border-radius: 4px; background: var(--bg); color: var(--text);
+      }
+      .field input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+      .field button {
+        font: inherit; font-weight: 700; padding: 10px 22px; border: 0; border-radius: 4px;
+        background: var(--text); color: var(--bg); cursor: pointer;
+      }
+      .field button:disabled { opacity: 0.5; cursor: wait; }
+      .status { margin: 10px 0 0; font-size: 0.88rem; color: var(--text-sub); }
+      .status:empty { display: none; }
+      .result .entry { border-bottom: 0; padding-bottom: 0; }
+
+      .toolbar {
+        display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+        margin-top: 36px; padding-bottom: 12px; border-bottom: 1px solid var(--rule);
+      }
+      .section-title { margin: 0; font-size: 1.05rem; }
+      .section-title span { margin-left: 6px; font-weight: 400; color: var(--text-sub); font-size: 0.85rem; }
       .sort { display: flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
       .sort button {
         border: 0; background: transparent; color: var(--text-sub); font: inherit; font-size: 0.85rem;
         padding: 6px 12px; cursor: pointer;
       }
       .sort button + button { border-left: 1px solid var(--rule); }
-      .sort button[aria-pressed="true"] { background: var(--track); color: var(--text); font-weight: 600; }
-      .lookup { padding: 20px 0; border-bottom: 1px solid var(--rule); }
-      .lookup label { display: block; font-weight: 600; margin-bottom: 8px; }
-      .field { display: flex; gap: 8px; }
-      .field input {
-        flex: 1; min-width: 0; font: inherit; font-size: 0.92rem; padding: 8px 10px;
-        border: 1px solid var(--rule); border-radius: 4px; background: var(--bg); color: var(--text);
-      }
-      .field button {
-        font: inherit; font-size: 0.92rem; padding: 8px 18px; border: 0; border-radius: 4px;
-        background: var(--text); color: var(--bg); cursor: pointer;
-      }
-      .field button:disabled { opacity: 0.5; cursor: wait; }
-      .status { margin: 8px 0 0; font-size: 0.85rem; color: var(--text-sub); }
-      .status:empty { display: none; }
-      .note { margin: 10px 0 0; font-size: 0.82rem; color: var(--text-sub); }
-      .result .entry { border-bottom: 0; padding-bottom: 0; }
-      .entry.highlight { background: var(--track); transition: background 0.3s; }
+      .sort button[aria-pressed="true"] { background: var(--track); color: var(--text); font-weight: 700; }
       .empty { color: var(--text-sub); }
-      .entries { margin: 0; padding: 0; list-style: none; }
-      .entry { padding: 20px 0; border-bottom: 1px solid var(--rule); }
-      .head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 10px; }
-      .title { color: var(--text); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
-      .title:hover { text-decoration: underline; }
-      .meta { color: var(--text-sub); font-size: 0.8rem; }
-      .rows { margin: 0; display: grid; gap: 6px; }
-      .row { display: grid; grid-template-columns: 6.5em 1fr; align-items: center; gap: 8px; }
-      .row dt { font-size: 0.82rem; color: var(--text-sub); }
-      .row.crowd dt { color: var(--text); font-weight: 600; }
-      .row dd { margin: 0; display: grid; grid-template-columns: 1fr 5.5em; align-items: center; gap: 10px; }
-      .row.sub .bar { height: 8px; }
-      .bar { display: flex; gap: 2px; height: 14px; background: var(--track); border-radius: 4px; overflow: hidden; }
-      .seg { display: block; min-width: 2px; }
-      .fiction { background: var(--fiction); }
-      .fact { background: var(--fact); }
-      .verdict { font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
-      .none { grid-column: 1 / -1; font-size: 0.82rem; color: var(--text-sub); }
-      .foot { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 10px 0 0; font-size: 0.8rem; color: var(--text-sub); }
-      .gap { color: var(--text); font-weight: 600; }
-      footer { margin-top: 32px; font-size: 0.8rem; color: var(--text-sub); }
-      @media (max-width: 480px) {
-        .row { grid-template-columns: 1fr; gap: 2px; }
+
+      .entry { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+      .entry .title { margin: 0; font-size: 1.15rem; line-height: 1.45; }
+      .entry .title a { color: var(--text); text-decoration: none; overflow-wrap: anywhere; }
+      .entry .title a:hover { text-decoration: underline; }
+      .entry .meta { margin: 4px 0 0; font-size: 0.8rem; color: var(--text-sub); }
+
+      .axis { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; margin: 34px 0 30px; }
+      .pole { font-size: 0.85rem; font-weight: 700; }
+      .pole.fiction { color: var(--fiction); }
+      .pole.fact { color: var(--fact); }
+      .track {
+        position: relative; height: 8px; border-radius: 4px;
+        background: linear-gradient(90deg, var(--fiction) 0%, var(--track) 50%, var(--fact) 100%);
+      }
+      .track .mid { position: absolute; left: 50%; top: -6px; bottom: -6px; width: 1px; background: var(--text-sub); opacity: 0.4; }
+      .track .span { position: absolute; top: 2px; height: 4px; background: var(--text); opacity: 0.85; }
+      .marker {
+        position: absolute; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%;
+        border: 3px solid var(--text);
+      }
+      .marker.ai { background: var(--ai); }
+      .marker.crowd { background: var(--crowd); }
+      .marker-label {
+        position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap;
+        font-size: 0.75rem; font-weight: 700;
+      }
+      .marker.ai .marker-label { bottom: 20px; }
+      .marker.crowd .marker-label { top: 20px; }
+
+      .readout { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 0; font-size: 0.85rem; }
+      .readout div { display: flex; gap: 6px; }
+      .readout dt { color: var(--text-sub); }
+      .readout dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+      .readout .sub dd { font-weight: 400; }
+      .note { margin: 10px 0 0; font-size: 0.82rem; color: var(--text-sub); }
+
+      .comments { margin-top: 18px; }
+      .comments summary { cursor: pointer; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+      .comments-body { margin-top: 14px; }
+      .loading { font-size: 0.85rem; color: var(--text-sub); }
+      .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .column h3 { display: flex; justify-content: space-between; margin: 0 0 8px; padding: 6px 10px; font-size: 0.85rem; border-radius: 4px; }
+      .column h3 span { font-weight: 400; }
+      .column.fiction h3 { background: var(--fiction-soft); }
+      .column.fact h3 { background: var(--fact-soft); }
+      .column ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+      .column li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; }
+      .column img { border-radius: 50%; background: var(--track); }
+      .comment-text { margin: 0; font-size: 0.86rem; overflow-wrap: anywhere; }
+      .comment-meta { margin: 2px 0 0; font-size: 0.75rem; color: var(--text-sub); }
+      .comment-meta a { color: var(--text-sub); }
+      .neutral { margin: 14px 0 0; font-size: 0.8rem; color: var(--text-sub); }
+
+      .verdict-in .marker { animation: drop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.3) both; }
+      .verdict-in .marker.crowd { animation-delay: 0.25s; }
+      .verdict-in .span { animation: grow 0.5s ease-out 0.5s both; transform-origin: left; }
+      @keyframes drop { from { transform: translateY(-24px) scale(0.4); opacity: 0; } }
+      @keyframes grow { from { transform: scaleX(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .verdict-in .marker, .verdict-in .span { animation: none; }
+      }
+
+      footer { margin-top: 40px; font-size: 0.8rem; color: var(--text-sub); }
+      @media (max-width: 560px) {
+        .columns { grid-template-columns: 1fr; }
+        .axis { gap: 8px; }
       }
     </style>
   </body>

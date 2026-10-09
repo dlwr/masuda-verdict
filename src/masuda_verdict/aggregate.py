@@ -18,8 +18,10 @@ def summarize(store: Store, primary_model: str, min_mentions: float = 3.0) -> di
 
     crowd_sums = defaultdict(lambda: dict.fromkeys(VERDICTS, 0.0))
     comment_counts = defaultdict(int)
+    comments = defaultdict(list)
     for r in store.read("comment_verdicts"):
         comment_counts[r["url"]] += 1
+        comments[r["url"]].append({"user": r["user"], **{v: r["probs"].get(v, 0.0) for v in VERDICTS}})
         for v in VERDICTS:
             crowd_sums[r["url"]][v] += r["probs"].get(v, 0.0)
 
@@ -44,6 +46,7 @@ def summarize(store: Store, primary_model: str, min_mentions: float = 3.0) -> di
                 "comment_count": comment_counts[url],
                 "gap": gap,
                 "narrative": narratives.get(url),
+                "comments": comments[url],
                 "suspicion": sums["fiction"] / comment_counts[url] if comment_counts[url] else None,
             }
         )
