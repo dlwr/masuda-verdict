@@ -1,7 +1,7 @@
 import { summarize, type Verdict } from "./aggregate";
 import { extractBody, parseAnondUrl, parseBookmarks } from "./anond";
 import { type Ai, decide } from "./clef";
-import { BODY_QUESTION, COMMENT_QUESTION } from "./questions";
+import { BODY_QUESTION, COMMENT_QUESTION, NARRATIVE_QUESTION } from "./questions";
 
 const MAX_COMMENTS = 50;
 const BODY_MAX_CHARS = 4000;
@@ -49,13 +49,16 @@ async function judge(url: string, deps: Deps) {
       ? parseBookmarks(bookmarks.text, MAX_COMMENTS)
       : { title: body.split("\n")[0], count: 0, comments: [], totalComments: 0 };
 
+  const bodyText = `タイトル: ${title}\n\n${body.slice(0, BODY_MAX_CHARS)}`;
   const tasks = [
-    () => decide(deps.ai, `タイトル: ${title}\n\n${body.slice(0, BODY_MAX_CHARS)}`, BODY_QUESTION),
+    () => decide(deps.ai, bodyText, BODY_QUESTION),
+    () => decide(deps.ai, bodyText, NARRATIVE_QUESTION),
     ...comments.map(
       (c) => () => decide(deps.ai, `記事タイトル: ${title}\nブックマークコメント: ${c}`, COMMENT_QUESTION),
     ),
   ];
-  const [model, ...commentVerdicts] = await mapLimit(tasks, AI_CONCURRENCY, (t) => t());
+  const [model, narrative, ...commentVerdicts] = await mapLimit(tasks, AI_CONCURRENCY, (t) => t());
+  const fictionSum = commentVerdicts.reduce((acc, c) => acc + (c.fiction ?? 0), 0);
 
   return {
     url,
@@ -63,6 +66,8 @@ async function judge(url: string, deps: Deps) {
     bookmark_count: count,
     models: { clef: model as Verdict },
     ...summarize(model as Verdict, commentVerdicts, deps.minMentions),
+    narrative: narrative.experience,
+    suspicion: comments.length ? fictionSum / comments.length : null,
     comment_count: comments.length,
     total_comments: totalComments,
   };

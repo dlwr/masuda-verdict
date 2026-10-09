@@ -12,14 +12,20 @@ type Entry = {
   mentions: number;
   comment_count: number;
   gap: number | null;
+  narrative: number | null;
+  suspicion: number | null;
 };
+
+const NARRATIVE_THRESHOLD = 0.5;
 
 const VERDICTS = [
   { key: "fiction", label: "創作" },
   { key: "fact", label: "事実" },
 ] as const;
 
-const entries = summary.entries as Entry[];
+const allEntries = summary.entries as Entry[];
+const entries = allEntries.filter((e) => (e.narrative ?? 0) >= NARRATIVE_THRESHOLD);
+const excluded = allEntries.length - entries.length;
 const primary = summary.primary_model;
 const judgeApi = import.meta.env.PUBLIC_JUDGE_API ?? "https://masuda-verdict-api.yuta25.workers.dev";
 
@@ -41,7 +47,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
     <header>
       <h1>増田判定</h1>
       <p class="lead">
-        はてな匿名ダイアリーの人気エントリーを、本文だけを読んだモデルと、ブコメ民の反応の両方で「創作（釣り・ネタを含む）」か「事実」かに振り分ける。ブコメが出揃う48時間後に判定。
+        はてな匿名ダイアリーの人気エントリーのうち体験談として書かれたものを、本文だけを読んだモデルと、ブコメ民の反応の両方で「創作（釣り・ネタを含む）」か「事実」かに振り分ける。ブコメが出揃う48時間後に判定。
       </p>
       <div class="controls">
         <ul class="legend" aria-label="凡例">
@@ -49,6 +55,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
         </ul>
         <div class="sort" role="group" aria-label="並び順">
           <button type="button" data-sort="gap" aria-pressed="true">ズレが大きい順</button>
+          <button type="button" data-sort="suspicion" aria-pressed="false">疑われ度順</button>
           <button type="button" data-sort="date" aria-pressed="false">新しい順</button>
         </div>
       </div>
@@ -67,11 +74,11 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
     </section>
 
     <main>
-      {entries.length === 0 && <p class="empty">まだ判定済みのエントリーがない。</p>}
+      {entries.length === 0 && <p class="empty">まだ判定済みの体験談がない。</p>}
       <ol class="entries">
         {
           entries.map((e) => (
-            <li class="entry" data-gap={e.gap ?? -1} data-date={e.bookmarked_at} data-url={e.url}>
+            <li class="entry" data-gap={e.gap ?? -1} data-suspicion={e.suspicion ?? -1} data-date={e.bookmarked_at} data-url={e.url}>
               <div class="head">
                 <a class="title" href={e.url}>{e.title}</a>
                 <span class="meta">
@@ -114,6 +121,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
               </dl>
               <p class="foot">
                 {e.gap !== null && <span class="gap">ズレ {pct(e.gap)}</span>}
+                {e.suspicion !== null && <span>ブコメの {pct(e.suspicion)} が創作扱い</span>}
                 <span>コメント {e.comment_count} 件中、真偽に触れたもの約 {Math.round(e.mentions)} 件</span>
               </p>
             </li>
@@ -124,7 +132,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
 
     <footer>
       <p>
-        モデルは記事タイトルと本文だけを読んで判定。ブコメ民意は各コメントを {primary} で「創作・事実・言及なし」に分類し、言及なし以外を平均したもの。ズレはモデルと民意の分布の差（0〜100%）。
+        モデルは記事タイトルと本文だけを読んで判定。ブコメ民意は各コメントを {primary} で「創作・事実・言及なし」に分類し、言及なし以外を平均したもの。ズレはモデルと民意の分布の差（0〜100%）。疑われ度は全ブコメのうち創作扱いしたものの割合。意見・質問・愚痴などの体験談でない増田（{excluded} 件）は一覧に出していない。
       </p>
       <p>更新: {new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })} · <a href="https://github.com/dlwr/masuda-verdict">GitHub</a></p>
     </footer>
@@ -135,9 +143,9 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
       const apply = (key: string) => {
         const items = [...list.children] as HTMLElement[];
         items.sort((a, b) =>
-          key === "gap"
-            ? Number(b.dataset.gap) - Number(a.dataset.gap)
-            : (b.dataset.date ?? "").localeCompare(a.dataset.date ?? ""),
+          key === "date"
+            ? (b.dataset.date ?? "").localeCompare(a.dataset.date ?? "")
+            : Number(b.dataset[key]) - Number(a.dataset[key]),
         );
         list.append(...items);
         buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.sort === key)));
@@ -156,6 +164,8 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
         comment_count: number;
         total_comments: number;
         gap: number | null;
+        narrative: number;
+        suspicion: number | null;
       };
 
       const VERDICTS = [
@@ -191,8 +201,10 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
             <div class="row"><dt>clef</dt><dd>${bar(j.models.clef)}</dd></div>
             <div class="row crowd"><dt>ブコメ民意</dt><dd>${j.crowd ? bar(j.crowd) : '<span class="none">真偽に触れたブコメが少ない</span>'}</dd></div>
           </dl>
+          ${j.narrative < 0.5 ? '<p class="note">体験談ではなさそうな増田なので、真偽の判定は参考程度。</p>' : ""}
           <p class="foot">
             ${j.gap !== null ? `<span class="gap">ズレ ${pct(j.gap)}</span>` : ""}
+            ${j.suspicion !== null ? `<span>ブコメの ${pct(j.suspicion)} が創作扱い</span>` : ""}
             <span>コメント ${j.total_comments} 件のうち新しい ${j.comment_count} 件で判定、真偽に触れたもの約 ${Math.round(j.mentions)} 件</span>
           </p>
         </div>`;
@@ -313,6 +325,7 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
       .field button:disabled { opacity: 0.5; cursor: wait; }
       .status { margin: 8px 0 0; font-size: 0.85rem; color: var(--text-sub); }
       .status:empty { display: none; }
+      .note { margin: 10px 0 0; font-size: 0.82rem; color: var(--text-sub); }
       .result .entry { border-bottom: 0; padding-bottom: 0; }
       .entry.highlight { background: var(--track); transition: background 0.3s; }
       .empty { color: var(--text-sub); }

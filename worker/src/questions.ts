@@ -4,3 +4,4 @@ export type Question = { name: string; instructions: string; choices: Record<str
 
 export const BODY_QUESTION: Question = questions.body;
 export const COMMENT_QUESTION: Question = questions.comment;
+export const NARRATIVE_QUESTION: Question = questions.narrative;
