@@ -3,7 +3,7 @@ from datetime import UTC, datetime, timedelta
 import pytest
 
 from masuda_verdict.hatena import BookmarkComment, HotEntry
-from masuda_verdict.pipeline import collect, due_entries, judge_entry
+from masuda_verdict.pipeline import BODY_QUESTION, COMMENT_QUESTION, collect, due_entries, judge_entry
 from masuda_verdict.store import Store
 
 NOW = datetime(2026, 10, 9, 12, 0, tzinfo=UTC)
@@ -154,3 +154,11 @@ def test_judge_entry_skips_body_when_deleted(store):
     clef = FixedDecider("clef", {"fact": 1.0})
     judge(store, FixedDecider("c", {"none": 1.0}), body_deciders=[clef], body=None)
     assert list(store.read("body_verdicts")) == []
+
+
+def test_body_question_offers_fiction_and_fact():
+    assert list(BODY_QUESTION.choices) == ["fiction", "fact"]
+
+
+def test_comment_question_offers_fiction_fact_and_none():
+    assert list(COMMENT_QUESTION.choices) == ["fiction", "fact", "none"]
