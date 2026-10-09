@@ -1,5 +1,5 @@
 export type Probs = { fiction: number; fact: number };
-export type CommentVerdict = { user: string; fiction: number; fact: number; comment?: string };
+export type CommentVerdict = { user: string; label: "fiction" | "fact" | "none"; score: number; comment?: string };
 export type Entry = {
   url: string;
   eid?: string | null;
@@ -23,20 +23,22 @@ const escape = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 const pct = (v: number) => `${Math.round(v * 100)}%`;
 const lean = (p: Probs) => (p.fact >= p.fiction ? `事実 ${pct(p.fact)}` : `創作 ${pct(p.fiction)}`);
+const votes = (p: Probs, mentions: number) =>
+  `事実 ${Math.round(p.fact * mentions)} 票・創作 ${Math.round(p.fiction * mentions)} 票`;
 const date = (iso: string) =>
   new Date(iso).toLocaleDateString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric" });
 const entryPath = (url: string) => url.replace(/^https?:\/\//, "");
 
-function axis(model: Probs | undefined, crowd: Probs | null): string {
+function axis(model: Probs | undefined, crowd: Probs | null, mentions: number): string {
   const marker = (who: "ai" | "crowd", label: string, p: Probs) =>
-    `<span class="marker ${who}" style="left:${(p.fact * 100).toFixed(1)}%" title="${label}: ${lean(p)}">` +
+    `<span class="marker ${who}" style="left:${(p.fact * 100).toFixed(1)}%" title="${label}: ${who === "ai" ? lean(p) : votes(p, mentions)}">` +
     `<span class="marker-label">${label}</span></span>`;
   const span =
     model && crowd
       ? `<span class="span" style="left:${(Math.min(model.fact, crowd.fact) * 100).toFixed(1)}%;width:${(Math.abs(model.fact - crowd.fact) * 100).toFixed(1)}%"></span>`
       : "";
   return `
-    <div class="axis" role="img" aria-label="${[model && `AI ${lean(model)}`, crowd && `ブコメ民 ${lean(crowd)}`].filter(Boolean).join("、")}">
+    <div class="axis" role="img" aria-label="${[model && `AI ${lean(model)}`, crowd && `ブコメ民 ${votes(crowd, mentions)}`].filter(Boolean).join("、")}">
       <span class="pole fiction">創作</span>
       <div class="track">
         <span class="mid"></span>
@@ -54,7 +56,7 @@ function readout(e: Entry): string {
   return `
     <dl class="readout">
       ${model ? `<div><dt>AI（本文だけ）</dt><dd>${lean(model)}</dd></div>` : ""}
-      <div><dt>ブコメ民</dt><dd>${e.crowd ? lean(e.crowd) : "真偽に触れたブコメが少ない"}</dd></div>
+      <div><dt>ブコメ民</dt><dd>${e.crowd ? votes(e.crowd, e.mentions) : "真偽に触れたブコメが少ない"}</dd></div>
       ${e.gap !== null ? `<div class="gap"><dt>ズレ</dt><dd>${pct(e.gap)}</dd></div>` : ""}
       ${e.suspicion !== null ? `<div><dt>疑われ度</dt><dd>${pct(e.suspicion)}</dd></div>` : ""}
       ${others.map(([name, p]) => `<div class="sub"><dt>${escape(name)}</dt><dd>${lean(p)}</dd></div>`).join("")}
@@ -70,7 +72,7 @@ export function renderEntry(e: Entry, options: { sampled?: boolean } = {}): stri
     <article class="entry" data-url="${escape(e.url)}">
       <h2 class="title"><a href="${escape(e.url)}">${escape(e.title)}</a></h2>
       <p class="meta">${meta} · <a href="https://b.hatena.ne.jp/entry/s/${escape(entryPath(e.url))}">はてブで見る</a></p>
-      ${axis(e.models[PRIMARY], e.crowd)}
+      ${axis(e.models[PRIMARY], e.crowd, e.mentions)}
       ${readout(e)}
       ${e.narrative !== null && e.narrative < 0.5 ? '<p class="note">体験談ではなさそうな増田なので、真偽の判定は参考程度。</p>' : ""}
       ${
@@ -81,7 +83,7 @@ export function renderEntry(e: Entry, options: { sampled?: boolean } = {}): stri
     </article>`;
 }
 
-function commentItem(c: Required<CommentVerdict>, score: number, eid: string | null | undefined): string {
+function commentItem(c: Required<CommentVerdict>, eid: string | null | undefined): string {
   const href = eid
     ? `https://b.hatena.ne.jp/entry/${encodeURIComponent(eid)}/comment/${encodeURIComponent(c.user)}`
     : null;
@@ -91,22 +93,24 @@ function commentItem(c: Required<CommentVerdict>, score: number, eid: string | n
       <img src="https://cdn.profile-image.st-hatena.com/users/${encodeURIComponent(c.user)}/profile.png" alt="" width="24" height="24" loading="lazy" />
       <div>
         <p class="comment-text">${escape(c.comment)}</p>
-        <p class="comment-meta">${href ? `<a href="${href}">id:${user}</a>` : `id:${user}`} · ${pct(score)}</p>
+        <p class="comment-meta">${href ? `<a href="${href}">id:${user}</a>` : `id:${user}`} · ${pct(c.score)}</p>
       </div>
     </li>`;
 }
 
 export function renderComments(verdicts: CommentVerdict[], eid: string | null | undefined): string {
   const withText = verdicts.filter((c): c is Required<CommentVerdict> => typeof c.comment === "string");
-  const fiction = withText.filter((c) => c.fiction >= 0.5).sort((a, b) => b.fiction - a.fiction);
-  const fact = withText.filter((c) => c.fact >= 0.5).sort((a, b) => b.fact - a.fact);
+  const pick = (label: CommentVerdict["label"]) =>
+    withText.filter((c) => c.label === label).sort((a, b) => b.score - a.score);
+  const fiction = pick("fiction");
+  const fact = pick("fact");
   const neutral = withText.length - fiction.length - fact.length;
   const column = (kind: "fiction" | "fact", heading: string, items: Required<CommentVerdict>[]) => `
     <section class="column ${kind}">
       <h3>${heading}<span>${items.length} 件</span></h3>
       ${
         items.length
-          ? `<ol>${items.map((c) => commentItem(c, c[kind], eid)).join("")}</ol>`
+          ? `<ol>${items.map((c) => commentItem(c, eid)).join("")}</ol>`
           : '<p class="empty">なし</p>'
       }
     </section>`;
