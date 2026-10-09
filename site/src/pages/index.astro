@@ -21,6 +21,7 @@ const VERDICTS = [
 
 const entries = summary.entries as Entry[];
 const primary = summary.primary_model;
+const judgeApi = import.meta.env.PUBLIC_JUDGE_API ?? "https://masuda-verdict-api.yuta25.workers.dev";
 
 const pct = (v: number) => `${Math.round(v * 100)}%`;
 const top = (p: Probs) => VERDICTS.reduce((a, b) => (p[b.key] > p[a.key] ? b : a));
@@ -53,12 +54,24 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
       </div>
     </header>
 
+    <section class="lookup" data-api={judgeApi}>
+      <form id="lookup-form">
+        <label for="lookup-url">好きな増田を判定する</label>
+        <div class="field">
+          <input id="lookup-url" type="url" inputmode="url" placeholder="https://anond.hatelabo.jp/20261008133853" required />
+          <button type="submit">判定</button>
+        </div>
+      </form>
+      <p class="status" aria-live="polite"></p>
+      <div class="result" hidden></div>
+    </section>
+
     <main>
       {entries.length === 0 && <p class="empty">まだ判定済みのエントリーがない。</p>}
       <ol class="entries">
         {
           entries.map((e) => (
-            <li class="entry" data-gap={e.gap ?? -1} data-date={e.bookmarked_at}>
+            <li class="entry" data-gap={e.gap ?? -1} data-date={e.bookmarked_at} data-url={e.url}>
               <div class="head">
                 <a class="title" href={e.url}>{e.title}</a>
                 <span class="meta">
@@ -131,6 +144,96 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
       };
       buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.sort!)));
       apply("gap");
+
+      type Probs = { fiction: number; fact: number };
+      type Judgment = {
+        url: string;
+        title: string;
+        bookmark_count: number;
+        models: { clef: Probs };
+        crowd: Probs | null;
+        mentions: number;
+        comment_count: number;
+        total_comments: number;
+        gap: number | null;
+      };
+
+      const VERDICTS = [
+        { key: "fiction", label: "創作" },
+        { key: "fact", label: "事実" },
+      ] as const;
+      const ANOND_URL = /^https?:\/\/anond\.hatelabo\.jp\/(\d{14})$/;
+
+      const lookup = document.querySelector<HTMLElement>(".lookup")!;
+      const form = document.querySelector<HTMLFormElement>("#lookup-form")!;
+      const input = document.querySelector<HTMLInputElement>("#lookup-url")!;
+      const status = lookup.querySelector<HTMLElement>(".status")!;
+      const result = lookup.querySelector<HTMLElement>(".result")!;
+
+      const escape = (s: string) =>
+        s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+      const pct = (v: number) => `${Math.round(v * 100)}%`;
+      const top = (p: Probs) => VERDICTS.reduce((a, b) => (p[b.key] > p[a.key] ? b : a));
+      const bar = (p: Probs) =>
+        `<span class="bar" role="img" aria-label="${VERDICTS.map((v) => `${v.label}${pct(p[v.key])}`).join("、")}">` +
+        VERDICTS.filter((v) => p[v.key] >= 0.005)
+          .map((v) => `<span class="seg ${v.key}" style="flex-grow:${p[v.key]}" title="${v.label} ${pct(p[v.key])}"></span>`)
+          .join("") +
+        `</span><span class="verdict">${top(p).label} ${pct(p[top(p).key])}</span>`;
+
+      const render = (j: Judgment) => `
+        <div class="entry">
+          <div class="head">
+            <a class="title" href="${escape(j.url)}">${escape(j.title)}</a>
+            <span class="meta">${j.bookmark_count} users · <a href="https://b.hatena.ne.jp/entry/s/${escape(j.url.replace(/^https?:\/\//, ""))}">ブコメ</a></span>
+          </div>
+          <dl class="rows">
+            <div class="row"><dt>clef</dt><dd>${bar(j.models.clef)}</dd></div>
+            <div class="row crowd"><dt>ブコメ民意</dt><dd>${j.crowd ? bar(j.crowd) : '<span class="none">真偽に触れたブコメが少ない</span>'}</dd></div>
+          </dl>
+          <p class="foot">
+            ${j.gap !== null ? `<span class="gap">ズレ ${pct(j.gap)}</span>` : ""}
+            <span>コメント ${j.total_comments} 件のうち新しい ${j.comment_count} 件で判定、真偽に触れたもの約 ${Math.round(j.mentions)} 件</span>
+          </p>
+        </div>`;
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        result.hidden = true;
+        const id = input.value.trim().match(ANOND_URL)?.[1];
+        if (!id) {
+          status.textContent = "anond.hatelabo.jp の記事 URL を入れてください";
+          return;
+        }
+        const url = `https://anond.hatelabo.jp/${id}`;
+
+        const existing = list.querySelector<HTMLElement>(`[data-url="${url}"]`);
+        if (existing) {
+          status.textContent = "判定済みのエントリーです（ブコメ全件で集計）";
+          existing.scrollIntoView({ behavior: "smooth", block: "center" });
+          existing.classList.add("highlight");
+          setTimeout(() => existing.classList.remove("highlight"), 2000);
+          return;
+        }
+
+        status.textContent = "判定中…（ブコメを読むので十数秒かかることがあります）";
+        form.querySelector("button")!.disabled = true;
+        try {
+          const res = await fetch(`${lookup.dataset.api}/api/judge?url=${encodeURIComponent(url)}`);
+          const data = await res.json();
+          if (!res.ok) {
+            status.textContent = data.error ?? "判定に失敗しました";
+            return;
+          }
+          status.textContent = "";
+          result.innerHTML = render(data as Judgment);
+          result.hidden = false;
+        } catch {
+          status.textContent = "判定に失敗しました";
+        } finally {
+          form.querySelector("button")!.disabled = false;
+        }
+      });
     </script>
 
     <style is:global>
@@ -196,6 +299,22 @@ const segments = (p: Probs) => VERDICTS.filter((v) => p[v.key] >= 0.005).map((v)
       }
       .sort button + button { border-left: 1px solid var(--rule); }
       .sort button[aria-pressed="true"] { background: var(--track); color: var(--text); font-weight: 600; }
+      .lookup { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+      .lookup label { display: block; font-weight: 600; margin-bottom: 8px; }
+      .field { display: flex; gap: 8px; }
+      .field input {
+        flex: 1; min-width: 0; font: inherit; font-size: 0.92rem; padding: 8px 10px;
+        border: 1px solid var(--rule); border-radius: 4px; background: var(--bg); color: var(--text);
+      }
+      .field button {
+        font: inherit; font-size: 0.92rem; padding: 8px 18px; border: 0; border-radius: 4px;
+        background: var(--text); color: var(--bg); cursor: pointer;
+      }
+      .field button:disabled { opacity: 0.5; cursor: wait; }
+      .status { margin: 8px 0 0; font-size: 0.85rem; color: var(--text-sub); }
+      .status:empty { display: none; }
+      .result .entry { border-bottom: 0; padding-bottom: 0; }
+      .entry.highlight { background: var(--track); transition: background 0.3s; }
       .empty { color: var(--text-sub); }
       .entries { margin: 0; padding: 0; list-style: none; }
       .entry { padding: 20px 0; border-bottom: 1px solid var(--rule); }
