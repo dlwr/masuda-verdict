@@ -1,4 +1,4 @@
-import { summarize, type Verdict } from "./aggregate";
+import { commentLabel, summarize, type Verdict } from "./aggregate";
 import { extractBody, parseAnondUrl, parseBookmarks } from "./anond";
 import { type Ai, decide } from "./clef";
 import { BODY_QUESTION, COMMENT_QUESTION, NARRATIVE_QUESTION } from "./questions";
@@ -61,7 +61,6 @@ async function judge(url: string, deps: Deps) {
     ),
   ];
   const [model, narrative, ...commentVerdicts] = await mapLimit(tasks, AI_CONCURRENCY, (t) => t());
-  const fictionSum = commentVerdicts.reduce((acc, c) => acc + (c.fiction ?? 0), 0);
 
   return {
     url,
@@ -71,14 +70,12 @@ async function judge(url: string, deps: Deps) {
     models: { clef: model as Verdict },
     ...summarize(model as Verdict, commentVerdicts, deps.minMentions),
     narrative: narrative.experience,
-    suspicion: comments.length ? fictionSum / comments.length : null,
     comment_count: comments.length,
     total_comments: totalComments,
-    comments: comments.map((c, i) => ({
-      ...c,
-      fiction: commentVerdicts[i].fiction ?? 0,
-      fact: commentVerdicts[i].fact ?? 0,
-    })),
+    comments: comments.map((c, i) => {
+      const label = commentLabel(commentVerdicts[i]);
+      return { ...c, label, score: commentVerdicts[i][label] ?? 0 };
+    }),
   };
 }
 

@@ -1,20 +1,39 @@
 import { describe, expect, it } from "vitest";
-import { summarize } from "../src/aggregate";
+import { commentLabel, summarize } from "../src/aggregate";
 
 const c = (p: Partial<Record<"fiction" | "fact" | "none", number>>) => ({ fiction: 0, fact: 0, none: 0, ...p });
 
+describe("commentLabel", () => {
+  it("picks the most probable label", () => {
+    expect(commentLabel(c({ fiction: 0.4, fact: 0.3, none: 0.3 }))).toBe("fiction");
+  });
+});
+
 describe("summarize", () => {
-  it("ignores none mass in the crowd", () => {
-    expect(summarize(null, [c({ fiction: 1 }), c({ none: 1 })], 1).crowd).toEqual({ fiction: 1, fact: 0 });
+  it("counts votes by top label", () => {
+    expect(summarize(null, [c({ fiction: 1 }), c({ fact: 0.6, none: 0.4 }), c({ none: 1 })], 1).crowd).toEqual({
+      fiction: 0.5,
+      fact: 0.5,
+    });
   });
 
-  it("averages mentions", () => {
-    const crowd = summarize(null, [c({ fiction: 1 }), c({ fact: 0.5, none: 0.5 })], 1).crowd!;
-    expect(crowd.fiction).toBeCloseTo(2 / 3);
+  it("ignores minority probability", () => {
+    expect(summarize(null, [c({ fact: 0.7, fiction: 0.3 }), c({ fact: 0.6, fiction: 0.4 })], 1).crowd).toEqual({
+      fiction: 0,
+      fact: 1,
+    });
   });
 
-  it("counts non-none mass as mentions", () => {
-    expect(summarize(null, [c({ fiction: 1 }), c({ fact: 0.5, none: 0.5 })], 1).mentions).toBeCloseTo(1.5);
+  it("counts fiction and fact votes as mentions", () => {
+    expect(summarize(null, [c({ fiction: 1 }), c({ fact: 0.6, none: 0.4 }), c({ none: 0.6, fact: 0.4 })], 1).mentions).toBe(2);
+  });
+
+  it("measures suspicion as the fiction vote share over all comments", () => {
+    expect(summarize(null, [c({ fiction: 0.4, fact: 0.3, none: 0.3 }), c({ none: 1 })], 1).suspicion).toBe(0.5);
+  });
+
+  it("has no suspicion without comments", () => {
+    expect(summarize(null, [], 1).suspicion).toBeNull();
   });
 
   it("has no crowd below the minimum mentions", () => {
