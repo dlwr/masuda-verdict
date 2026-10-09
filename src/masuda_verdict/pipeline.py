@@ -1,6 +1,8 @@
+import json
 import logging
 from collections.abc import Callable
 from datetime import datetime, timedelta
+from importlib.resources import files
 
 from .deciders import CarryOver, Decider, Question
 from .hatena import BookmarkComment, HotEntry
@@ -11,24 +13,9 @@ log = logging.getLogger(__name__)
 SETTLE_PERIOD = timedelta(hours=48)
 BODY_MAX_CHARS = 4000
 
-BODY_QUESTION = Question(
-    name="verdict",
-    instructions="はてな匿名ダイアリーへの投稿。書かれている内容は次のどれに当たるか。",
-    choices={
-        "fiction": "創作：作り話、または反応を集めるための釣りやネタ",
-        "fact": "事実：書き手の実体験や本心がそのまま書かれている",
-    },
-)
-
-COMMENT_QUESTION = Question(
-    name="verdict",
-    instructions="はてな匿名ダイアリーの記事に付いたはてなブックマークのコメント。コメント主は元記事の真偽をどう見ているか。",
-    choices={
-        "fiction": "創作・作り話・釣り・ネタだと見ている",
-        "fact": "事実・実話として受け止めている",
-        "none": "真偽には触れていない",
-    },
-)
+_QUESTIONS = json.loads(files(__package__).joinpath("questions.json").read_text())
+BODY_QUESTION = Question(**_QUESTIONS["body"])
+COMMENT_QUESTION = Question(**_QUESTIONS["comment"])
 
 
 def collect(store: Store, entries: list[HotEntry], now: datetime) -> None:

@@ -7,6 +7,7 @@
 - ブコメ判定: 各コメントを Clef で「創作・事実・言及なし」に分類
 - 判定結果は `data/` に JSONL で追記する。ブコメ本文と増田本文は保存しない
 - サイトは `site/`（Astro）を GitHub Pages に置く
+- 任意の増田 URL の判定は `worker/`（Cloudflare Worker、`/api/judge?url=`）。本文とブコメ最新50件を Clef で判定する。IP ごとと全体でレート制限あり
 
 ## 開発
 
@@ -19,6 +20,7 @@ uv run python -m masuda_verdict judge      # CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_
 uv run python -m masuda_verdict aggregate  # site/src/data/summary.json を生成
 
 cd site && pnpm install && pnpm dev
+cd worker && pnpm install && pnpm test
 ```
 
 Workers AI の無料枠（10,000 neurons/日）を超えると判定が途中で止まり、残りは次の実行に持ち越される。

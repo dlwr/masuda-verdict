@@ -1,0 +1,17 @@
+{
+  "name": "masuda-verdict-api",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.26.2",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260924.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.1",
+    "wrangler": "4.139.0"
+  }
+}
