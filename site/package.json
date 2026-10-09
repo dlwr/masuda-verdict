@@ -1,0 +1,14 @@
+{
+  "name": "masuda-verdict-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "7.3.5"
+  },
+  "packageManager": "pnpm@10.26.2"
+}
