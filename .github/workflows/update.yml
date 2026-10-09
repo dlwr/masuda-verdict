@@ -37,28 +37,39 @@ jobs:
             exit 0
           fi
           uv run python -m masuda_verdict judge
-      - run: uv run python -m masuda_verdict aggregate
+      - if: ${{ !cancelled() }}
+        run: uv run python -m masuda_verdict aggregate
       - name: Commit data
+        if: ${{ !cancelled() }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data site/src/data
-          git diff --cached --quiet || git commit -m "データ更新" && git push
+          git diff --cached --quiet && exit 0
+          git commit -m "データ更新"
+          git pull --rebase
+          git push
 
-      - uses: pnpm/action-setup@v4
+      - if: ${{ !cancelled() }}
+        uses: pnpm/action-setup@v4
         with:
           package_json_file: site/package.json
-      - uses: actions/setup-node@v4
+      - if: ${{ !cancelled() }}
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           cache-dependency-path: site/pnpm-lock.yaml
-      - run: pnpm install --frozen-lockfile
+      - if: ${{ !cancelled() }}
+        run: pnpm install --frozen-lockfile
         working-directory: site
-      - run: pnpm build
+      - if: ${{ !cancelled() }}
+        run: pnpm build
         working-directory: site
-      - uses: actions/upload-pages-artifact@v3
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
-      - id: deploy
+      - if: ${{ !cancelled() }}
+        id: deploy
         uses: actions/deploy-pages@v4

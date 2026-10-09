@@ -1,10 +1,15 @@
 import json
+import urllib.error
 import urllib.request
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Protocol
 
 Post = Callable[[str, dict, dict], dict]
+
+
+class CarryOver(Exception):
+    pass
 
 
 def http_post(url: str, headers: dict, body: dict) -> dict:
@@ -14,8 +19,13 @@ def http_post(url: str, headers: dict, body: dict) -> dict:
         headers={"Content-Type": "application/json", **headers},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=60) as res:
-        return json.load(res)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as res:
+            return json.load(res)
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            raise CarryOver(f"{url} returned 429") from e
+        raise
 
 
 @dataclass(frozen=True)
@@ -29,6 +39,19 @@ class Decider(Protocol):
     name: str
 
     def decide(self, text: str, question: Question) -> dict[str, float]: ...
+
+
+class Budgeted:
+    def __init__(self, inner: Decider, limit: int):
+        self.inner = inner
+        self.name = inner.name
+        self.remaining = limit
+
+    def decide(self, text: str, question: Question) -> dict[str, float]:
+        if self.remaining <= 0:
+            raise CarryOver(f"{self.name} reached the per-run call limit")
+        self.remaining -= 1
+        return self.inner.decide(text, question)
 
 
 def _systemone_body(model: str, text: str, question: Question) -> dict:
