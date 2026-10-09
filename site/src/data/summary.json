@@ -19,7 +19,9 @@
    },
    "mentions": 22.4362,
    "comment_count": 84,
-   "gap": 0.28388037279040124
+   "gap": 0.28388037279040124,
+   "narrative": 0.0266,
+   "suspicion": 0.1329559523809524
   },
   {
    "url": "https://anond.hatelabo.jp/20261007131427",
@@ -39,7 +41,9 @@
    },
    "mentions": 83.40320000000001,
    "comment_count": 149,
-   "gap": 0.13892920943081316
+   "gap": 0.13892920943081316,
+   "narrative": 0.977,
+   "suspicion": 0.08465100671140936
   },
   {
    "url": "https://anond.hatelabo.jp/20261007122939",
@@ -59,7 +63,9 @@
    },
    "mentions": 26.6358,
    "comment_count": 43,
-   "gap": 0.011624942370794172
+   "gap": 0.011624942370794172,
+   "narrative": 0.0242,
+   "suspicion": 0.04077441860465116
   },
   {
    "url": "https://anond.hatelabo.jp/20261007063355",
@@ -79,7 +85,9 @@
    },
    "mentions": 23.002899999999997,
    "comment_count": 42,
-   "gap": 0.0624583378617479
+   "gap": 0.0624583378617479,
+   "narrative": 0.035,
+   "suspicion": 0.4044904761904761
   },
   {
    "url": "https://anond.hatelabo.jp/20261006200248",
@@ -99,7 +107,9 @@
    },
    "mentions": 53.96729999999997,
    "comment_count": 112,
-   "gap": 0.15302094787028445
+   "gap": 0.15302094787028445,
+   "narrative": 0.972,
+   "suspicion": 0.10360803571428569
   },
   {
    "url": "https://anond.hatelabo.jp/20261006112333",
@@ -119,7 +129,9 @@
    },
    "mentions": 24.978200000000005,
    "comment_count": 46,
-   "gap": 0.10172460465525937
+   "gap": 0.10172460465525937,
+   "narrative": 0.0406,
+   "suspicion": 0.04445869565217392
   },
   {
    "url": "https://anond.hatelabo.jp/20261006130853",
@@ -134,7 +146,9 @@
    },
    "mentions": 36.680899999999994,
    "comment_count": 109,
-   "gap": null
+   "gap": null,
+   "narrative": null,
+   "suspicion": 0.042674311926605514
   },
   {
    "url": "https://anond.hatelabo.jp/20261006123337",
@@ -154,7 +168,9 @@
    },
    "mentions": 29.299699999999994,
    "comment_count": 66,
-   "gap": 0.052362571630426194
+   "gap": 0.052362571630426194,
+   "narrative": 0.0457,
+   "suspicion": 0.09374242424242424
   },
   {
    "url": "https://anond.hatelabo.jp/20261006115538",
@@ -169,7 +185,9 @@
    },
    "mentions": 42.85119999999999,
    "comment_count": 83,
-   "gap": null
+   "gap": null,
+   "narrative": null,
+   "suspicion": 0.26187228915662647
   },
   {
    "url": "https://anond.hatelabo.jp/20261006101040",
@@ -184,7 +202,9 @@
    },
    "mentions": 70.58690000000001,
    "comment_count": 123,
-   "gap": null
+   "gap": null,
+   "narrative": null,
+   "suspicion": 0.041386991869918684
   },
   {
    "url": "https://anond.hatelabo.jp/20261006091814",
@@ -204,7 +224,9 @@
    },
    "mentions": 27.6993,
    "comment_count": 46,
-   "gap": 0.072015326741109
+   "gap": 0.072015326741109,
+   "narrative": 0.7432,
+   "suspicion": 0.05552826086956523
   },
   {
    "url": "https://anond.hatelabo.jp/20261006091222",
@@ -224,7 +246,9 @@
    },
    "mentions": 47.746200000000016,
    "comment_count": 91,
-   "gap": 0.3682605832506043
+   "gap": 0.3682605832506043,
+   "narrative": 0.0348,
+   "suspicion": 0.2046472527472528
   },
   {
    "url": "https://anond.hatelabo.jp/20261006084454",
@@ -244,7 +268,9 @@
    },
    "mentions": 88.60239999999995,
    "comment_count": 175,
-   "gap": 0.16176240914467355
+   "gap": 0.16176240914467355,
+   "narrative": 0.9117,
+   "suspicion": 0.09926628571428578
   },
   {
    "url": "https://anond.hatelabo.jp/20261005222649",
@@ -264,7 +290,185 @@
    },
    "mentions": 21.7582,
    "comment_count": 45,
-   "gap": 0.13169709626715442
+   "gap": 0.13169709626715442,
+   "narrative": 0.0848,
+   "suspicion": 0.07005999999999998
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005222216",
+   "title": "君は知られざる昭和の奇習「乾布摩擦」を知っているか？",
+   "bookmark_count": 429,
+   "bookmarked_at": "2026-10-05T13:24:47+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.6451,
+     "fact": 0.3549
+    }
+   },
+   "crowd": {
+    "fiction": 0.15689078066154574,
+    "fact": 0.8431092193384543
+   },
+   "mentions": 179.0443,
+   "comment_count": 258,
+   "gap": 0.4882092193384543,
+   "narrative": 0.0411,
+   "suspicion": 0.10887751937984494
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005213326",
+   "title": "身だしなみや美容を軽視する人で「自分の本質は別にあるからそこで評価してほしい」的なことを言ったり、美しさを追求する態度を軟弱と笑ったりするけど、それらの無頓着による損失に気付けない、何より身だしなみが他者への礼儀であることを理解できない態度こそが貴方の本質ですねと思う。",
+   "bookmark_count": 322,
+   "bookmarked_at": "2026-10-05T12:35:04+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1943,
+     "fact": 0.8057
+    }
+   },
+   "crowd": {
+    "fiction": 0.1399428785825312,
+    "fact": 0.8600571214174687
+   },
+   "mentions": 65.29949999999998,
+   "comment_count": 200,
+   "gap": 0.05435712141746876,
+   "narrative": 0.0637,
+   "suspicion": 0.04569099999999997
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005210318",
+   "title": "実写ルックバックで諦めついた話",
+   "bookmark_count": 96,
+   "bookmarked_at": "2026-10-05T12:03:49+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.017,
+     "fact": 0.983
+    }
+   },
+   "crowd": {
+    "fiction": 0.2073216648557936,
+    "fact": 0.7926783351442064
+   },
+   "mentions": 18.591399999999997,
+   "comment_count": 30,
+   "gap": 0.1903216648557936,
+   "narrative": 0.9567,
+   "suspicion": 0.12848
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005204539",
+   "title": "ウクライナ戦争、兵器より先に国家予算が弾切れしそうになっている",
+   "bookmark_count": 87,
+   "bookmarked_at": "2026-10-05T11:45:50+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1815,
+     "fact": 0.8185
+    }
+   },
+   "crowd": {
+    "fiction": 0.03626654938781267,
+    "fact": 0.9637334506121874
+   },
+   "mentions": 24.102100000000004,
+   "comment_count": 34,
+   "gap": 0.14523345061218734,
+   "narrative": 0.0148,
+   "suspicion": 0.02570882352941176
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005192843",
+   "title": "男性差別なしに女性を守る方法はあるのだろうか",
+   "bookmark_count": 76,
+   "bookmarked_at": "2026-10-05T10:33:57+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1276,
+     "fact": 0.8724
+    }
+   },
+   "crowd": {
+    "fiction": 0.0962668022139388,
+    "fact": 0.9037331977860612
+   },
+   "mentions": 21.247199999999996,
+   "comment_count": 54,
+   "gap": 0.03133319778606122,
+   "narrative": 0.0249,
+   "suspicion": 0.037877777777777774
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005133437",
+   "title": "深刻な「賃上げ疲れ」…人手不足による倒産が過去最多に⇒当たり前",
+   "bookmark_count": 217,
+   "bookmarked_at": "2026-10-05T04:35:49+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1812,
+     "fact": 0.8188
+    }
+   },
+   "crowd": {
+    "fiction": 0.030803014572425153,
+    "fact": 0.9691969854275749
+   },
+   "mentions": 93.71810000000004,
+   "comment_count": 117,
+   "gap": 0.1503969854275749,
+   "narrative": 0.0195,
+   "suspicion": 0.024673504273504263
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005124604",
+   "title": "今こそ「机付き椅子」の出番なのか？",
+   "bookmark_count": 57,
+   "bookmarked_at": "2026-10-05T03:47:50+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0314,
+     "fact": 0.9686
+    }
+   },
+   "crowd": {
+    "fiction": 0.13031902151222086,
+    "fact": 0.8696809784877791
+   },
+   "mentions": 14.610299999999995,
+   "comment_count": 40,
+   "gap": 0.09891902151222087,
+   "narrative": 0.6744,
+   "suspicion": 0.04759999999999999
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005104758",
+   "title": "定義から言うと貴方は『オタク』ではありません。",
+   "bookmark_count": 111,
+   "bookmarked_at": "2026-10-05T01:48:47+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.6303,
+     "fact": 0.3697
+    }
+   },
+   "crowd": {
+    "fiction": 0.29163131280929516,
+    "fact": 0.7083686871907049
+   },
+   "mentions": 20.3891,
+   "comment_count": 68,
+   "gap": 0.33866868719070486,
+   "narrative": 0.0363,
+   "suspicion": 0.08744264705882353
   }
  ]
 }
