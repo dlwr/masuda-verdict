@@ -111,3 +111,12 @@ def test_suspicion_is_fiction_share_over_all_comments(store):
 
 def test_suspicion_is_null_without_comments(store):
     assert entry(store)["suspicion"] is None
+
+
+def test_comments_list_each_verdict_by_user(store):
+    add_comment(store, "a", fiction=0.9, none=0.1)
+    assert entry(store)["comments"] == [{"user": "a", "fiction": 0.9, "fact": 0.0}]
+
+
+def test_comments_empty_without_verdicts(store):
+    assert entry(store)["comments"] == []
