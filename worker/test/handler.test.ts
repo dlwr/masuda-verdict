@@ -14,7 +14,11 @@ function deps(overrides: Partial<Deps> = {}): Deps & { aiCalls: number; store: M
     ai: {
       run: async (_model: string, input: unknown) => {
         d.aiCalls++;
-        const isComment = JSON.stringify(input).includes("ブックマークコメント");
+        const raw = JSON.stringify(input);
+        if (raw.includes('"narrative"')) {
+          return { answers: { narrative: { type: "choice", probabilities: { experience: 0.9, other: 0.1 } } } };
+        }
+        const isComment = raw.includes("ブックマークコメント");
         const probabilities = isComment ? { fiction: 1, fact: 0, none: 0 } : { fiction: 0.25, fact: 0.75 };
         return { answers: { verdict: { type: "choice", probabilities } } };
       },
@@ -61,6 +65,16 @@ describe("handle", () => {
   it("returns the crowd verdict", async () => {
     const body = await (await judge(deps())).json();
     expect(body.crowd).toEqual({ fiction: 1, fact: 0 });
+  });
+
+  it("returns the experience probability as narrative", async () => {
+    const body = await (await judge(deps())).json();
+    expect(body.narrative).toBe(0.9);
+  });
+
+  it("returns the suspicion over all sampled comments", async () => {
+    const body = await (await judge(deps())).json();
+    expect(body.suspicion).toBe(1);
   });
 
   it("returns the gap", async () => {

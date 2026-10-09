@@ -48,4 +48,4 @@ jobs:
           body=$(echo "$res" | sed '$d')
           echo "$status $body"
           test "$status" = 200
-          echo "$body" | jq -e '(.models.clef.fiction | type) == "number" and (.comment_count | type) == "number"'
+          echo "$body" | jq -e '(.models.clef.fiction | type) == "number" and (.narrative | type) == "number" and (.comment_count | type) == "number"'
