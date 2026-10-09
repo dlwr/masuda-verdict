@@ -29,22 +29,24 @@ def entry(store):
     return summarize(store, primary_model="clef", min_mentions=1)["entries"][0]
 
 
-def test_crowd_ignores_none_mass(store):
+def test_crowd_counts_votes_by_top_label(store):
     add_comment(store, "a", fiction=1.0)
-    add_comment(store, "b", none=1.0)
-    assert entry(store)["crowd"] == {"fiction": 1.0, "fact": 0.0}
+    add_comment(store, "b", fact=0.6, none=0.4)
+    add_comment(store, "c", none=1.0)
+    assert entry(store)["crowd"] == {"fiction": 0.5, "fact": 0.5}
 
 
-def test_crowd_averages_mentions(store):
+def test_crowd_ignores_minority_probability(store):
+    add_comment(store, "a", fact=0.7, fiction=0.3)
+    add_comment(store, "b", fact=0.6, fiction=0.4)
+    assert entry(store)["crowd"] == {"fiction": 0.0, "fact": 1.0}
+
+
+def test_mentions_counts_votes_for_fiction_or_fact(store):
     add_comment(store, "a", fiction=1.0)
-    add_comment(store, "b", fact=0.5, none=0.5)
-    assert entry(store)["crowd"] == pytest.approx({"fiction": 2 / 3, "fact": 1 / 3})
-
-
-def test_mentions_counts_non_none_mass(store):
-    add_comment(store, "a", fiction=1.0)
-    add_comment(store, "b", fact=0.5, none=0.5)
-    assert entry(store)["mentions"] == pytest.approx(1.5)
+    add_comment(store, "b", fact=0.6, none=0.4)
+    add_comment(store, "c", none=0.6, fact=0.4)
+    assert entry(store)["mentions"] == 2
 
 
 def test_comment_count(store):
@@ -103,8 +105,8 @@ def test_narrative_is_null_when_unknown(store):
     assert entry(store)["narrative"] is None
 
 
-def test_suspicion_is_fiction_share_over_all_comments(store):
-    add_comment(store, "a", fiction=1.0)
+def test_suspicion_is_fiction_vote_share_over_all_comments(store):
+    add_comment(store, "a", fiction=0.4, fact=0.3, none=0.3)
     add_comment(store, "b", none=1.0)
     assert entry(store)["suspicion"] == pytest.approx(0.5)
 
@@ -115,7 +117,7 @@ def test_suspicion_is_null_without_comments(store):
 
 def test_comments_list_each_verdict_by_user(store):
     add_comment(store, "a", fiction=0.9, none=0.1)
-    assert entry(store)["comments"] == [{"user": "a", "fiction": 0.9, "fact": 0.0}]
+    assert entry(store)["comments"] == [{"user": "a", "label": "fiction", "score": 0.9}]
 
 
 def test_comments_empty_without_verdicts(store):
