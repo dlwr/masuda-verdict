@@ -24,13 +24,31 @@ class FakePost:
 
 
 def test_clef_posts_to_workers_ai_run_endpoint():
-    post = FakePost({"result": {"answers": {"verdict": {"type": "choice", "choice": {"fact": 1.0}}}}, "success": True})
+    post = FakePost(
+        {
+            "result": {
+                "answers": {
+                    "verdict": {"type": "choice", "choice": "x", "probabilities": {"fact": 1.0}, "confidence": 0.5}
+                }
+            },
+            "success": True,
+        }
+    )
     ClefDecider(account_id="acc", token="tok", post=post).decide("本文", QUESTION)
     assert post.calls[0][0] == "https://api.cloudflare.com/client/v4/accounts/acc/ai/run/@cf/cloudflare/clef"
 
 
 def test_clef_sends_question_as_criteria():
-    post = FakePost({"result": {"answers": {"verdict": {"type": "choice", "choice": {"fact": 1.0}}}}, "success": True})
+    post = FakePost(
+        {
+            "result": {
+                "answers": {
+                    "verdict": {"type": "choice", "choice": "x", "probabilities": {"fact": 1.0}, "confidence": 0.5}
+                }
+            },
+            "success": True,
+        }
+    )
     ClefDecider(account_id="acc", token="tok", post=post).decide("本文", QUESTION)
     assert post.calls[0][2] == {
         "model": "clef",
@@ -49,7 +67,14 @@ def test_clef_unwraps_result_into_probabilities():
     post = FakePost(
         {
             "result": {
-                "answers": {"verdict": {"type": "choice", "choice": {"fishing": 0.1, "fiction": 0.7, "fact": 0.2}}}
+                "answers": {
+                    "verdict": {
+                        "type": "choice",
+                        "choice": "x",
+                        "probabilities": {"fishing": 0.1, "fiction": 0.7, "fact": 0.2},
+                        "confidence": 0.5,
+                    }
+                }
             },
             "success": True,
         }
@@ -59,7 +84,16 @@ def test_clef_unwraps_result_into_probabilities():
 
 
 def test_clef_fills_missing_choices_with_zero():
-    post = FakePost({"result": {"answers": {"verdict": {"type": "choice", "choice": {"fact": 1.0}}}}, "success": True})
+    post = FakePost(
+        {
+            "result": {
+                "answers": {
+                    "verdict": {"type": "choice", "choice": "x", "probabilities": {"fact": 1.0}, "confidence": 0.5}
+                }
+            },
+            "success": True,
+        }
+    )
     probs = ClefDecider(account_id="acc", token="tok", post=post).decide("本文", QUESTION)
     assert probs == {"fishing": 0.0, "fiction": 0.0, "fact": 1.0}
 
@@ -68,7 +102,14 @@ def test_jev_reads_answers_at_root():
     post = FakePost(
         {
             "model": "jev-1.13.0",
-            "answers": {"verdict": {"type": "choice", "choice": {"fishing": 0.9, "fiction": 0.1, "fact": 0.0}}},
+            "answers": {
+                "verdict": {
+                    "type": "choice",
+                    "choice": "x",
+                    "probabilities": {"fishing": 0.9, "fiction": 0.1, "fact": 0.0},
+                    "confidence": 0.5,
+                }
+            },
         }
     )
     probs = JevDecider(api_key="k", post=post).decide("本文", QUESTION)
@@ -76,7 +117,9 @@ def test_jev_reads_answers_at_root():
 
 
 def test_jev_posts_to_systemone():
-    post = FakePost({"answers": {"verdict": {"type": "choice", "choice": {"fact": 1.0}}}})
+    post = FakePost(
+        {"answers": {"verdict": {"type": "choice", "choice": "x", "probabilities": {"fact": 1.0}, "confidence": 0.5}}}
+    )
     JevDecider(api_key="k", post=post).decide("本文", QUESTION)
     assert post.calls[0][0] == "https://api.typesafe.ai/v1/systemone"
 
