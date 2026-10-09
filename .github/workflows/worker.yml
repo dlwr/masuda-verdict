@@ -1,0 +1,51 @@
+name: Deploy worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - worker/**
+      - src/masuda_verdict/questions.json
+      - .github/workflows/worker.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: worker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: worker/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: worker/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - name: Deploy
+        run: pnpm wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Smoke test
+        working-directory: .
+        run: |
+          url=$(tail -n 1 data/judged/$(ls data/judged | tail -n 1) | jq -r .url)
+          res=$(curl -sS -w '\n%{http_code}' "https://masuda-verdict-api.yuta25.workers.dev/api/judge?fresh=1&url=$(jq -rn --arg u "$url" '$u|@uri')")
+          status=$(echo "$res" | tail -n 1)
+          body=$(echo "$res" | sed '$d')
+          echo "$status $body"
+          test "$status" = 200
+          echo "$body" | jq -e '(.models.clef.fiction | type) == "number" and (.comment_count | type) == "number"'
