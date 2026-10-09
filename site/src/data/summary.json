@@ -155,6 +155,116 @@
    "mentions": 29.299699999999994,
    "comment_count": 66,
    "gap": 0.052362571630426194
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006115538",
+   "title": "ギリ流れてもいい個人情報を教えてください。",
+   "bookmark_count": 98,
+   "bookmarked_at": "2026-10-06T02:55:59+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {},
+   "crowd": {
+    "fiction": 0.507229669180793,
+    "fact": 0.492770330819207
+   },
+   "mentions": 42.85119999999999,
+   "comment_count": 83,
+   "gap": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006101040",
+   "title": "Geminiの使いどころ🥹",
+   "bookmark_count": 410,
+   "bookmarked_at": "2026-10-06T01:10:59+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {},
+   "crowd": {
+    "fiction": 0.07211819756923732,
+    "fact": 0.9278818024307627
+   },
+   "mentions": 70.58690000000001,
+   "comment_count": 123,
+   "gap": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006091814",
+   "title": "geminiが難しい",
+   "bookmark_count": 101,
+   "bookmarked_at": "2026-10-06T00:20:20+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0202,
+     "fact": 0.9798
+    }
+   },
+   "crowd": {
+    "fiction": 0.092215326741109,
+    "fact": 0.907784673258891
+   },
+   "mentions": 27.6993,
+   "comment_count": 46,
+   "gap": 0.072015326741109
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006091222",
+   "title": "「1回の質問で数字を当てろ」という面接問題、仕様の穴を広げていくと面接官が壊れる",
+   "bookmark_count": 253,
+   "bookmarked_at": "2026-10-06T00:13:50+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7583,
+     "fact": 0.2417
+    }
+   },
+   "crowd": {
+    "fiction": 0.39003941674939574,
+    "fact": 0.6099605832506043
+   },
+   "mentions": 47.746200000000016,
+   "comment_count": 91,
+   "gap": 0.3682605832506043
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261006084454",
+   "title": "高尚な趣味を持ってほしいと彼に言われたんだけど、高尚な趣味って？",
+   "bookmark_count": 223,
+   "bookmarked_at": "2026-10-05T23:45:08+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0343,
+     "fact": 0.9657
+    }
+   },
+   "crowd": {
+    "fiction": 0.19606240914467354,
+    "fact": 0.8039375908553265
+   },
+   "mentions": 88.60239999999995,
+   "comment_count": 175,
+   "gap": 0.16176240914467355
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261005222649",
+   "title": "西欧の食文化が酒に依存しすぎている",
+   "bookmark_count": 63,
+   "bookmarked_at": "2026-10-05T13:26:51+00:00",
+   "first_seen": "2026-10-09T07:29:47.382460+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0132,
+     "fact": 0.9868
+    }
+   },
+   "crowd": {
+    "fiction": 0.14489709626715444,
+    "fact": 0.8551029037328456
+   },
+   "mentions": 21.7582,
+   "comment_count": 45,
+   "gap": 0.13169709626715442
   }
  ]
 }
