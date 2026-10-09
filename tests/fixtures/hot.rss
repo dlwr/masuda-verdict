@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:hatena="http://www.hatena.ne.jp/info/xmlns#"
+>
+<channel rdf:about="https://b.hatena.ne.jp/site/anond.hatelabo.jp/?sort=hot">
+<title>anond.hatelabo.jp</title>
+</channel>
+<item rdf:about="https://anond.hatelabo.jp/20261008222016">
+<title>若手医師の直美流入問題</title>
+<link>https://anond.hatelabo.jp/20261008222016</link>
+<dc:date>2026-10-08T13:21:49Z</dc:date>
+<hatena:bookmarkcount>203</hatena:bookmarkcount>
+</item>
+<item rdf:about="https://anond.hatelabo.jp/20261008133853">
+<title>嫁が出ていった</title>
+<link>https://anond.hatelabo.jp/20261008133853</link>
+<dc:date>2026-10-08T04:38:59Z</dc:date>
+<hatena:bookmarkcount>150</hatena:bookmarkcount>
+</item>
+</rdf:RDF>

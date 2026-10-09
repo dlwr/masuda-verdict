@@ -1,0 +1,25 @@
+[project]
+name = "masuda-verdict"
+version = "0.1.0"
+description = "増田の人気エントリーを釣り・創作・事実で判定し、ブコメ民意と比べる"
+authors = [
+    { name = "dlwr", email = "yuta25.a.k.a.djbudo.a.k.a.dlwr@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
