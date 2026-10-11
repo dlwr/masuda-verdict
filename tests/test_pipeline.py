@@ -71,9 +71,9 @@ def test_collect_skips_already_seen_entry(store):
     assert len(list(store.read("seen"))) == 1
 
 
-def test_due_entries_waits_48_hours_after_bookmarked(store):
-    store.append("seen", seen_record(url="https://anond.hatelabo.jp/old", bookmarked_at=NOW - timedelta(hours=49)), NOW)
-    store.append("seen", seen_record(url="https://anond.hatelabo.jp/new", bookmarked_at=NOW - timedelta(hours=47)), NOW)
+def test_due_entries_waits_24_hours_after_bookmarked(store):
+    store.append("seen", seen_record(url="https://anond.hatelabo.jp/old", bookmarked_at=NOW - timedelta(hours=25)), NOW)
+    store.append("seen", seen_record(url="https://anond.hatelabo.jp/new", bookmarked_at=NOW - timedelta(hours=23)), NOW)
     assert [e["url"] for e in due_entries(store, NOW)] == ["https://anond.hatelabo.jp/old"]
 
 

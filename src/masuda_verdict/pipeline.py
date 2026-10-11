@@ -10,7 +10,7 @@ from .store import Store
 
 log = logging.getLogger(__name__)
 
-SETTLE_PERIOD = timedelta(hours=48)
+SETTLE_PERIOD = timedelta(hours=24)
 BODY_MAX_CHARS = 4000
 
 _QUESTIONS = json.loads(files(__package__).joinpath("questions.json").read_text())
