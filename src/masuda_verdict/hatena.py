@@ -68,7 +68,7 @@ def parse_anond_body(html: str) -> str | None:
     return parser.text
 
 
-HOT_RSS_URL = "https://b.hatena.ne.jp/site/anond.hatelabo.jp/?mode=rss&sort=recent&threshold=50"
+HOT_RSS_URL = "https://b.hatena.ne.jp/site/anond.hatelabo.jp/?mode=rss&sort=recent&threshold=30"
 USER_AGENT = "masuda-verdict (+https://github.com/dlwr/masuda-verdict)"
 
 
