@@ -6098,6 +6098,80 @@
    "suspicion": 0.0
   },
   {
+   "url": "https://anond.hatelabo.jp/20261010142457",
+   "title": "反社系インフルエンサーの人たちと話す機会があったが大変な世界だなと思った",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-10-10T05:30:22+00:00",
+   "first_seen": "2026-10-13T00:49:40.543838+00:00",
+   "models": {},
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 6,
+   "comment_count": 11,
+   "gap": null,
+   "narrative": null,
+   "comments": [
+    {
+     "user": "hurafula",
+     "label": "none",
+     "score": 0.5094
+    },
+    {
+     "user": "kerokimu",
+     "label": "none",
+     "score": 0.557
+    },
+    {
+     "user": "zuzumokusya",
+     "label": "fact",
+     "score": 0.4242
+    },
+    {
+     "user": "poipoi3",
+     "label": "fact",
+     "score": 0.5094
+    },
+    {
+     "user": "yuno001",
+     "label": "fact",
+     "score": 0.7478
+    },
+    {
+     "user": "otihateten3510",
+     "label": "none",
+     "score": 0.4992
+    },
+    {
+     "user": "hkdn",
+     "label": "none",
+     "score": 0.3847
+    },
+    {
+     "user": "sds-page",
+     "label": "fact",
+     "score": 0.4382
+    },
+    {
+     "user": "media56a",
+     "label": "none",
+     "score": 0.4216
+    },
+    {
+     "user": "tjmjd33",
+     "label": "fact",
+     "score": 0.704
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.589
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261010120951",
    "title": "おいゴルァァァァァァ‼️‼️‼️ ざるそばァァァァァァ‼️‼️‼️ お..",
    "bookmark_count": 108,
@@ -7453,6 +7527,105 @@
     }
    ],
    "suspicion": 0.006578947368421052
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261009184839",
+   "title": "dorawiiが垢BANされた",
+   "bookmark_count": 35,
+   "bookmarked_at": "2026-10-09T10:17:38+00:00",
+   "first_seen": "2026-10-13T00:49:40.543838+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.3407,
+     "fact": 0.6593
+    }
+   },
+   "crowd": {
+    "fiction": 0.09090909090909091,
+    "fact": 0.9090909090909091
+   },
+   "mentions": 11,
+   "comment_count": 15,
+   "gap": 0.24979090909090906,
+   "narrative": 0.2281,
+   "comments": [
+    {
+     "user": "TakamoriTarou",
+     "label": "fact",
+     "score": 0.7439
+    },
+    {
+     "user": "death6coin",
+     "label": "fact",
+     "score": 0.4635
+    },
+    {
+     "user": "ancient_tarako",
+     "label": "none",
+     "score": 0.5115
+    },
+    {
+     "user": "mutinomuti",
+     "label": "none",
+     "score": 0.4646
+    },
+    {
+     "user": "mouseion",
+     "label": "fact",
+     "score": 0.5003
+    },
+    {
+     "user": "ffrog",
+     "label": "fact",
+     "score": 0.7587
+    },
+    {
+     "user": "sonzinc",
+     "label": "none",
+     "score": 0.5362
+    },
+    {
+     "user": "Re-KAm",
+     "label": "fact",
+     "score": 0.7142
+    },
+    {
+     "user": "Lagenaria",
+     "label": "fact",
+     "score": 0.4874
+    },
+    {
+     "user": "yamekodev",
+     "label": "fiction",
+     "score": 0.418
+    },
+    {
+     "user": "kaionji",
+     "label": "fact",
+     "score": 0.5706
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.5271
+    },
+    {
+     "user": "ilktm",
+     "label": "fact",
+     "score": 0.679
+    },
+    {
+     "user": "zsehnuy_cohriy",
+     "label": "fact",
+     "score": 0.6892
+    },
+    {
+     "user": "tough_miyazawa",
+     "label": "fact",
+     "score": 0.8387
+    }
+   ],
+   "suspicion": 0.06666666666666667
   },
   {
    "url": "https://anond.hatelabo.jp/20261009153629",
