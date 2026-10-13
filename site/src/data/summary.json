@@ -2,6 +2,964 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261012154644",
+   "title": "男の目からすると、多くの少女漫画、女性向けに出てくる男性キャラ、「こ..",
+   "bookmark_count": 119,
+   "bookmarked_at": "2026-10-12T06:47:54+00:00",
+   "first_seen": "2026-10-13T00:40:07.187913+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4092,
+     "fact": 0.5908
+    }
+   },
+   "crowd": {
+    "fiction": 0.8571428571428571,
+    "fact": 0.14285714285714285
+   },
+   "mentions": 7,
+   "comment_count": 114,
+   "gap": 0.4479428571428571,
+   "narrative": 0.1001,
+   "comments": [
+    {
+     "user": "docking765",
+     "label": "none",
+     "score": 0.7406
+    },
+    {
+     "user": "differential",
+     "label": "none",
+     "score": 0.6367
+    },
+    {
+     "user": "Cichla",
+     "label": "none",
+     "score": 0.8196
+    },
+    {
+     "user": "rs-mt",
+     "label": "none",
+     "score": 0.7742
+    },
+    {
+     "user": "Akech_ergo",
+     "label": "none",
+     "score": 0.8715
+    },
+    {
+     "user": "deep_one",
+     "label": "none",
+     "score": 0.8105
+    },
+    {
+     "user": "nicht-sein",
+     "label": "none",
+     "score": 0.6296
+    },
+    {
+     "user": "fusionstar",
+     "label": "none",
+     "score": 0.6425
+    },
+    {
+     "user": "mas-higa",
+     "label": "none",
+     "score": 0.7066
+    },
+    {
+     "user": "ekusax",
+     "label": "none",
+     "score": 0.7615
+    },
+    {
+     "user": "ssfu",
+     "label": "none",
+     "score": 0.8084
+    },
+    {
+     "user": "death_yasude",
+     "label": "none",
+     "score": 0.7392
+    },
+    {
+     "user": "miyauchi_it",
+     "label": "fiction",
+     "score": 0.4908
+    },
+    {
+     "user": "kamiokando",
+     "label": "none",
+     "score": 0.7748
+    },
+    {
+     "user": "byaa0001",
+     "label": "none",
+     "score": 0.8287
+    },
+    {
+     "user": "theatrical",
+     "label": "none",
+     "score": 0.8164
+    },
+    {
+     "user": "inazuma2073",
+     "label": "fiction",
+     "score": 0.4612
+    },
+    {
+     "user": "cubed-l",
+     "label": "none",
+     "score": 0.6315
+    },
+    {
+     "user": "shira0211tama",
+     "label": "none",
+     "score": 0.837
+    },
+    {
+     "user": "mkotatsu",
+     "label": "none",
+     "score": 0.6104
+    },
+    {
+     "user": "circled",
+     "label": "none",
+     "score": 0.6515
+    },
+    {
+     "user": "natumeuashi",
+     "label": "none",
+     "score": 0.7028
+    },
+    {
+     "user": "kura-2",
+     "label": "fiction",
+     "score": 0.5188
+    },
+    {
+     "user": "zemukurippu",
+     "label": "none",
+     "score": 0.6767
+    },
+    {
+     "user": "tomiyai",
+     "label": "none",
+     "score": 0.7264
+    },
+    {
+     "user": "yetch",
+     "label": "none",
+     "score": 0.7212
+    },
+    {
+     "user": "auto_chan",
+     "label": "none",
+     "score": 0.8035
+    },
+    {
+     "user": "Aka464210197999",
+     "label": "none",
+     "score": 0.8143
+    },
+    {
+     "user": "hironagi",
+     "label": "none",
+     "score": 0.7327
+    },
+    {
+     "user": "srgy",
+     "label": "none",
+     "score": 0.7696
+    },
+    {
+     "user": "segment12",
+     "label": "none",
+     "score": 0.5119
+    },
+    {
+     "user": "t-tanaka",
+     "label": "none",
+     "score": 0.799
+    },
+    {
+     "user": "cinefuk",
+     "label": "none",
+     "score": 0.8085
+    },
+    {
+     "user": "enemyoffreedom",
+     "label": "none",
+     "score": 0.8494
+    },
+    {
+     "user": "ikaironic",
+     "label": "none",
+     "score": 0.8369
+    },
+    {
+     "user": "fumikef",
+     "label": "none",
+     "score": 0.7271
+    },
+    {
+     "user": "hecaton55",
+     "label": "none",
+     "score": 0.7888
+    },
+    {
+     "user": "iroha2_hohe",
+     "label": "fiction",
+     "score": 0.6775
+    },
+    {
+     "user": "tettekete37564",
+     "label": "none",
+     "score": 0.6552
+    },
+    {
+     "user": "ardarim",
+     "label": "fiction",
+     "score": 0.7234
+    },
+    {
+     "user": "corux",
+     "label": "none",
+     "score": 0.8714
+    },
+    {
+     "user": "chitosemidori",
+     "label": "none",
+     "score": 0.7284
+    },
+    {
+     "user": "seachel",
+     "label": "none",
+     "score": 0.8442
+    },
+    {
+     "user": "ipinkcat",
+     "label": "fiction",
+     "score": 0.5207
+    },
+    {
+     "user": "heaco65",
+     "label": "none",
+     "score": 0.7642
+    },
+    {
+     "user": "paperot",
+     "label": "none",
+     "score": 0.559
+    },
+    {
+     "user": "warulaw",
+     "label": "none",
+     "score": 0.8651
+    },
+    {
+     "user": "Helfard",
+     "label": "none",
+     "score": 0.7242
+    },
+    {
+     "user": "hanninyasu",
+     "label": "none",
+     "score": 0.7066
+    },
+    {
+     "user": "kurotsuraherasagi",
+     "label": "none",
+     "score": 0.4695
+    },
+    {
+     "user": "awaytabi",
+     "label": "none",
+     "score": 0.5816
+    },
+    {
+     "user": "bml",
+     "label": "none",
+     "score": 0.7019
+    },
+    {
+     "user": "ryudenx",
+     "label": "none",
+     "score": 0.6537
+    },
+    {
+     "user": "sororo9797",
+     "label": "none",
+     "score": 0.8221
+    },
+    {
+     "user": "matorico",
+     "label": "none",
+     "score": 0.5568
+    },
+    {
+     "user": "wdnsdy",
+     "label": "none",
+     "score": 0.7719
+    },
+    {
+     "user": "duckt",
+     "label": "none",
+     "score": 0.758
+    },
+    {
+     "user": "honeybe",
+     "label": "none",
+     "score": 0.7037
+    },
+    {
+     "user": "hiroshe",
+     "label": "none",
+     "score": 0.8366
+    },
+    {
+     "user": "tiri_tomato",
+     "label": "none",
+     "score": 0.8108
+    },
+    {
+     "user": "hatebu_ai",
+     "label": "none",
+     "score": 0.6594
+    },
+    {
+     "user": "rider250",
+     "label": "fact",
+     "score": 0.4683
+    },
+    {
+     "user": "tameruhakida",
+     "label": "none",
+     "score": 0.7053
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "none",
+     "score": 0.7985
+    },
+    {
+     "user": "runeharst",
+     "label": "none",
+     "score": 0.5679
+    },
+    {
+     "user": "ku-kai27",
+     "label": "none",
+     "score": 0.6498
+    },
+    {
+     "user": "peperon_brain",
+     "label": "none",
+     "score": 0.8243
+    },
+    {
+     "user": "Kurilyn",
+     "label": "none",
+     "score": 0.5903
+    },
+    {
+     "user": "toria_ezu1",
+     "label": "none",
+     "score": 0.6102
+    },
+    {
+     "user": "domimimisoso",
+     "label": "none",
+     "score": 0.4596
+    },
+    {
+     "user": "ht_s",
+     "label": "none",
+     "score": 0.5887
+    },
+    {
+     "user": "nowww",
+     "label": "none",
+     "score": 0.6325
+    },
+    {
+     "user": "osakana110",
+     "label": "none",
+     "score": 0.7561
+    },
+    {
+     "user": "hanaharu_maru",
+     "label": "none",
+     "score": 0.7497
+    },
+    {
+     "user": "rad-4",
+     "label": "none",
+     "score": 0.6313
+    },
+    {
+     "user": "murlock",
+     "label": "none",
+     "score": 0.7724
+    },
+    {
+     "user": "qq3",
+     "label": "none",
+     "score": 0.718
+    },
+    {
+     "user": "anatadehanai",
+     "label": "none",
+     "score": 0.7805
+    },
+    {
+     "user": "ET777",
+     "label": "none",
+     "score": 0.6374
+    },
+    {
+     "user": "kobito19",
+     "label": "none",
+     "score": 0.7474
+    },
+    {
+     "user": "sametashark",
+     "label": "none",
+     "score": 0.748
+    },
+    {
+     "user": "igni3",
+     "label": "none",
+     "score": 0.454
+    },
+    {
+     "user": "gcyn",
+     "label": "none",
+     "score": 0.7867
+    },
+    {
+     "user": "shibainu46",
+     "label": "none",
+     "score": 0.6004
+    },
+    {
+     "user": "shoh8",
+     "label": "none",
+     "score": 0.7332
+    },
+    {
+     "user": "hurafula",
+     "label": "none",
+     "score": 0.6974
+    },
+    {
+     "user": "ayumun",
+     "label": "none",
+     "score": 0.5884
+    },
+    {
+     "user": "tadasukeneko",
+     "label": "none",
+     "score": 0.6678
+    },
+    {
+     "user": "yuhu6009hi",
+     "label": "none",
+     "score": 0.7541
+    },
+    {
+     "user": "dmekaricomposite",
+     "label": "none",
+     "score": 0.7093
+    },
+    {
+     "user": "ikanosuke",
+     "label": "none",
+     "score": 0.6007
+    },
+    {
+     "user": "oO_TOJIMAME_Oo",
+     "label": "none",
+     "score": 0.8137
+    },
+    {
+     "user": "iiko_1115",
+     "label": "none",
+     "score": 0.8252
+    },
+    {
+     "user": "ssssschang",
+     "label": "none",
+     "score": 0.7403
+    },
+    {
+     "user": "strange",
+     "label": "none",
+     "score": 0.8278
+    },
+    {
+     "user": "dada_love",
+     "label": "none",
+     "score": 0.531
+    },
+    {
+     "user": "opaopachang",
+     "label": "none",
+     "score": 0.8125
+    },
+    {
+     "user": "miumi_lr",
+     "label": "none",
+     "score": 0.7571
+    },
+    {
+     "user": "DIEVOLD",
+     "label": "none",
+     "score": 0.7921
+    },
+    {
+     "user": "toro-chan",
+     "label": "none",
+     "score": 0.7275
+    },
+    {
+     "user": "question_marker",
+     "label": "none",
+     "score": 0.7627
+    },
+    {
+     "user": "Shinwiki",
+     "label": "none",
+     "score": 0.7665
+    },
+    {
+     "user": "pinefield99",
+     "label": "none",
+     "score": 0.8219
+    },
+    {
+     "user": "ustam",
+     "label": "none",
+     "score": 0.7046
+    },
+    {
+     "user": "cider_kondo",
+     "label": "none",
+     "score": 0.8017
+    },
+    {
+     "user": "kenzy_n",
+     "label": "none",
+     "score": 0.5985
+    },
+    {
+     "user": "karaage280",
+     "label": "none",
+     "score": 0.7712
+    },
+    {
+     "user": "preciar",
+     "label": "none",
+     "score": 0.7467
+    },
+    {
+     "user": "nihano",
+     "label": "none",
+     "score": 0.7918
+    },
+    {
+     "user": "cha16",
+     "label": "none",
+     "score": 0.7665
+    },
+    {
+     "user": "mouseion",
+     "label": "none",
+     "score": 0.7383
+    },
+    {
+     "user": "death6coin",
+     "label": "none",
+     "score": 0.6697
+    },
+    {
+     "user": "unpaku",
+     "label": "none",
+     "score": 0.6133
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.7498
+    }
+   ],
+   "suspicion": 0.05263157894736842
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261012110842",
+   "title": "普段女性の福祉に関心の高い人たちがHPVワクチンの話題に参加してない理由",
+   "bookmark_count": 135,
+   "bookmarked_at": "2026-10-12T02:09:48+00:00",
+   "first_seen": "2026-10-12T15:26:15.847999+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1632,
+     "fact": 0.8368
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 22,
+   "comment_count": 68,
+   "gap": 0.1632,
+   "narrative": 0.0168,
+   "comments": [
+    {
+     "user": "pendamadura",
+     "label": "none",
+     "score": 0.7028
+    },
+    {
+     "user": "wonodas",
+     "label": "none",
+     "score": 0.7808
+    },
+    {
+     "user": "goadbin_2",
+     "label": "none",
+     "score": 0.7521
+    },
+    {
+     "user": "gun_kata",
+     "label": "fact",
+     "score": 0.7186
+    },
+    {
+     "user": "death_yasude",
+     "label": "none",
+     "score": 0.7046
+    },
+    {
+     "user": "underhill",
+     "label": "none",
+     "score": 0.724
+    },
+    {
+     "user": "satomi_hanten",
+     "label": "none",
+     "score": 0.7104
+    },
+    {
+     "user": "yingze",
+     "label": "none",
+     "score": 0.5599
+    },
+    {
+     "user": "helium3",
+     "label": "none",
+     "score": 0.6439
+    },
+    {
+     "user": "aox",
+     "label": "none",
+     "score": 0.5028
+    },
+    {
+     "user": "niwakano18124",
+     "label": "fact",
+     "score": 0.5714
+    },
+    {
+     "user": "hecaton55",
+     "label": "none",
+     "score": 0.5239
+    },
+    {
+     "user": "hunglysheep1",
+     "label": "fact",
+     "score": 0.624
+    },
+    {
+     "user": "natu3kan",
+     "label": "fact",
+     "score": 0.5027
+    },
+    {
+     "user": "ktaz",
+     "label": "none",
+     "score": 0.4905
+    },
+    {
+     "user": "preciar",
+     "label": "fact",
+     "score": 0.5823
+    },
+    {
+     "user": "rider250",
+     "label": "fact",
+     "score": 0.6447
+    },
+    {
+     "user": "saikorohausu",
+     "label": "none",
+     "score": 0.7425
+    },
+    {
+     "user": "tori29san",
+     "label": "none",
+     "score": 0.5158
+    },
+    {
+     "user": "babi1234567890",
+     "label": "none",
+     "score": 0.6942
+    },
+    {
+     "user": "skgctom",
+     "label": "fact",
+     "score": 0.591
+    },
+    {
+     "user": "kitchenkabu",
+     "label": "fact",
+     "score": 0.8272
+    },
+    {
+     "user": "death6coin",
+     "label": "fact",
+     "score": 0.6907
+    },
+    {
+     "user": "wk_ss",
+     "label": "none",
+     "score": 0.6127
+    },
+    {
+     "user": "bokkou",
+     "label": "fact",
+     "score": 0.7623
+    },
+    {
+     "user": "otologie",
+     "label": "none",
+     "score": 0.7702
+    },
+    {
+     "user": "mkotatsu",
+     "label": "none",
+     "score": 0.5891
+    },
+    {
+     "user": "yn3n",
+     "label": "fact",
+     "score": 0.7392
+    },
+    {
+     "user": "hammam",
+     "label": "none",
+     "score": 0.498
+    },
+    {
+     "user": "kingkero",
+     "label": "fact",
+     "score": 0.6018
+    },
+    {
+     "user": "mito2",
+     "label": "fact",
+     "score": 0.5178
+    },
+    {
+     "user": "edamametomato",
+     "label": "none",
+     "score": 0.621
+    },
+    {
+     "user": "lacucaracha",
+     "label": "none",
+     "score": 0.7228
+    },
+    {
+     "user": "differential",
+     "label": "none",
+     "score": 0.5105
+    },
+    {
+     "user": "T-anal",
+     "label": "none",
+     "score": 0.6554
+    },
+    {
+     "user": "yas-mal",
+     "label": "none",
+     "score": 0.5979
+    },
+    {
+     "user": "iiko_1115",
+     "label": "none",
+     "score": 0.7145
+    },
+    {
+     "user": "sunamandala",
+     "label": "none",
+     "score": 0.7074
+    },
+    {
+     "user": "evans7",
+     "label": "fact",
+     "score": 0.5364
+    },
+    {
+     "user": "Mr_noise",
+     "label": "fact",
+     "score": 0.507
+    },
+    {
+     "user": "charun",
+     "label": "none",
+     "score": 0.6307
+    },
+    {
+     "user": "toro-chan",
+     "label": "none",
+     "score": 0.6573
+    },
+    {
+     "user": "Aion_0913",
+     "label": "none",
+     "score": 0.586
+    },
+    {
+     "user": "munioka303",
+     "label": "fact",
+     "score": 0.5966
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "none",
+     "score": 0.6811
+    },
+    {
+     "user": "koinobori",
+     "label": "none",
+     "score": 0.6178
+    },
+    {
+     "user": "katz3",
+     "label": "fact",
+     "score": 0.5552
+    },
+    {
+     "user": "TakenokoGod",
+     "label": "none",
+     "score": 0.7172
+    },
+    {
+     "user": "ephedrina",
+     "label": "none",
+     "score": 0.6506
+    },
+    {
+     "user": "hutaai774a7b",
+     "label": "none",
+     "score": 0.6994
+    },
+    {
+     "user": "psne",
+     "label": "none",
+     "score": 0.6483
+    },
+    {
+     "user": "buluffel_branche",
+     "label": "none",
+     "score": 0.5032
+    },
+    {
+     "user": "worris",
+     "label": "none",
+     "score": 0.6606
+    },
+    {
+     "user": "toria_ezu1",
+     "label": "none",
+     "score": 0.6925
+    },
+    {
+     "user": "aquatofana",
+     "label": "fact",
+     "score": 0.5515
+    },
+    {
+     "user": "atlas_estrela",
+     "label": "none",
+     "score": 0.7081
+    },
+    {
+     "user": "Shiori115",
+     "label": "none",
+     "score": 0.5198
+    },
+    {
+     "user": "Kandata",
+     "label": "fact",
+     "score": 0.6752
+    },
+    {
+     "user": "DIEVOLD",
+     "label": "none",
+     "score": 0.6874
+    },
+    {
+     "user": "gangan-56592",
+     "label": "none",
+     "score": 0.6533
+    },
+    {
+     "user": "mutinomuti",
+     "label": "fact",
+     "score": 0.5252
+    },
+    {
+     "user": "cinefuk",
+     "label": "none",
+     "score": 0.7331
+    },
+    {
+     "user": "ayumun",
+     "label": "fact",
+     "score": 0.5059
+    },
+    {
+     "user": "rna",
+     "label": "none",
+     "score": 0.6841
+    },
+    {
+     "user": "WildWideWeb",
+     "label": "fact",
+     "score": 0.5024
+    },
+    {
+     "user": "crimson_diamond",
+     "label": "none",
+     "score": 0.5495
+    },
+    {
+     "user": "fut573",
+     "label": "none",
+     "score": 0.5257
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.5212
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261011213759",
    "title": "花火で隣の人に話せばよかった",
    "bookmark_count": 73,
