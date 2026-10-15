@@ -525,6 +525,142 @@
    "suspicion": 0.0
   },
   {
+   "url": "https://anond.hatelabo.jp/20261014172555",
+   "title": "お前どっから出てきたの？のキャラがヒロイン（またはヒーロー）とくっつく漫画、アニメを教えて",
+   "bookmark_count": 33,
+   "bookmarked_at": "2026-10-14T08:26:27+00:00",
+   "first_seen": "2026-10-15T17:01:21.812395+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1627,
+     "fact": 0.8373
+    }
+   },
+   "crowd": null,
+   "mentions": 2,
+   "comment_count": 23,
+   "gap": null,
+   "narrative": 0.0239,
+   "comments": [
+    {
+     "user": "princo_matsuri",
+     "label": "none",
+     "score": 0.6877
+    },
+    {
+     "user": "lone-dog",
+     "label": "none",
+     "score": 0.4749
+    },
+    {
+     "user": "dhrname",
+     "label": "none",
+     "score": 0.5548
+    },
+    {
+     "user": "Hagalaz",
+     "label": "fiction",
+     "score": 0.4471
+    },
+    {
+     "user": "cider_kondo",
+     "label": "none",
+     "score": 0.7151
+    },
+    {
+     "user": "InvisibleStar",
+     "label": "none",
+     "score": 0.7189
+    },
+    {
+     "user": "behuckleberry02",
+     "label": "none",
+     "score": 0.4938
+    },
+    {
+     "user": "rosaline",
+     "label": "none",
+     "score": 0.5623
+    },
+    {
+     "user": "maxk1",
+     "label": "none",
+     "score": 0.5441
+    },
+    {
+     "user": "nowa_s",
+     "label": "none",
+     "score": 0.6115
+    },
+    {
+     "user": "sovietrockets",
+     "label": "none",
+     "score": 0.6143
+    },
+    {
+     "user": "saikyo_tongaricorn",
+     "label": "none",
+     "score": 0.5974
+    },
+    {
+     "user": "m7g6s",
+     "label": "none",
+     "score": 0.6447
+    },
+    {
+     "user": "mujisoshina",
+     "label": "fact",
+     "score": 0.548
+    },
+    {
+     "user": "alpinix",
+     "label": "none",
+     "score": 0.6797
+    },
+    {
+     "user": "yamasina67",
+     "label": "none",
+     "score": 0.6469
+    },
+    {
+     "user": "yujimi-daifuku-2222",
+     "label": "none",
+     "score": 0.6105
+    },
+    {
+     "user": "July1st2017",
+     "label": "none",
+     "score": 0.7047
+    },
+    {
+     "user": "njsjn",
+     "label": "none",
+     "score": 0.7085
+    },
+    {
+     "user": "srgy",
+     "label": "none",
+     "score": 0.5016
+    },
+    {
+     "user": "c_shiika",
+     "label": "none",
+     "score": 0.637
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.6422
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.6405
+    }
+   ],
+   "suspicion": 0.043478260869565216
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261014133307",
    "title": "パンの袋を皿替わりにして上に置くやつきたねえって思わないのか？",
    "bookmark_count": 43,
@@ -704,6 +840,147 @@
      "user": "nguyen-oi",
      "label": "none",
      "score": 0.5729
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261014112823",
+   "title": "何きっかけでガンダムに興味を持ってもいいけどさ",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-10-14T02:33:41+00:00",
+   "first_seen": "2026-10-15T17:01:21.812395+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.071,
+     "fact": 0.929
+    }
+   },
+   "crowd": null,
+   "mentions": 2,
+   "comment_count": 24,
+   "gap": null,
+   "narrative": 0.0288,
+   "comments": [
+    {
+     "user": "u4k",
+     "label": "none",
+     "score": 0.4547
+    },
+    {
+     "user": "death_yasude",
+     "label": "none",
+     "score": 0.6802
+    },
+    {
+     "user": "sugachannel",
+     "label": "none",
+     "score": 0.5992
+    },
+    {
+     "user": "mogmogkuma",
+     "label": "none",
+     "score": 0.5471
+    },
+    {
+     "user": "Pinballwiz",
+     "label": "none",
+     "score": 0.4019
+    },
+    {
+     "user": "tyuke",
+     "label": "none",
+     "score": 0.6284
+    },
+    {
+     "user": "kisiritooru",
+     "label": "none",
+     "score": 0.6905
+    },
+    {
+     "user": "zefiro01",
+     "label": "none",
+     "score": 0.6799
+    },
+    {
+     "user": "kagerou_ts",
+     "label": "none",
+     "score": 0.7068
+    },
+    {
+     "user": "inazuma2073",
+     "label": "fact",
+     "score": 0.4919
+    },
+    {
+     "user": "jou2",
+     "label": "none",
+     "score": 0.7566
+    },
+    {
+     "user": "umaway",
+     "label": "fact",
+     "score": 0.693
+    },
+    {
+     "user": "suihan74",
+     "label": "none",
+     "score": 0.7529
+    },
+    {
+     "user": "curonod",
+     "label": "none",
+     "score": 0.4635
+    },
+    {
+     "user": "pIed",
+     "label": "none",
+     "score": 0.7132
+    },
+    {
+     "user": "ka-ka_xyz",
+     "label": "none",
+     "score": 0.7214
+    },
+    {
+     "user": "saikyo_tongaricorn",
+     "label": "none",
+     "score": 0.5712
+    },
+    {
+     "user": "gnoname",
+     "label": "none",
+     "score": 0.6189
+    },
+    {
+     "user": "mouki0911",
+     "label": "none",
+     "score": 0.7257
+    },
+    {
+     "user": "seiyakengo",
+     "label": "none",
+     "score": 0.5796
+    },
+    {
+     "user": "TakenokoGod",
+     "label": "none",
+     "score": 0.7162
+    },
+    {
+     "user": "dekaino",
+     "label": "none",
+     "score": 0.6213
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.6389
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.7596
     }
    ],
    "suspicion": 0.0
