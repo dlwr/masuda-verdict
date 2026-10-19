@@ -795,6 +795,180 @@
    "suspicion": 0.20588235294117646
   },
   {
+   "url": "https://anond.hatelabo.jp/20261018113048",
+   "title": "三大元は一つだったものが分裂して再び合体するもの",
+   "bookmark_count": 35,
+   "bookmarked_at": "2026-10-18T02:30:54+00:00",
+   "first_seen": "2026-10-19T22:21:37.172180+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.8779,
+     "fact": 0.1221
+    }
+   },
+   "crowd": {
+    "fiction": 0.8,
+    "fact": 0.2
+   },
+   "mentions": 5,
+   "comment_count": 30,
+   "gap": 0.0779,
+   "narrative": 0.0364,
+   "comments": [
+    {
+     "user": "trashcan",
+     "label": "fiction",
+     "score": 0.4606
+    },
+    {
+     "user": "theNULLPO",
+     "label": "none",
+     "score": 0.5181
+    },
+    {
+     "user": "cider_kondo",
+     "label": "none",
+     "score": 0.4581
+    },
+    {
+     "user": "flirt774",
+     "label": "none",
+     "score": 0.5793
+    },
+    {
+     "user": "agricola",
+     "label": "none",
+     "score": 0.4376
+    },
+    {
+     "user": "furutanikaede",
+     "label": "none",
+     "score": 0.4766
+    },
+    {
+     "user": "algot",
+     "label": "none",
+     "score": 0.4541
+    },
+    {
+     "user": "nagaichi",
+     "label": "fiction",
+     "score": 0.4261
+    },
+    {
+     "user": "casm",
+     "label": "fiction",
+     "score": 0.4703
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.4102
+    },
+    {
+     "user": "poison-tukki",
+     "label": "none",
+     "score": 0.5516
+    },
+    {
+     "user": "yojik",
+     "label": "none",
+     "score": 0.5473
+    },
+    {
+     "user": "bbrinri",
+     "label": "none",
+     "score": 0.5073
+    },
+    {
+     "user": "SPIRIT_PHOENIX",
+     "label": "none",
+     "score": 0.6054
+    },
+    {
+     "user": "aramaaaa",
+     "label": "none",
+     "score": 0.6973
+    },
+    {
+     "user": "pribetch",
+     "label": "none",
+     "score": 0.5397
+    },
+    {
+     "user": "c_shiika",
+     "label": "none",
+     "score": 0.6099
+    },
+    {
+     "user": "giteki",
+     "label": "fiction",
+     "score": 0.4414
+    },
+    {
+     "user": "allezvous",
+     "label": "none",
+     "score": 0.5766
+    },
+    {
+     "user": "BigWhiteDog",
+     "label": "fact",
+     "score": 0.4642
+    },
+    {
+     "user": "megane1972",
+     "label": "none",
+     "score": 0.5415
+    },
+    {
+     "user": "tmpus",
+     "label": "none",
+     "score": 0.5303
+    },
+    {
+     "user": "limlim",
+     "label": "none",
+     "score": 0.5303
+    },
+    {
+     "user": "dkanikama",
+     "label": "none",
+     "score": 0.6513
+    },
+    {
+     "user": "Shiori115",
+     "label": "none",
+     "score": 0.4507
+    },
+    {
+     "user": "mujisoshina",
+     "label": "none",
+     "score": 0.4616
+    },
+    {
+     "user": "ilktm",
+     "label": "none",
+     "score": 0.585
+    },
+    {
+     "user": "srgy",
+     "label": "none",
+     "score": 0.4583
+    },
+    {
+     "user": "Ri-fie",
+     "label": "none",
+     "score": 0.6842
+    },
+    {
+     "user": "ysykmzo",
+     "label": "none",
+     "score": 0.506
+    }
+   ],
+   "suspicion": 0.13333333333333333
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261018080237",
    "title": "ゴディバってコラボし過ぎてブランド価値が減り、売上減ってるらしいね",
    "bookmark_count": 132,
