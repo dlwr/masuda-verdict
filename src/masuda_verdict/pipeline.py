@@ -12,6 +12,8 @@ log = logging.getLogger(__name__)
 
 SETTLE_PERIOD = timedelta(hours=24)
 NARRATIVE_THRESHOLD = 0.5
+BACKFILL_TOP_N = 30
+BACKFILL_MAX_COMMENTS = 50
 BODY_MAX_CHARS = 4000
 
 _QUESTIONS = json.loads(files(__package__).joinpath("questions.json").read_text())
@@ -20,7 +22,7 @@ COMMENT_QUESTION = Question(**_QUESTIONS["comment"])
 NARRATIVE_QUESTION = Question(**_QUESTIONS["narrative"])
 
 
-def collect(store: Store, entries: list[HotEntry], now: datetime) -> None:
+def collect(store: Store, entries: list[HotEntry], now: datetime, backfill: bool = False) -> None:
     seen = {r["url"] for r in store.read("seen")}
     for e in entries:
         if e.url in seen:
@@ -33,6 +35,7 @@ def collect(store: Store, entries: list[HotEntry], now: datetime) -> None:
                 "bookmark_count": e.bookmark_count,
                 "bookmarked_at": datetime.fromisoformat(e.bookmarked_at).isoformat(),
                 "first_seen": now.isoformat(),
+                **({"backfill": True} if backfill else {}),
             },
             now,
         )
@@ -44,7 +47,9 @@ def due_entries(store: Store, now: datetime) -> list[dict]:
     return [
         r
         for r in store.read("seen")
-        if r["url"] not in judged and datetime.fromisoformat(r["bookmarked_at"]) + SETTLE_PERIOD <= now
+        if r["url"] not in judged
+        and not r.get("backfill")
+        and datetime.fromisoformat(r["bookmarked_at"]) + SETTLE_PERIOD <= now
     ]
 
 
@@ -69,10 +74,10 @@ def _is_experience(store, url):
     return probs is not None and probs.get("experience", 0.0) >= NARRATIVE_THRESHOLD
 
 
-def _judge_comments(store, entry, fetch_comments, primary, now):
+def _judge_comments(store, entry, fetch_comments, primary, now, max_comments=None):
     url = entry["url"]
     done_users = {r["user"] for r in store.read("comment_verdicts") if r["url"] == url}
-    for c in fetch_comments(url):
+    for c in fetch_comments(url)[:max_comments]:
         if c.user in done_users:
             continue
         probs = primary.decide(f"記事タイトル: {entry['title']}\nブックマークコメント: {c.comment}", COMMENT_QUESTION)
@@ -120,11 +125,33 @@ def judge_due(
 ) -> None:
     judged = {r["url"] for r in store.read("judged")}
     narrated = {r["url"] for r in store.read("narrative_verdicts")}
-    backfill = [r for r in store.read("seen") if r["url"] in judged and r["url"] not in narrated]
+    unnarrated = [r for r in store.read("seen") if r["url"] in judged and r["url"] not in narrated]
     try:
-        for entry in backfill:
+        for entry in unnarrated:
             _judge_body(store, entry, fetch_body, primary, [], now)
         for entry in due_entries(store, now):
             judge_entry(store, entry, fetch_body, fetch_comments, primary, optional_body_deciders, now)
+        _judge_backfill(store, fetch_body, fetch_comments, primary, now)
     except CarryOver as e:
         log.info("carrying over: %s", e)
+
+
+def _judge_backfill(store, fetch_body, fetch_comments, primary, now):
+    entries = [r for r in store.read("seen") if r.get("backfill")]
+    narrated = {r["url"] for r in store.read("narrative_verdicts")}
+    for entry in entries:
+        if entry["url"] not in narrated:
+            _judge_body(store, entry, fetch_body, primary, [], now)
+
+    fiction = {r["url"]: r["probs"]["fiction"] for r in store.read("body_verdicts") if r["model"] == primary.name}
+    candidates = sorted(
+        (e for e in entries if e["url"] in fiction and _is_experience(store, e["url"])),
+        key=lambda e: fiction[e["url"]],
+        reverse=True,
+    )[:BACKFILL_TOP_N]
+    judged = {r["url"] for r in store.read("judged")}
+    for entry in candidates:
+        if entry["url"] in judged:
+            continue
+        _judge_comments(store, entry, fetch_comments, primary, now, max_comments=BACKFILL_MAX_COMMENTS)
+        store.append("judged", {"url": entry["url"], "judged_at": now.isoformat()}, now)

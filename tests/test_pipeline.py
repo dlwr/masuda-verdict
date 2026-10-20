@@ -5,6 +5,8 @@ import pytest
 from masuda_verdict.deciders import CarryOver
 from masuda_verdict.hatena import BookmarkComment, HotEntry
 from masuda_verdict.pipeline import (
+    BACKFILL_MAX_COMMENTS,
+    BACKFILL_TOP_N,
     BODY_QUESTION,
     COMMENT_QUESTION,
     NARRATIVE_QUESTION,
@@ -283,3 +285,117 @@ def test_judge_entry_marks_judged_when_not_experience(store):
 def test_judge_entry_skips_comments_when_deleted(store):
     judge(store, FixedDecider("clef", {"experience": 1.0, "fiction": 1.0}), body=None)
     assert list(store.read("comment_verdicts")) == []
+
+
+def test_collect_marks_backfill_entries(store):
+    collect(store, [HotEntry(URL, "嫁が出ていった", 150, "2019-10-31T08:51:00+09:00")], NOW, backfill=True)
+    assert [r["backfill"] for r in store.read("seen")] == [True]
+
+
+def test_due_entries_excludes_backfill(store):
+    store.append("seen", {**seen_record(), "backfill": True}, NOW)
+    assert due_entries(store, NOW) == []
+
+
+class BackfillDecider(FixedDecider):
+    def __init__(self, fiction_by_url_id, experience=0.9):
+        super().__init__("clef", {})
+        self.fiction_by_url_id = fiction_by_url_id
+        self.experience = experience
+        self.comment_inputs = []
+
+    def decide(self, text, question):
+        if question is COMMENT_QUESTION:
+            self.comment_inputs.append(text)
+            return {"fiction": 1.0, "fact": 0.0, "none": 0.0}
+        if question is NARRATIVE_QUESTION:
+            return {"experience": self.experience, "other": 1 - self.experience}
+        fiction = next(v for k, v in self.fiction_by_url_id.items() if text.split("\n")[0] == f"タイトル: {k}")
+        return {"fiction": fiction, "fact": 1 - fiction}
+
+
+def seed_backfill(store, fictions):
+    for i, _ in enumerate(fictions):
+        store.append(
+            "seen",
+            {**seen_record(url=f"https://anond.hatelabo.jp/b{i}"), "title": f"b{i}", "backfill": True},
+            NOW,
+        )
+    return BackfillDecider({f"b{i}": f for i, f in enumerate(fictions)})
+
+
+def run_backfill(store, decider, comments=None):
+    comments = comments or [BookmarkComment("alice", "2026/10/08 14:01", "創作乙")]
+    judge_due(
+        store,
+        fetch_body=lambda url: "本文",
+        fetch_comments=lambda url: comments,
+        primary=decider,
+        optional_body_deciders=[],
+        now=NOW,
+    )
+
+
+def test_judge_due_judges_backfill_bodies(store):
+    run_backfill(store, seed_backfill(store, [0.1, 0.2, 0.3]))
+    assert len(list(store.read("body_verdicts"))) == 3
+
+
+def test_judge_due_judges_comments_only_for_top_fiction_backfill(store):
+    fictions = [0.1 * i for i in range(BACKFILL_TOP_N + 3)]
+    run_backfill(store, seed_backfill(store, fictions))
+    judged = {r["url"] for r in store.read("judged")}
+    expected = {f"https://anond.hatelabo.jp/b{i}" for i in range(3, BACKFILL_TOP_N + 3)}
+    assert judged == expected
+
+
+def test_judge_due_skips_backfill_comments_for_non_experience(store):
+    decider = seed_backfill(store, [0.9])
+    decider.experience = 0.1
+    run_backfill(store, decider)
+    assert list(store.read("judged")) == []
+
+
+def test_judge_due_caps_backfill_comments(store):
+    comments = [BookmarkComment(f"u{i}", "2026/10/08 14:01", "創作乙") for i in range(BACKFILL_MAX_COMMENTS + 5)]
+    decider = seed_backfill(store, [0.9])
+    run_backfill(store, decider, comments=comments)
+    assert len(decider.comment_inputs) == BACKFILL_MAX_COMMENTS
+
+
+def test_judge_due_waits_for_all_backfill_bodies_before_comments(store):
+    decider = seed_backfill(store, [0.9, 0.8])
+    store.append(
+        "narrative_verdicts",
+        {"url": "https://anond.hatelabo.jp/b0", "model": "clef", "probs": {"experience": 0.9}},
+        NOW,
+    )
+    store.append(
+        "body_verdicts", {"url": "https://anond.hatelabo.jp/b0", "model": "clef", "probs": {"fiction": 0.9}}, NOW
+    )
+
+    class StopsOnBody(BackfillDecider):
+        def decide(self, text, question):
+            if question is BODY_QUESTION:
+                raise CarryOver("quota")
+            return super().decide(text, question)
+
+    run_backfill(store, StopsOnBody(decider.fiction_by_url_id))
+    assert list(store.read("judged")) == []
+
+
+def test_judge_due_judges_live_entries_before_backfill(store):
+    store.append("seen", {**seen_record(url="https://anond.hatelabo.jp/b0"), "title": "b0", "backfill": True}, NOW)
+    store.append("seen", {**seen_record(), "title": "live"}, NOW)
+    decider = BackfillDecider({"b0": 0.9, "live": 0.5})
+    calls = []
+
+    class Recording(BackfillDecider):
+        def decide(self, text, question):
+            calls.append(text.split("\n")[0])
+            if len(calls) > 1:
+                raise CarryOver("quota")
+            return super().decide(text, question)
+
+    run_backfill(store, Recording(decider.fiction_by_url_id))
+    assert calls[0] == "タイトル: live"

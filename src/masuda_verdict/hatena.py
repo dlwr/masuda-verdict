@@ -4,6 +4,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 
 NS = {
@@ -68,6 +69,44 @@ def parse_anond_body(html: str) -> str | None:
     return parser.text
 
 
+JST = timezone(timedelta(hours=9))
+
+
+class _SiteEntriesParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.entries: list[dict] = []
+        self._field: str | None = None
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "a" and attrs.get("data-gtm-click-label") == "entry-info-title":
+            self.entries.append({"url": attrs["href"], "title": attrs["title"]})
+        elif tag == "a" and attrs.get("data-gtm-click-label") == "entry-info-users":
+            self._field = "users"
+        elif tag == "li" and attrs.get("class") == "entrylist-contents-date":
+            self._field = "date"
+
+    def handle_data(self, data):
+        if self._field and data.strip() and self.entries:
+            self.entries[-1][self._field] = data.strip()
+            self._field = None
+
+
+def parse_site_entries(html: str) -> list[HotEntry]:
+    parser = _SiteEntriesParser()
+    parser.feed(html)
+    return [
+        HotEntry(
+            url=e["url"],
+            title=e["title"],
+            bookmark_count=int(e["users"]),
+            bookmarked_at=datetime.strptime(e["date"], "%Y/%m/%d %H:%M").replace(tzinfo=JST).isoformat(),
+        )
+        for e in parser.entries
+    ]
+
+
 HOT_RSS_URL = "https://b.hatena.ne.jp/site/anond.hatelabo.jp/?mode=rss&sort=recent&threshold=30"
 USER_AGENT = "masuda-verdict (+https://github.com/dlwr/masuda-verdict)"
 
@@ -80,6 +119,10 @@ def _get(url: str) -> str:
 
 def fetch_hot_entries() -> list[HotEntry]:
     return parse_hot_rss(_get(HOT_RSS_URL))
+
+
+def fetch_popular_entries(page: int) -> list[HotEntry]:
+    return parse_site_entries(_get(f"https://b.hatena.ne.jp/site/anond.hatelabo.jp/?sort=count&page={page}"))
 
 
 def fetch_comments(url: str) -> list[BookmarkComment]:

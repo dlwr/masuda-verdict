@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import sys
+import time
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -33,6 +34,12 @@ def cmd_collect(store):
     collect(store, hatena.fetch_hot_entries(), datetime.now(UTC))
 
 
+def cmd_backfill(store, pages):
+    for page in pages:
+        collect(store, hatena.fetch_popular_entries(page), datetime.now(UTC), backfill=True)
+        time.sleep(1)
+
+
 def cmd_judge(store):
     primary, optional = build_deciders()
     judge_due(
@@ -54,9 +61,13 @@ def cmd_aggregate(store):
 def main(argv=None):
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser(prog="masuda_verdict")
-    parser.add_argument("command", choices=["collect", "judge", "aggregate"])
+    parser.add_argument("command", choices=["collect", "backfill", "judge", "aggregate"])
+    parser.add_argument("--pages", type=int, nargs=2, default=(1, 1), metavar=("FIRST", "LAST"))
     args = parser.parse_args(argv)
     store = Store(DATA_DIR)
+    if args.command == "backfill":
+        cmd_backfill(store, range(args.pages[0], args.pages[1] + 1))
+        return
     {"collect": cmd_collect, "judge": cmd_judge, "aggregate": cmd_aggregate}[args.command](store)
 
 
