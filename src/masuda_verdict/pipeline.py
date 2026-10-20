@@ -11,6 +11,7 @@ from .store import Store
 log = logging.getLogger(__name__)
 
 SETTLE_PERIOD = timedelta(hours=24)
+NARRATIVE_THRESHOLD = 0.5
 BODY_MAX_CHARS = 4000
 
 _QUESTIONS = json.loads(files(__package__).joinpath("questions.json").read_text())
@@ -58,7 +59,18 @@ def judge_entry(
 ) -> None:
     url = entry["url"]
     _judge_body(store, entry, fetch_body, primary, optional_body_deciders, now)
+    if _is_experience(store, url):
+        _judge_comments(store, entry, fetch_comments, primary, now)
+    store.append("judged", {"url": url, "judged_at": now.isoformat()}, now)
 
+
+def _is_experience(store, url):
+    probs = next((r["probs"] for r in store.read("narrative_verdicts") if r["url"] == url), None)
+    return probs is not None and probs.get("experience", 0.0) >= NARRATIVE_THRESHOLD
+
+
+def _judge_comments(store, entry, fetch_comments, primary, now):
+    url = entry["url"]
     done_users = {r["user"] for r in store.read("comment_verdicts") if r["url"] == url}
     for c in fetch_comments(url):
         if c.user in done_users:
@@ -69,8 +81,6 @@ def judge_entry(
             {"url": url, "user": c.user, "timestamp": c.timestamp, "model": primary.name, "probs": probs},
             now,
         )
-
-    store.append("judged", {"url": url, "judged_at": now.isoformat()}, now)
 
 
 def _judge_body(store, entry, fetch_body, primary, optional, now):
