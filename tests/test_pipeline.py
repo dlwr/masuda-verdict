@@ -116,7 +116,7 @@ def test_judge_entry_records_body_verdict_per_model(store):
 
 
 def test_judge_entry_records_comment_verdicts(store):
-    judge(store, FixedDecider("clef", {"fiction": 0.8, "none": 0.2}))
+    judge(store, FixedDecider("clef", {"experience": 1.0, "fiction": 0.8, "none": 0.2}))
     assert [(r["user"], r["probs"]["fiction"]) for r in store.read("comment_verdicts")] == [
         ("alice", 0.8),
         ("carol", 0.8),
@@ -129,7 +129,7 @@ def test_judge_entry_does_not_store_comment_text(store):
 
 
 def test_judge_entry_sends_title_with_comment(store):
-    clef = FixedDecider("clef", {"none": 1.0})
+    clef = FixedDecider("clef", {"experience": 1.0, "none": 1.0})
     judge(store, clef)
     assert "記事タイトル: 嫁が出ていった\nブックマークコメント: 創作乙" in clef.inputs
 
@@ -141,7 +141,7 @@ def test_judge_entry_marks_entry_judged(store):
 
 def test_judge_entry_skips_comments_already_judged(store):
     store.append("body_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
-    store.append("narrative_verdicts", {"url": URL, "model": "clef", "probs": {}}, NOW)
+    store.append("narrative_verdicts", {"url": URL, "model": "clef", "probs": {"experience": 1.0}}, NOW)
     store.append("comment_verdicts", {"url": URL, "user": "alice", "model": "clef", "probs": {}}, NOW)
     clef = FixedDecider("clef", {"none": 1.0})
     judge(store, clef)
@@ -267,4 +267,19 @@ def test_judge_due_backfill_does_not_rejudge_comments(store):
     store.append("seen", seen_record(), NOW)
     store.append("judged", {"url": URL, "judged_at": NOW.isoformat()}, NOW)
     run_judge_due(store, QuestionAwareDecider("clef"))
+    assert list(store.read("comment_verdicts")) == []
+
+
+def test_judge_entry_skips_comments_when_not_experience(store):
+    judge(store, FixedDecider("clef", {"other": 1.0, "fiction": 1.0}))
+    assert list(store.read("comment_verdicts")) == []
+
+
+def test_judge_entry_marks_judged_when_not_experience(store):
+    judge(store, FixedDecider("clef", {"other": 1.0, "fiction": 1.0}))
+    assert [r["url"] for r in store.read("judged")] == [URL]
+
+
+def test_judge_entry_skips_comments_when_deleted(store):
+    judge(store, FixedDecider("clef", {"experience": 1.0, "fiction": 1.0}), body=None)
     assert list(store.read("comment_verdicts")) == []
