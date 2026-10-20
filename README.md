@@ -4,7 +4,8 @@
 
 - GitHub Actions が6時間おきに人気エントリーを収集し、はてブ登録から24時間経ったものを判定する
 - 本文判定: Cloudflare Workers AI の Clef。`TYPESAFE_API_KEY` / `OPENAI_API_KEY` があれば Jev / OpenAI Decisions も並べる
-- ブコメ判定: 各コメントを Clef で「創作・事実・言及なし」に分類
+- ブコメ判定: 体験談と判定された増田だけ、各コメントを Clef で「創作・事実・言及なし」に分類
+- 過去エントリー（`backfill`）は本文判定を先に全件済ませ、体験談のうち創作確率の上位30件だけブコメ最新50件を判定する
 - 判定結果は `data/` に JSONL で追記する。ブコメ本文と増田本文は保存しない
 - サイトは `site/`（Astro）を GitHub Pages に置く
 - 任意の増田 URL の判定は `worker/`（Cloudflare Worker、`/api/judge?url=`）。本文とブコメ最新50件を Clef で判定する。IP ごとと全体でレート制限あり
@@ -16,6 +17,7 @@ mise install
 uv sync
 uv run pytest
 uv run python -m masuda_verdict collect    # 人気エントリーを data/seen に記録
+uv run python -m masuda_verdict backfill --pages 1 20  # はてブ人気順の過去エントリーを data/seen に記録
 uv run python -m masuda_verdict judge      # CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN が必要
 uv run python -m masuda_verdict aggregate  # site/src/data/summary.json を生成
 
