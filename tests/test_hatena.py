@@ -76,3 +76,7 @@ def test_parse_site_entries_returns_bookmark_counts():
 def test_parse_site_entries_returns_bookmarked_at_in_jst():
     entries = parse_site_entries((FIXTURES / "site_popular.html").read_text())
     assert [e.bookmarked_at for e in entries] == ["2026-09-06T22:27:00+09:00", "2019-10-31T08:51:00+09:00"]
+
+
+def test_parse_anond_body_falls_back_to_section_text():
+    assert parse_anond_body((FIXTURES / "anond_no_meta.html").read_text()) == "通勤通学のお供に\nランク1位"
