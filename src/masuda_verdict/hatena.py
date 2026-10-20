@@ -50,23 +50,50 @@ def parse_bookmarks(raw: str) -> list[BookmarkComment]:
     ]
 
 
-class _TextMetaParser(HTMLParser):
+class _BodyParser(HTMLParser):
+    BREAKS = {"p", "br", "div", "tr", "li", "blockquote", "pre"}
+
     def __init__(self):
         super().__init__()
-        self.text: str | None = None
+        self.meta_text: str | None = None
+        self.section: list[str] = []
+        self._state = "before"
+        self._in_h3 = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag == "meta" and attrs.get("itemprop") == "text" and self.text is None:
-            self.text = attrs.get("content")
+        if tag == "meta" and attrs.get("itemprop") == "text" and self.meta_text is None:
+            self.meta_text = attrs.get("content")
+        if self._state == "before" and tag == "div" and attrs.get("class") == "section":
+            self._state = "in"
+        elif self._state == "in":
+            if tag == "p" and attrs.get("class") == "sectionfooter":
+                self._state = "done"
+            elif tag == "h3":
+                self._in_h3 = True
+            elif tag in self.BREAKS:
+                self.section.append("\n")
 
     handle_startendtag = handle_starttag
 
+    def handle_endtag(self, tag):
+        if tag == "h3":
+            self._in_h3 = False
+
+    def handle_data(self, data):
+        if self._state == "in" and not self._in_h3:
+            self.section.append(data)
+
+    @property
+    def section_text(self) -> str | None:
+        lines = [line.strip() for line in "".join(self.section).splitlines()]
+        return "\n".join(line for line in lines if line) or None
+
 
 def parse_anond_body(html: str) -> str | None:
-    parser = _TextMetaParser()
+    parser = _BodyParser()
     parser.feed(html)
-    return parser.text
+    return parser.meta_text if parser.meta_text is not None else parser.section_text
 
 
 JST = timezone(timedelta(hours=9))
