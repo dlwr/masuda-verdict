@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261020222645",
+   "title": "嫌いなものをSNSという誰でも見れる所で言うしかない人って本当にそういう話が出来る身内がいないんだろうな〜と可哀想にも思うよ",
+   "bookmark_count": 154,
+   "bookmarked_at": "2026-10-20T13:27:54+00:00",
+   "first_seen": "2026-10-21T11:49:29.970128+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0839,
+     "fact": 0.9161
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.1638,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261020163759",
    "title": "結婚は「この人と一緒に人生を送りたい」と思える人間に出会えて初めて行..",
    "bookmark_count": 47,
@@ -20,6 +40,160 @@
    "narrative": 0.0993,
    "comments": [],
    "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261020174848",
+   "title": "FFをまったくやったことがない",
+   "bookmark_count": 33,
+   "bookmarked_at": "2026-10-20T10:02:49+00:00",
+   "first_seen": "2026-10-21T17:12:53.739961+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0948,
+     "fact": 0.9052
+    }
+   },
+   "crowd": {
+    "fiction": 0.125,
+    "fact": 0.875
+   },
+   "mentions": 8,
+   "comment_count": 26,
+   "gap": 0.030200000000000005,
+   "narrative": 0.6932,
+   "comments": [
+    {
+     "user": "poponponpon",
+     "label": "none",
+     "score": 0.5092
+    },
+    {
+     "user": "trailhead_l",
+     "label": "none",
+     "score": 0.6285
+    },
+    {
+     "user": "hryord",
+     "label": "none",
+     "score": 0.534
+    },
+    {
+     "user": "ywdc",
+     "label": "none",
+     "score": 0.4692
+    },
+    {
+     "user": "nori__3",
+     "label": "fact",
+     "score": 0.5191
+    },
+    {
+     "user": "hanaharu_maru",
+     "label": "none",
+     "score": 0.6155
+    },
+    {
+     "user": "YEPSKDy6",
+     "label": "none",
+     "score": 0.5783
+    },
+    {
+     "user": "azumashman",
+     "label": "none",
+     "score": 0.6828
+    },
+    {
+     "user": "mnnn",
+     "label": "fact",
+     "score": 0.6303
+    },
+    {
+     "user": "amnesia032",
+     "label": "none",
+     "score": 0.6417
+    },
+    {
+     "user": "shinme_chan",
+     "label": "none",
+     "score": 0.6428
+    },
+    {
+     "user": "ninosan",
+     "label": "fact",
+     "score": 0.5594
+    },
+    {
+     "user": "osaan",
+     "label": "fact",
+     "score": 0.4728
+    },
+    {
+     "user": "gonai",
+     "label": "none",
+     "score": 0.8073
+    },
+    {
+     "user": "mito2",
+     "label": "fact",
+     "score": 0.519
+    },
+    {
+     "user": "c_shiika",
+     "label": "none",
+     "score": 0.8085
+    },
+    {
+     "user": "colonoe",
+     "label": "none",
+     "score": 0.6684
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.4904
+    },
+    {
+     "user": "mujisoshina",
+     "label": "none",
+     "score": 0.6101
+    },
+    {
+     "user": "hirarinsatorin",
+     "label": "none",
+     "score": 0.6737
+    },
+    {
+     "user": "kageyomi",
+     "label": "fiction",
+     "score": 0.4424
+    },
+    {
+     "user": "kazuhix",
+     "label": "fact",
+     "score": 0.4987
+    },
+    {
+     "user": "Akech_ergo",
+     "label": "fact",
+     "score": 0.5742
+    },
+    {
+     "user": "jou2",
+     "label": "none",
+     "score": 0.69
+    },
+    {
+     "user": "srgy",
+     "label": "none",
+     "score": 0.5409
+    },
+    {
+     "user": "aukusoe",
+     "label": "none",
+     "score": 0.62
+    }
+   ],
+   "suspicion": 0.038461538461538464
   },
   {
    "url": "https://anond.hatelabo.jp/20261020173628",
