@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261020163759",
+   "title": "結婚は「この人と一緒に人生を送りたい」と思える人間に出会えて初めて行..",
+   "bookmark_count": 47,
+   "bookmarked_at": "2026-10-20T11:20:37+00:00",
+   "first_seen": "2026-10-20T17:10:45.771179+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.124,
+     "fact": 0.876
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0993,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261020173628",
+   "title": "ウィンドウズアップデートについて調べたらめちゃめちゃ面白かった",
+   "bookmark_count": 47,
+   "bookmarked_at": "2026-10-20T08:41:46+00:00",
+   "first_seen": "2026-10-20T17:10:45.771179+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.6816,
+     "fact": 0.3184
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0727,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261020115819",
    "title": "新聞ってタイパ悪いよな",
    "bookmark_count": 98,
