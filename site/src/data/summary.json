@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261021204804",
+   "title": "車で草原を走ると火災になる理由",
+   "bookmark_count": 122,
+   "bookmarked_at": "2026-10-21T11:58:24+00:00",
+   "first_seen": "2026-10-21T17:12:53.739961+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1101,
+     "fact": 0.8899
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0208,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261021191303",
    "title": "「ガンダム」とか「高校」って何を頭につけても受け止める度量があってすごい",
    "bookmark_count": 87,
