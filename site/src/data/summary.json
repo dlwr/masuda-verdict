@@ -2,6 +2,175 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261021134543",
+   "title": "電車の座席を気分が悪いから譲ってと言われたので、譲ったら偽善者って言われたんだけどね（譲った人に）",
+   "bookmark_count": 36,
+   "bookmarked_at": "2026-10-21T04:45:48+00:00",
+   "first_seen": "2026-10-21T17:12:53.739961+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0544,
+     "fact": 0.9456
+    }
+   },
+   "crowd": {
+    "fiction": 0.043478260869565216,
+    "fact": 0.9565217391304348
+   },
+   "mentions": 23,
+   "comment_count": 29,
+   "gap": 0.010921739130434798,
+   "narrative": 0.9844,
+   "comments": [
+    {
+     "user": "heaco65",
+     "label": "fact",
+     "score": 0.841
+    },
+    {
+     "user": "kazuau",
+     "label": "fact",
+     "score": 0.7539
+    },
+    {
+     "user": "Champion00",
+     "label": "none",
+     "score": 0.4839
+    },
+    {
+     "user": "softstone",
+     "label": "none",
+     "score": 0.4505
+    },
+    {
+     "user": "yuno001",
+     "label": "fact",
+     "score": 0.6281
+    },
+    {
+     "user": "behuckleberry02",
+     "label": "fact",
+     "score": 0.7348
+    },
+    {
+     "user": "princo_matsuri",
+     "label": "none",
+     "score": 0.4939
+    },
+    {
+     "user": "chobihige0725",
+     "label": "fact",
+     "score": 0.7874
+    },
+    {
+     "user": "samu_i",
+     "label": "fact",
+     "score": 0.4821
+    },
+    {
+     "user": "hatesas",
+     "label": "fact",
+     "score": 0.4902
+    },
+    {
+     "user": "firststar_hateno",
+     "label": "fact",
+     "score": 0.7768
+    },
+    {
+     "user": "differential",
+     "label": "fact",
+     "score": 0.582
+    },
+    {
+     "user": "mermaidtan",
+     "label": "fact",
+     "score": 0.5217
+    },
+    {
+     "user": "mats3003",
+     "label": "fact",
+     "score": 0.479
+    },
+    {
+     "user": "nmcli",
+     "label": "none",
+     "score": 0.4621
+    },
+    {
+     "user": "takamurasachi",
+     "label": "fact",
+     "score": 0.4405
+    },
+    {
+     "user": "hesopenn",
+     "label": "fact",
+     "score": 0.4063
+    },
+    {
+     "user": "Galaxy42",
+     "label": "fact",
+     "score": 0.6359
+    },
+    {
+     "user": "kniphofia",
+     "label": "fact",
+     "score": 0.822
+    },
+    {
+     "user": "ChillOut",
+     "label": "fact",
+     "score": 0.671
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "none",
+     "score": 0.4941
+    },
+    {
+     "user": "nisinouni",
+     "label": "fact",
+     "score": 0.8234
+    },
+    {
+     "user": "mak_in",
+     "label": "fact",
+     "score": 0.7436
+    },
+    {
+     "user": "yodogawa-kahan",
+     "label": "none",
+     "score": 0.4689
+    },
+    {
+     "user": "btoy",
+     "label": "fact",
+     "score": 0.5205
+    },
+    {
+     "user": "sutego386",
+     "label": "fact",
+     "score": 0.7981
+    },
+    {
+     "user": "b9rantan8",
+     "label": "fact",
+     "score": 0.4679
+    },
+    {
+     "user": "frothmouth",
+     "label": "fiction",
+     "score": 0.4531
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.4111
+    }
+   ],
+   "suspicion": 0.034482758620689655
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261020222645",
    "title": "嫌いなものをSNSという誰でも見れる所で言うしかない人って本当にそういう話が出来る身内がいないんだろうな〜と可哀想にも思うよ",
    "bookmark_count": 154,
