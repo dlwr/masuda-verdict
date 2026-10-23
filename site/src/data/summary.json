@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261022210501",
+   "title": "何でもかんでも特性だから って許容するムーブも如何なもんかと思う 病名ついたから、遅刻が許容されるんか？ それは不平等だよ　指摘もするさ",
+   "bookmark_count": 85,
+   "bookmarked_at": "2026-10-22T12:09:41+00:00",
+   "first_seen": "2026-10-23T11:39:30.728046+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2109,
+     "fact": 0.7891
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0769,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261022164810",
+   "title": "中国のドラマや実写映画、製作費が数億～数十億円って凄いよな 製作費が凄..",
+   "bookmark_count": 55,
+   "bookmarked_at": "2026-10-22T07:49:48+00:00",
+   "first_seen": "2026-10-23T17:07:25.370431+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0774,
+     "fact": 0.9226
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0386,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261021204804",
    "title": "車で草原を走ると火災になる理由",
    "bookmark_count": 122,
