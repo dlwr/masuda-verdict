@@ -231,6 +231,26 @@
    "suspicion": 0.034482758620689655
   },
   {
+   "url": "https://anond.hatelabo.jp/20261021082709",
+   "title": "超かぐや姫の脚本は素人仕事なのだ",
+   "bookmark_count": 42,
+   "bookmarked_at": "2026-10-20T23:42:57+00:00",
+   "first_seen": "2026-10-23T04:49:35.446887+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0612,
+     "fact": 0.9388
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0422,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261020222645",
    "title": "嫌いなものをSNSという誰でも見れる所で言うしかない人って本当にそういう話が出来る身内がいないんだろうな〜と可哀想にも思うよ",
    "bookmark_count": 154,
