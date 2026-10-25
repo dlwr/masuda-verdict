@@ -2,6 +2,41 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261024153649",
+   "title": "​ちいかわやガチャガチャや平成レトロが流行る日本社会と麻酔の切れ目について",
+   "bookmark_count": 59,
+   "bookmarked_at": "2026-10-24T07:06:31+00:00",
+   "first_seen": "2026-10-24T15:57:46.034885+00:00",
+   "models": {},
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": null,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261024135844",
+   "title": "出産の女性依存、さらには個人依存を止めよう",
+   "bookmark_count": 165,
+   "bookmarked_at": "2026-10-24T05:10:02+00:00",
+   "first_seen": "2026-10-25T04:41:43.332731+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.688,
+     "fact": 0.312
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0139,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261024132506",
    "title": "村上龍が亡くなった。今でも村上龍の言葉をスマホに入れて、悔しいことや迷ったときに読み返してる",
    "bookmark_count": 195,
