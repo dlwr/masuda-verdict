@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261024203605",
+   "title": "日曜日だからチョコレートサンデー食べよっと みたいな女性と結婚したい",
+   "bookmark_count": 84,
+   "bookmarked_at": "2026-10-24T13:14:27+00:00",
+   "first_seen": "2026-10-25T04:41:43.332731+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7285,
+     "fact": 0.2715
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.1106,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261024153649",
    "title": "​ちいかわやガチャガチャや平成レトロが流行る日本社会と麻酔の切れ目について",
    "bookmark_count": 59,
