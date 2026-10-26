@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261025174119",
+   "title": "文筆もまた文化資本モリモリの世界で世襲もめちゃくちゃ多く 大したことないやつでもチヤホヤされてたり売れてたりする",
+   "bookmark_count": 42,
+   "bookmarked_at": "2026-10-25T08:41:48+00:00",
+   "first_seen": "2026-10-25T20:51:17.737127+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1233,
+     "fact": 0.8767
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0512,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261025134251",
    "title": "ノンアルコールビールがビールの代わりになるわけねえだろ",
    "bookmark_count": 42,
