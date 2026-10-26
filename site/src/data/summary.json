@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261025205655",
+   "title": "努力することが許されない",
+   "bookmark_count": 31,
+   "bookmarked_at": "2026-10-25T11:57:49+00:00",
+   "first_seen": "2026-10-26T22:40:32.078376+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0335,
+     "fact": 0.9665
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.3722,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261025174119",
    "title": "文筆もまた文化資本モリモリの世界で世襲もめちゃくちゃ多く 大したことないやつでもチヤホヤされてたり売れてたりする",
    "bookmark_count": 42,
