@@ -700,3 +700,6 @@
 {"url": "https://anond.hatelabo.jp/20261023211023", "model": "clef", "probs": {"experience": 0.0525, "other": 0.9475}}
 {"url": "https://anond.hatelabo.jp/20261025174119", "model": "clef", "probs": {"experience": 0.0512, "other": 0.9488}}
 {"url": "https://anond.hatelabo.jp/20261025205655", "model": "clef", "probs": {"experience": 0.3722, "other": 0.6278}}
+{"url": "https://anond.hatelabo.jp/20261026112847", "model": "clef", "probs": {"experience": 0.9474, "other": 0.0526}}
+{"url": "https://anond.hatelabo.jp/20261025215027", "model": "clef", "probs": null}
+{"url": "https://anond.hatelabo.jp/20261025152514", "model": "clef", "probs": {"experience": 0.1162, "other": 0.8838}}

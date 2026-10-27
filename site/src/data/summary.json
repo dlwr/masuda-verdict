@@ -2,6 +2,285 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261026112847",
+   "title": "ブラウン管テレビを購入した話",
+   "bookmark_count": 70,
+   "bookmarked_at": "2026-10-26T02:30:24+00:00",
+   "first_seen": "2026-10-27T05:05:19.030435+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0395,
+     "fact": 0.9605
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 29,
+   "comment_count": 48,
+   "gap": 0.03949999999999999,
+   "narrative": 0.9474,
+   "comments": [
+    {
+     "user": "Shinwiki",
+     "label": "none",
+     "score": 0.5515
+    },
+    {
+     "user": "hiroshima_pot",
+     "label": "fact",
+     "score": 0.7001
+    },
+    {
+     "user": "neputa",
+     "label": "fact",
+     "score": 0.8083
+    },
+    {
+     "user": "Journey",
+     "label": "none",
+     "score": 0.5398
+    },
+    {
+     "user": "n2sz",
+     "label": "fact",
+     "score": 0.8086
+    },
+    {
+     "user": "m50747",
+     "label": "fact",
+     "score": 0.8268
+    },
+    {
+     "user": "mantax",
+     "label": "none",
+     "score": 0.5037
+    },
+    {
+     "user": "omioni",
+     "label": "none",
+     "score": 0.5145
+    },
+    {
+     "user": "ma-ke",
+     "label": "fact",
+     "score": 0.7514
+    },
+    {
+     "user": "tyu-ba",
+     "label": "none",
+     "score": 0.5622
+    },
+    {
+     "user": "yarumato",
+     "label": "fact",
+     "score": 0.8222
+    },
+    {
+     "user": "murabits",
+     "label": "fact",
+     "score": 0.5311
+    },
+    {
+     "user": "demcoe",
+     "label": "fact",
+     "score": 0.6667
+    },
+    {
+     "user": "ryussy777",
+     "label": "fact",
+     "score": 0.8061
+    },
+    {
+     "user": "mujisoshina",
+     "label": "none",
+     "score": 0.4433
+    },
+    {
+     "user": "toyoshi",
+     "label": "fact",
+     "score": 0.5688
+    },
+    {
+     "user": "galvanometer",
+     "label": "none",
+     "score": 0.4908
+    },
+    {
+     "user": "UhoNiceGuy",
+     "label": "fact",
+     "score": 0.5129
+    },
+    {
+     "user": "mohno",
+     "label": "fact",
+     "score": 0.758
+    },
+    {
+     "user": "collectedseptember",
+     "label": "fact",
+     "score": 0.5595
+    },
+    {
+     "user": "nekojushoku",
+     "label": "none",
+     "score": 0.5502
+    },
+    {
+     "user": "daneojisan",
+     "label": "fact",
+     "score": 0.8241
+    },
+    {
+     "user": "saurel",
+     "label": "fact",
+     "score": 0.5202
+    },
+    {
+     "user": "yogasa",
+     "label": "none",
+     "score": 0.4744
+    },
+    {
+     "user": "domimimisoso",
+     "label": "none",
+     "score": 0.5156
+    },
+    {
+     "user": "hhungry",
+     "label": "none",
+     "score": 0.4887
+    },
+    {
+     "user": "crosscrow",
+     "label": "fact",
+     "score": 0.5507
+    },
+    {
+     "user": "irimodi",
+     "label": "fact",
+     "score": 0.7927
+    },
+    {
+     "user": "deep_one",
+     "label": "none",
+     "score": 0.485
+    },
+    {
+     "user": "mame_3",
+     "label": "fact",
+     "score": 0.6415
+    },
+    {
+     "user": "JORG",
+     "label": "fact",
+     "score": 0.5821
+    },
+    {
+     "user": "h-hirai",
+     "label": "fact",
+     "score": 0.7174
+    },
+    {
+     "user": "sekiu",
+     "label": "none",
+     "score": 0.6597
+    },
+    {
+     "user": "minoton",
+     "label": "fact",
+     "score": 0.6464
+    },
+    {
+     "user": "sowcod",
+     "label": "fact",
+     "score": 0.7476
+    },
+    {
+     "user": "dekaino",
+     "label": "none",
+     "score": 0.5664
+    },
+    {
+     "user": "curonod",
+     "label": "fact",
+     "score": 0.511
+    },
+    {
+     "user": "motimoti3",
+     "label": "fact",
+     "score": 0.6652
+    },
+    {
+     "user": "sunamandala",
+     "label": "none",
+     "score": 0.5169
+    },
+    {
+     "user": "sds-page",
+     "label": "fact",
+     "score": 0.4746
+    },
+    {
+     "user": "jerryb",
+     "label": "none",
+     "score": 0.5725
+    },
+    {
+     "user": "ami-go40",
+     "label": "none",
+     "score": 0.5199
+    },
+    {
+     "user": "ROYGB",
+     "label": "fact",
+     "score": 0.4905
+    },
+    {
+     "user": "narwhal",
+     "label": "none",
+     "score": 0.5588
+    },
+    {
+     "user": "hazlitt",
+     "label": "none",
+     "score": 0.5411
+    },
+    {
+     "user": "uynyannaylalswww",
+     "label": "fact",
+     "score": 0.6309
+    },
+    {
+     "user": "gui1",
+     "label": "fact",
+     "score": 0.6353
+    },
+    {
+     "user": "zeromoon0",
+     "label": "fact",
+     "score": 0.4567
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261025215027",
+   "title": "Not Found",
+   "bookmark_count": 44,
+   "bookmarked_at": "2026-10-25T12:56:35+00:00",
+   "first_seen": "2026-10-27T05:05:19.030435+00:00",
+   "models": {},
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": null,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261025205655",
    "title": "努力することが許されない",
    "bookmark_count": 31,
@@ -38,6 +317,26 @@
    "comment_count": 0,
    "gap": null,
    "narrative": 0.0512,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261025152514",
+   "title": "「読みやすい」に関する認識の相違について",
+   "bookmark_count": 75,
+   "bookmarked_at": "2026-10-25T06:25:50+00:00",
+   "first_seen": "2026-10-27T05:05:19.030435+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0292,
+     "fact": 0.9708
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.1162,
    "comments": [],
    "suspicion": null
   },
