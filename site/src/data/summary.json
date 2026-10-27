@@ -2,6 +2,350 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261026210957",
+   "title": "家庭科で「全員が結婚できるわけじゃない」って教育した方がいいな",
+   "bookmark_count": 77,
+   "bookmarked_at": "2026-10-26T12:10:02+00:00",
+   "first_seen": "2026-10-26T22:40:32.078376+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0761,
+     "fact": 0.9239
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0238,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261026210114",
+   "title": "ちいかわの映画を100回見た知り合いに驚いた",
+   "bookmark_count": 57,
+   "bookmarked_at": "2026-10-26T12:01:35+00:00",
+   "first_seen": "2026-10-27T05:05:19.030435+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0942,
+     "fact": 0.9058
+    }
+   },
+   "crowd": {
+    "fiction": 0.043478260869565216,
+    "fact": 0.9565217391304348
+   },
+   "mentions": 46,
+   "comment_count": 49,
+   "gap": 0.050721739130434776,
+   "narrative": 0.9718,
+   "comments": [
+    {
+     "user": "world24",
+     "label": "fact",
+     "score": 0.7134
+    },
+    {
+     "user": "abcdefghijklmnopqrstuvwxy5",
+     "label": "none",
+     "score": 0.5069
+    },
+    {
+     "user": "fluoride",
+     "label": "fact",
+     "score": 0.6414
+    },
+    {
+     "user": "wonodas",
+     "label": "fact",
+     "score": 0.52
+    },
+    {
+     "user": "kanimaster",
+     "label": "fact",
+     "score": 0.6833
+    },
+    {
+     "user": "rokusan36",
+     "label": "fact",
+     "score": 0.5988
+    },
+    {
+     "user": "scorelessdraw",
+     "label": "fact",
+     "score": 0.7923
+    },
+    {
+     "user": "tettekete37564",
+     "label": "fact",
+     "score": 0.7479
+    },
+    {
+     "user": "HDPE",
+     "label": "fact",
+     "score": 0.6396
+    },
+    {
+     "user": "byaa0001",
+     "label": "fact",
+     "score": 0.5037
+    },
+    {
+     "user": "welchman",
+     "label": "fact",
+     "score": 0.652
+    },
+    {
+     "user": "mnnn",
+     "label": "fact",
+     "score": 0.4854
+    },
+    {
+     "user": "urtz",
+     "label": "fact",
+     "score": 0.6901
+    },
+    {
+     "user": "hatechan09",
+     "label": "fact",
+     "score": 0.4355
+    },
+    {
+     "user": "kyo1man",
+     "label": "fact",
+     "score": 0.5752
+    },
+    {
+     "user": "hamigakiniku",
+     "label": "fact",
+     "score": 0.6315
+    },
+    {
+     "user": "yondili",
+     "label": "fact",
+     "score": 0.6904
+    },
+    {
+     "user": "the108simulacra",
+     "label": "fact",
+     "score": 0.5968
+    },
+    {
+     "user": "pIed",
+     "label": "fact",
+     "score": 0.5189
+    },
+    {
+     "user": "bbbtttbbb",
+     "label": "none",
+     "score": 0.5133
+    },
+    {
+     "user": "atsuskp",
+     "label": "fact",
+     "score": 0.7392
+    },
+    {
+     "user": "tamachan429",
+     "label": "fact",
+     "score": 0.6078
+    },
+    {
+     "user": "nikumin",
+     "label": "fact",
+     "score": 0.8151
+    },
+    {
+     "user": "monacal",
+     "label": "fact",
+     "score": 0.8637
+    },
+    {
+     "user": "birisuken8574",
+     "label": "fiction",
+     "score": 0.6545
+    },
+    {
+     "user": "differential",
+     "label": "fact",
+     "score": 0.7347
+    },
+    {
+     "user": "colic_ppp",
+     "label": "fact",
+     "score": 0.5357
+    },
+    {
+     "user": "demcoe",
+     "label": "fact",
+     "score": 0.6883
+    },
+    {
+     "user": "Helfard",
+     "label": "fiction",
+     "score": 0.4361
+    },
+    {
+     "user": "roirrawedoc",
+     "label": "fact",
+     "score": 0.5771
+    },
+    {
+     "user": "suno88",
+     "label": "fact",
+     "score": 0.6558
+    },
+    {
+     "user": "neogratche",
+     "label": "fact",
+     "score": 0.5384
+    },
+    {
+     "user": "etr",
+     "label": "fact",
+     "score": 0.7484
+    },
+    {
+     "user": "curonod",
+     "label": "fact",
+     "score": 0.6539
+    },
+    {
+     "user": "otihateten3510",
+     "label": "fact",
+     "score": 0.637
+    },
+    {
+     "user": "sds-page",
+     "label": "fact",
+     "score": 0.6967
+    },
+    {
+     "user": "gimonfu_usr",
+     "label": "fact",
+     "score": 0.4752
+    },
+    {
+     "user": "atoh",
+     "label": "fact",
+     "score": 0.7491
+    },
+    {
+     "user": "circled",
+     "label": "fact",
+     "score": 0.5491
+    },
+    {
+     "user": "emiliors",
+     "label": "fact",
+     "score": 0.8587
+    },
+    {
+     "user": "njamota",
+     "label": "none",
+     "score": 0.5706
+    },
+    {
+     "user": "n2sz",
+     "label": "fact",
+     "score": 0.6337
+    },
+    {
+     "user": "RIP-1202",
+     "label": "fact",
+     "score": 0.7857
+    },
+    {
+     "user": "pegasus_A",
+     "label": "fact",
+     "score": 0.7012
+    },
+    {
+     "user": "niwaniwaniwauwaniwaniwaniwa",
+     "label": "fact",
+     "score": 0.7125
+    },
+    {
+     "user": "pikopikopan",
+     "label": "fact",
+     "score": 0.5202
+    },
+    {
+     "user": "dogdogfactory",
+     "label": "fact",
+     "score": 0.7769
+    },
+    {
+     "user": "wdnsdy",
+     "label": "fact",
+     "score": 0.84
+    },
+    {
+     "user": "iphone",
+     "label": "fact",
+     "score": 0.7545
+    }
+   ],
+   "suspicion": 0.04081632653061224
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261026185536",
+   "title": "最近、昔の同僚が起業したスタートアップIT企業が倒産した",
+   "bookmark_count": 45,
+   "bookmarked_at": "2026-10-26T10:02:18+00:00",
+   "first_seen": "2026-10-26T22:40:32.078376+00:00",
+   "models": {},
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": null,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261026173633",
+   "title": "「読まずに批判するな！」←WEB漫画の場合、閲覧を伸ばしたらそれだけで作..",
+   "bookmark_count": 48,
+   "bookmarked_at": "2026-10-26T08:37:06+00:00",
+   "first_seen": "2026-10-26T22:40:32.078376+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2436,
+     "fact": 0.7564
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.022,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261026171405",
+   "title": "男にとって恋愛のメリットがない…『けれど』",
+   "bookmark_count": 116,
+   "bookmarked_at": "2026-10-26T08:27:57+00:00",
+   "first_seen": "2026-10-26T13:03:19.316401+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0871,
+     "fact": 0.9129
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0504,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261026112847",
    "title": "ブラウン管テレビを購入した話",
    "bookmark_count": 70,
