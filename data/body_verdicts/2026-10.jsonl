@@ -655,3 +655,4 @@
 {"url": "https://anond.hatelabo.jp/20261028131322", "model": "clef", "probs": {"fiction": 0.0383, "fact": 0.9617}}
 {"url": "https://anond.hatelabo.jp/20261028103111", "model": "clef", "probs": {"fiction": 0.0502, "fact": 0.9498}}
 {"url": "https://anond.hatelabo.jp/20261028143315", "model": "clef", "probs": {"fiction": 0.0121, "fact": 0.9879}}
+{"url": "https://anond.hatelabo.jp/20261028214228", "model": "clef", "probs": {"fiction": 0.0145, "fact": 0.9855}}
