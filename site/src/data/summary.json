@@ -2,6 +2,66 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261029233909",
+   "title": "【参考資料】 ウラジミル・プーチン大統領の歴史観 「ロシア人とウクライナ人の歴史的一体性について」 畔蒜 泰助（笹川平和財団上席研究員） 2024.03.18　要約",
+   "bookmark_count": 78,
+   "bookmarked_at": "2026-10-29T14:46:48+00:00",
+   "first_seen": "2026-10-30T05:49:41.483317+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.3201,
+     "fact": 0.6799
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0211,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261029231522",
+   "title": "ぼく「日本で徴兵制なんて出来るわけないんだよなあ。ハイテク戦争で素人が役に立つわけないだろ？」（ニヤニヤ）",
+   "bookmark_count": 57,
+   "bookmarked_at": "2026-10-29T14:26:42+00:00",
+   "first_seen": "2026-10-30T05:49:41.483317+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.9613,
+     "fact": 0.0387
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.172,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261029215242",
+   "title": "広告ブロックも海賊版と同様に取り締まるべきでは",
+   "bookmark_count": 44,
+   "bookmarked_at": "2026-10-29T13:03:50+00:00",
+   "first_seen": "2026-10-30T12:55:58.644870+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0348,
+     "fact": 0.9652
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0138,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261029184337",
    "title": "ステーキの価値は分厚さだとようやく気がついた",
    "bookmark_count": 67,
@@ -18,6 +78,26 @@
    "comment_count": 0,
    "gap": null,
    "narrative": 0.1466,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261029181330",
+   "title": "お前らが普段やってる「マジで気持ちいいこと」教えてくれ。 俺は根っから..",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-10-29T09:30:29+00:00",
+   "first_seen": "2026-10-30T22:20:30.611267+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1645,
+     "fact": 0.8355
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.3073,
    "comments": [],
    "suspicion": null
   },
