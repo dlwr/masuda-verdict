@@ -2,6 +2,305 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261030192556",
+   "title": "大企業のオフィスワーカーが朝一番にやることがメールの確認ってわりと定..",
+   "bookmark_count": 77,
+   "bookmarked_at": "2026-10-30T10:26:57+00:00",
+   "first_seen": "2026-10-31T12:29:35.343138+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0269,
+     "fact": 0.9731
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 29,
+   "comment_count": 51,
+   "gap": 0.026900000000000018,
+   "narrative": 0.569,
+   "comments": [
+    {
+     "user": "gaikichi",
+     "label": "none",
+     "score": 0.7262
+    },
+    {
+     "user": "soulfulmiddleagedman",
+     "label": "fact",
+     "score": 0.4988
+    },
+    {
+     "user": "kniphofia",
+     "label": "none",
+     "score": 0.624
+    },
+    {
+     "user": "Fluss_kawa",
+     "label": "fact",
+     "score": 0.5853
+    },
+    {
+     "user": "lluvias",
+     "label": "fact",
+     "score": 0.7198
+    },
+    {
+     "user": "birdsoutz",
+     "label": "fact",
+     "score": 0.6377
+    },
+    {
+     "user": "stabucky",
+     "label": "fact",
+     "score": 0.7412
+    },
+    {
+     "user": "hiroshe",
+     "label": "none",
+     "score": 0.6755
+    },
+    {
+     "user": "tettekete37564",
+     "label": "none",
+     "score": 0.5206
+    },
+    {
+     "user": "d0i",
+     "label": "none",
+     "score": 0.604
+    },
+    {
+     "user": "yoshitsugumi",
+     "label": "none",
+     "score": 0.525
+    },
+    {
+     "user": "rurumeruikiruru",
+     "label": "none",
+     "score": 0.58
+    },
+    {
+     "user": "a-design-for-life",
+     "label": "fact",
+     "score": 0.5943
+    },
+    {
+     "user": "yk_mobile",
+     "label": "none",
+     "score": 0.7634
+    },
+    {
+     "user": "areant",
+     "label": "fact",
+     "score": 0.6113
+    },
+    {
+     "user": "iksmpic",
+     "label": "none",
+     "score": 0.5656
+    },
+    {
+     "user": "tpogdgmgwgw",
+     "label": "none",
+     "score": 0.8117
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "fact",
+     "score": 0.5179
+    },
+    {
+     "user": "tourism55",
+     "label": "fact",
+     "score": 0.5344
+    },
+    {
+     "user": "Falky",
+     "label": "none",
+     "score": 0.5406
+    },
+    {
+     "user": "keidge",
+     "label": "none",
+     "score": 0.5946
+    },
+    {
+     "user": "duckt",
+     "label": "fact",
+     "score": 0.6868
+    },
+    {
+     "user": "Momo_suke",
+     "label": "none",
+     "score": 0.5923
+    },
+    {
+     "user": "ssssschang",
+     "label": "fact",
+     "score": 0.5142
+    },
+    {
+     "user": "y_as",
+     "label": "fact",
+     "score": 0.5025
+    },
+    {
+     "user": "undercurrent88",
+     "label": "none",
+     "score": 0.584
+    },
+    {
+     "user": "peach_333",
+     "label": "fact",
+     "score": 0.6313
+    },
+    {
+     "user": "akapeso",
+     "label": "fact",
+     "score": 0.5772
+    },
+    {
+     "user": "kanimaster",
+     "label": "fact",
+     "score": 0.4873
+    },
+    {
+     "user": "astefalcon",
+     "label": "fact",
+     "score": 0.6145
+    },
+    {
+     "user": "ayumun",
+     "label": "none",
+     "score": 0.4893
+    },
+    {
+     "user": "the-fool-of-lear",
+     "label": "none",
+     "score": 0.6271
+    },
+    {
+     "user": "sato0427",
+     "label": "none",
+     "score": 0.6056
+    },
+    {
+     "user": "demAge",
+     "label": "fact",
+     "score": 0.7229
+    },
+    {
+     "user": "tu_no_tu",
+     "label": "none",
+     "score": 0.5519
+    },
+    {
+     "user": "hkdn",
+     "label": "fact",
+     "score": 0.5262
+    },
+    {
+     "user": "dubdubchinchin",
+     "label": "none",
+     "score": 0.4986
+    },
+    {
+     "user": "chikurou",
+     "label": "fact",
+     "score": 0.6107
+    },
+    {
+     "user": "jet-city-people",
+     "label": "fact",
+     "score": 0.5977
+    },
+    {
+     "user": "Ez-style",
+     "label": "fact",
+     "score": 0.7096
+    },
+    {
+     "user": "delphinus35",
+     "label": "none",
+     "score": 0.5902
+    },
+    {
+     "user": "otihateten3510",
+     "label": "none",
+     "score": 0.7472
+    },
+    {
+     "user": "psne",
+     "label": "fact",
+     "score": 0.547
+    },
+    {
+     "user": "crimsonstarroad",
+     "label": "fact",
+     "score": 0.5501
+    },
+    {
+     "user": "sds-page",
+     "label": "fact",
+     "score": 0.5393
+    },
+    {
+     "user": "ROYGB",
+     "label": "fact",
+     "score": 0.5227
+    },
+    {
+     "user": "BBBBBBBBB",
+     "label": "none",
+     "score": 0.5639
+    },
+    {
+     "user": "bonnbonn1400",
+     "label": "fact",
+     "score": 0.5135
+    },
+    {
+     "user": "narwhal",
+     "label": "fact",
+     "score": 0.5319
+    },
+    {
+     "user": "rogertroutman",
+     "label": "fact",
+     "score": 0.4948
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.522
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261030171043",
+   "title": "エンジニアはAI失業すると思う？",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-10-30T08:24:40+00:00",
+   "first_seen": "2026-10-31T05:41:41.560148+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.02,
+     "fact": 0.98
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.4891,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261030092203",
    "title": "メンタルだか自律神経だかが壊れてまともに外出もできなくなってから何年..",
    "bookmark_count": 38,
@@ -618,6 +917,130 @@
    "narrative": 0.0138,
    "comments": [],
    "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261029194548",
+   "title": "大阪の男より東京の男のほうが百億倍素敵だよマジで",
+   "bookmark_count": 32,
+   "bookmarked_at": "2026-10-29T10:46:02+00:00",
+   "first_seen": "2026-10-31T12:29:35.343138+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.3853,
+     "fact": 0.6147
+    }
+   },
+   "crowd": {
+    "fiction": 0.6666666666666666,
+    "fact": 0.3333333333333333
+   },
+   "mentions": 6,
+   "comment_count": 20,
+   "gap": 0.28136666666666665,
+   "narrative": 0.8355,
+   "comments": [
+    {
+     "user": "camellow",
+     "label": "none",
+     "score": 0.5438
+    },
+    {
+     "user": "kaionji",
+     "label": "fiction",
+     "score": 0.5136
+    },
+    {
+     "user": "rotting_corpse",
+     "label": "fact",
+     "score": 0.4458
+    },
+    {
+     "user": "minaminoani",
+     "label": "none",
+     "score": 0.4019
+    },
+    {
+     "user": "sociologicls",
+     "label": "fiction",
+     "score": 0.6892
+    },
+    {
+     "user": "mutinomuti",
+     "label": "none",
+     "score": 0.4261
+    },
+    {
+     "user": "ustar",
+     "label": "none",
+     "score": 0.4649
+    },
+    {
+     "user": "daneojisan",
+     "label": "none",
+     "score": 0.5473
+    },
+    {
+     "user": "osugi3y",
+     "label": "none",
+     "score": 0.5404
+    },
+    {
+     "user": "alpha_zero",
+     "label": "none",
+     "score": 0.6452
+    },
+    {
+     "user": "kusanon",
+     "label": "fiction",
+     "score": 0.6435
+    },
+    {
+     "user": "fn7",
+     "label": "none",
+     "score": 0.547
+    },
+    {
+     "user": "dickbruna",
+     "label": "fact",
+     "score": 0.4297
+    },
+    {
+     "user": "iphone",
+     "label": "none",
+     "score": 0.5233
+    },
+    {
+     "user": "oO_TOJIMAME_Oo",
+     "label": "none",
+     "score": 0.5786
+    },
+    {
+     "user": "naka_dekoboko",
+     "label": "fiction",
+     "score": 0.509
+    },
+    {
+     "user": "doroyamada",
+     "label": "none",
+     "score": 0.4517
+    },
+    {
+     "user": "keidge",
+     "label": "none",
+     "score": 0.4613
+    },
+    {
+     "user": "narwhal",
+     "label": "none",
+     "score": 0.4596
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.4715
+    }
+   ],
+   "suspicion": 0.2
   },
   {
    "url": "https://anond.hatelabo.jp/20261029184337",
