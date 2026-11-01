@@ -2,6 +2,575 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261031135931",
+   "title": "割り勘派の女は早く結婚できる←いいえ",
+   "bookmark_count": 117,
+   "bookmarked_at": "2026-10-31T05:01:02+00:00",
+   "first_seen": "2026-10-31T12:29:35.343138+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0246,
+     "fact": 0.9754
+    }
+   },
+   "crowd": {
+    "fiction": 0.4444444444444444,
+    "fact": 0.5555555555555556
+   },
+   "mentions": 9,
+   "comment_count": 97,
+   "gap": 0.41984444444444446,
+   "narrative": 0.9574,
+   "comments": [
+    {
+     "user": "cinq_na",
+     "label": "none",
+     "score": 0.6747
+    },
+    {
+     "user": "kurage_lizard",
+     "label": "none",
+     "score": 0.7605
+    },
+    {
+     "user": "narayuni",
+     "label": "none",
+     "score": 0.8092
+    },
+    {
+     "user": "Barton",
+     "label": "none",
+     "score": 0.7836
+    },
+    {
+     "user": "sukekyo",
+     "label": "fiction",
+     "score": 0.6405
+    },
+    {
+     "user": "dobonkai",
+     "label": "none",
+     "score": 0.8285
+    },
+    {
+     "user": "iiko_1115",
+     "label": "none",
+     "score": 0.6857
+    },
+    {
+     "user": "unnmo",
+     "label": "none",
+     "score": 0.8053
+    },
+    {
+     "user": "tori_toi",
+     "label": "none",
+     "score": 0.5912
+    },
+    {
+     "user": "atlas_estrela",
+     "label": "none",
+     "score": 0.714
+    },
+    {
+     "user": "throwslope",
+     "label": "none",
+     "score": 0.5227
+    },
+    {
+     "user": "akinonika",
+     "label": "none",
+     "score": 0.6527
+    },
+    {
+     "user": "dtg8",
+     "label": "none",
+     "score": 0.7675
+    },
+    {
+     "user": "ite",
+     "label": "none",
+     "score": 0.838
+    },
+    {
+     "user": "sirotar",
+     "label": "fact",
+     "score": 0.6227
+    },
+    {
+     "user": "tonton-jiji",
+     "label": "none",
+     "score": 0.7288
+    },
+    {
+     "user": "keren71",
+     "label": "none",
+     "score": 0.7063
+    },
+    {
+     "user": "nvls",
+     "label": "none",
+     "score": 0.6958
+    },
+    {
+     "user": "tora_17",
+     "label": "fact",
+     "score": 0.5856
+    },
+    {
+     "user": "UCs",
+     "label": "none",
+     "score": 0.4255
+    },
+    {
+     "user": "shields-pikes",
+     "label": "none",
+     "score": 0.6917
+    },
+    {
+     "user": "narwhal",
+     "label": "none",
+     "score": 0.7641
+    },
+    {
+     "user": "telegnosis",
+     "label": "fiction",
+     "score": 0.7748
+    },
+    {
+     "user": "ikaironic",
+     "label": "none",
+     "score": 0.6336
+    },
+    {
+     "user": "goblin-tai",
+     "label": "none",
+     "score": 0.7567
+    },
+    {
+     "user": "douyan",
+     "label": "fact",
+     "score": 0.5508
+    },
+    {
+     "user": "keidge",
+     "label": "none",
+     "score": 0.7541
+    },
+    {
+     "user": "heaco65",
+     "label": "none",
+     "score": 0.5642
+    },
+    {
+     "user": "differential",
+     "label": "none",
+     "score": 0.5489
+    },
+    {
+     "user": "zzteralin",
+     "label": "none",
+     "score": 0.5221
+    },
+    {
+     "user": "mayumayu_nimolove",
+     "label": "none",
+     "score": 0.7903
+    },
+    {
+     "user": "yingze",
+     "label": "none",
+     "score": 0.4667
+    },
+    {
+     "user": "alivekanade",
+     "label": "none",
+     "score": 0.6014
+    },
+    {
+     "user": "beerbeerkun",
+     "label": "none",
+     "score": 0.7236
+    },
+    {
+     "user": "ryudenx",
+     "label": "none",
+     "score": 0.5041
+    },
+    {
+     "user": "pokute8",
+     "label": "none",
+     "score": 0.752
+    },
+    {
+     "user": "shino_azm",
+     "label": "fact",
+     "score": 0.6475
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "none",
+     "score": 0.7513
+    },
+    {
+     "user": "hanajibuu",
+     "label": "none",
+     "score": 0.5773
+    },
+    {
+     "user": "iww",
+     "label": "none",
+     "score": 0.6176
+    },
+    {
+     "user": "yamigome",
+     "label": "none",
+     "score": 0.7425
+    },
+    {
+     "user": "t_pandax",
+     "label": "none",
+     "score": 0.8141
+    },
+    {
+     "user": "shinobue679fbea",
+     "label": "none",
+     "score": 0.5676
+    },
+    {
+     "user": "hiro99hiro99",
+     "label": "none",
+     "score": 0.7685
+    },
+    {
+     "user": "kniphofia",
+     "label": "none",
+     "score": 0.8
+    },
+    {
+     "user": "lainof",
+     "label": "none",
+     "score": 0.7786
+    },
+    {
+     "user": "yodogawa-kahan",
+     "label": "none",
+     "score": 0.4206
+    },
+    {
+     "user": "technocutzero",
+     "label": "none",
+     "score": 0.6822
+    },
+    {
+     "user": "lady_joker",
+     "label": "none",
+     "score": 0.7264
+    },
+    {
+     "user": "songe",
+     "label": "none",
+     "score": 0.7009
+    },
+    {
+     "user": "kwsktr",
+     "label": "none",
+     "score": 0.591
+    },
+    {
+     "user": "zenkamono",
+     "label": "none",
+     "score": 0.7032
+    },
+    {
+     "user": "shikiarai",
+     "label": "none",
+     "score": 0.3799
+    },
+    {
+     "user": "ho4416",
+     "label": "fiction",
+     "score": 0.4756
+    },
+    {
+     "user": "frothmouth",
+     "label": "none",
+     "score": 0.6722
+    },
+    {
+     "user": "Kenju",
+     "label": "none",
+     "score": 0.8017
+    },
+    {
+     "user": "murlock",
+     "label": "none",
+     "score": 0.4364
+    },
+    {
+     "user": "macplus2",
+     "label": "none",
+     "score": 0.6266
+    },
+    {
+     "user": "ghrn",
+     "label": "none",
+     "score": 0.6009
+    },
+    {
+     "user": "nibo-c",
+     "label": "none",
+     "score": 0.6157
+    },
+    {
+     "user": "dgen",
+     "label": "none",
+     "score": 0.8078
+    },
+    {
+     "user": "liinter7",
+     "label": "none",
+     "score": 0.4229
+    },
+    {
+     "user": "circled",
+     "label": "none",
+     "score": 0.5029
+    },
+    {
+     "user": "taruhachi",
+     "label": "fact",
+     "score": 0.591
+    },
+    {
+     "user": "buriburiuntitti",
+     "label": "none",
+     "score": 0.4766
+    },
+    {
+     "user": "inuwantan12",
+     "label": "none",
+     "score": 0.6993
+    },
+    {
+     "user": "BoiledEgg",
+     "label": "none",
+     "score": 0.5596
+    },
+    {
+     "user": "orisaku",
+     "label": "none",
+     "score": 0.6677
+    },
+    {
+     "user": "docking765",
+     "label": "none",
+     "score": 0.384
+    },
+    {
+     "user": "atsushieno",
+     "label": "none",
+     "score": 0.7027
+    },
+    {
+     "user": "vbcom",
+     "label": "fiction",
+     "score": 0.4815
+    },
+    {
+     "user": "rider250",
+     "label": "none",
+     "score": 0.7272
+    },
+    {
+     "user": "hesopenn",
+     "label": "none",
+     "score": 0.6624
+    },
+    {
+     "user": "sqrt",
+     "label": "none",
+     "score": 0.6953
+    },
+    {
+     "user": "kawabata100",
+     "label": "none",
+     "score": 0.601
+    },
+    {
+     "user": "notio",
+     "label": "none",
+     "score": 0.7575
+    },
+    {
+     "user": "akiat",
+     "label": "none",
+     "score": 0.4686
+    },
+    {
+     "user": "DIEVOLD",
+     "label": "none",
+     "score": 0.8221
+    },
+    {
+     "user": "misupuri",
+     "label": "none",
+     "score": 0.6482
+    },
+    {
+     "user": "Shiori115",
+     "label": "none",
+     "score": 0.697
+    },
+    {
+     "user": "crimson_diamond",
+     "label": "none",
+     "score": 0.4022
+    },
+    {
+     "user": "stracciatella",
+     "label": "none",
+     "score": 0.7063
+    },
+    {
+     "user": "mnnn",
+     "label": "none",
+     "score": 0.7057
+    },
+    {
+     "user": "sconbkun",
+     "label": "none",
+     "score": 0.7024
+    },
+    {
+     "user": "nyaaaaaaaaaaaaa",
+     "label": "none",
+     "score": 0.6969
+    },
+    {
+     "user": "ffrog",
+     "label": "none",
+     "score": 0.6019
+    },
+    {
+     "user": "peach_333",
+     "label": "none",
+     "score": 0.6156
+    },
+    {
+     "user": "nori__3",
+     "label": "none",
+     "score": 0.6952
+    },
+    {
+     "user": "number917",
+     "label": "none",
+     "score": 0.6247
+    },
+    {
+     "user": "mouseion",
+     "label": "none",
+     "score": 0.6469
+    },
+    {
+     "user": "ayumun",
+     "label": "none",
+     "score": 0.7194
+    },
+    {
+     "user": "ustam",
+     "label": "none",
+     "score": 0.6188
+    },
+    {
+     "user": "ROYGB",
+     "label": "none",
+     "score": 0.5949
+    },
+    {
+     "user": "Palantir",
+     "label": "none",
+     "score": 0.656
+    },
+    {
+     "user": "ancv",
+     "label": "none",
+     "score": 0.6404
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.7991
+    },
+    {
+     "user": "mutinomuti",
+     "label": "none",
+     "score": 0.7693
+    }
+   ],
+   "suspicion": 0.041237113402061855
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261031132040",
+   "title": "「1か月＝30日」とかいう知的怠慢をそろそろやめにしないか",
+   "bookmark_count": 153,
+   "bookmarked_at": "2026-10-31T04:21:12+00:00",
+   "first_seen": "2026-10-31T12:29:35.343138+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.3483,
+     "fact": 0.6517
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0149,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261030110233",
+   "title": "**「今後の展開にかかわらず」（戦争が終わっても、和平合意ができても）ロシア産ガスを輸入しない、というのが欧州委員会の公式立場です。「戦争が終わったら柔軟に見直す」のではなく、「すでに法的に決まった脱ロシア依存の道筋を、情勢がどう変わろうと貫く」という強い意思表示があります**　",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-10-31T02:28:21+00:00",
+   "first_seen": "2026-11-01T06:04:59.435814+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1194,
+     "fact": 0.8806
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0186,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261031104756",
+   "title": "国家のために命を懸けて戦う意味がよくわからない",
+   "bookmark_count": 167,
+   "bookmarked_at": "2026-10-31T01:48:51+00:00",
+   "first_seen": "2026-10-31T05:41:41.560148+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0536,
+     "fact": 0.9464
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0207,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261030192556",
    "title": "大企業のオフィスワーカーが朝一番にやることがメールの確認ってわりと定..",
    "bookmark_count": 77,
@@ -3617,6 +4186,26 @@
     }
    ],
    "suspicion": 0.018867924528301886
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20260804103539",
+   "title": "コドモオオドラゴンって小さいのかデカいのかどっちかにしろ、って感じだ..",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-10-28T21:27:22+00:00",
+   "first_seen": "2026-11-01T06:04:59.435814+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.8157,
+     "fact": 0.1843
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0298,
+   "comments": [],
+   "suspicion": null
   },
   {
    "url": "https://anond.hatelabo.jp/20261028214228",
