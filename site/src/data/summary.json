@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261031194710",
+   "title": "漢文っていらなくない？「漢文学んでよかった〜！」エピソード教えてよ！",
+   "bookmark_count": 104,
+   "bookmarked_at": "2026-10-31T10:47:34+00:00",
+   "first_seen": "2026-11-02T06:02:23.347165+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4986,
+     "fact": 0.5014
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0327,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261031135931",
    "title": "割り勘派の女は早く結婚できる←いいえ",
    "bookmark_count": 117,
