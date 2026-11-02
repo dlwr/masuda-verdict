@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261101234158",
+   "title": "どうして男性は歳下恋愛願望があるんだろ",
+   "bookmark_count": 236,
+   "bookmarked_at": "2026-11-01T15:04:11+00:00",
+   "first_seen": "2026-11-02T06:02:23.347165+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0422,
+     "fact": 0.9578
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.232,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261031194710",
    "title": "漢文っていらなくない？「漢文学んでよかった〜！」エピソード教えてよ！",
    "bookmark_count": 104,
