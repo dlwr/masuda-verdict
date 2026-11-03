@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261102090005",
+   "title": "「私これ好き！」がよくて、「私これきらーい！」が許されないのはおかし..",
+   "bookmark_count": 79,
+   "bookmarked_at": "2026-11-02T00:00:42+00:00",
+   "first_seen": "2026-11-02T15:52:44.762251+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0919,
+     "fact": 0.9081
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0302,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261101234158",
    "title": "どうして男性は歳下恋愛願望があるんだろ",
    "bookmark_count": 236,
