@@ -2,6 +2,80 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261103013413",
+   "title": "GMOの解約UIに命の砂時計を削られた話",
+   "bookmark_count": 31,
+   "bookmarked_at": "2026-11-02T16:35:40+00:00",
+   "first_seen": "2026-11-03T14:14:50.092030+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0399,
+     "fact": 0.9601
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 7,
+   "comment_count": 10,
+   "gap": 0.03990000000000002,
+   "narrative": 0.976,
+   "comments": [
+    {
+     "user": "knok",
+     "label": "none",
+     "score": 0.5137
+    },
+    {
+     "user": "door-s-dev",
+     "label": "none",
+     "score": 0.6096
+    },
+    {
+     "user": "princo_matsuri",
+     "label": "fact",
+     "score": 0.4375
+    },
+    {
+     "user": "airstation",
+     "label": "fact",
+     "score": 0.6628
+    },
+    {
+     "user": "hunglysheep1",
+     "label": "fact",
+     "score": 0.8303
+    },
+    {
+     "user": "tk_musik",
+     "label": "fact",
+     "score": 0.8099
+    },
+    {
+     "user": "Cherenkov",
+     "label": "fact",
+     "score": 0.4917
+    },
+    {
+     "user": "ssfu",
+     "label": "none",
+     "score": 0.5872
+    },
+    {
+     "user": "potnips",
+     "label": "fact",
+     "score": 0.6874
+    },
+    {
+     "user": "f_d_trashbox",
+     "label": "fact",
+     "score": 0.5146
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261101114822",
    "title": "母がメルカリで俺の反抗期を売っている",
    "bookmark_count": 341,
@@ -1853,6 +1927,130 @@
     }
    ],
    "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261101155829",
+   "title": "朝早く目玉焼き作ったら彼女に振られたんだよね",
+   "bookmark_count": 31,
+   "bookmarked_at": "2026-11-01T07:20:04+00:00",
+   "first_seen": "2026-11-03T23:23:28.856454+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.65,
+     "fact": 0.35
+    }
+   },
+   "crowd": {
+    "fiction": 0.5555555555555556,
+    "fact": 0.4444444444444444
+   },
+   "mentions": 9,
+   "comment_count": 20,
+   "gap": 0.09444444444444444,
+   "narrative": 0.9468,
+   "comments": [
+    {
+     "user": "katte",
+     "label": "none",
+     "score": 0.5261
+    },
+    {
+     "user": "UmaHorse",
+     "label": "none",
+     "score": 0.4397
+    },
+    {
+     "user": "iiko_1115",
+     "label": "none",
+     "score": 0.6042
+    },
+    {
+     "user": "anmin7",
+     "label": "none",
+     "score": 0.4868
+    },
+    {
+     "user": "poponponpon",
+     "label": "fact",
+     "score": 0.375
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.5114
+    },
+    {
+     "user": "ayumun",
+     "label": "none",
+     "score": 0.5238
+    },
+    {
+     "user": "thirty206",
+     "label": "fiction",
+     "score": 0.5317
+    },
+    {
+     "user": "gm91",
+     "label": "none",
+     "score": 0.3757
+    },
+    {
+     "user": "chobihige0725",
+     "label": "fiction",
+     "score": 0.7383
+    },
+    {
+     "user": "yogasa",
+     "label": "fiction",
+     "score": 0.4787
+    },
+    {
+     "user": "akapeso",
+     "label": "fact",
+     "score": 0.3961
+    },
+    {
+     "user": "zonke",
+     "label": "fiction",
+     "score": 0.4574
+    },
+    {
+     "user": "miruna",
+     "label": "fiction",
+     "score": 0.5518
+    },
+    {
+     "user": "kotetsu306",
+     "label": "fact",
+     "score": 0.6097
+    },
+    {
+     "user": "stack00",
+     "label": "none",
+     "score": 0.4559
+    },
+    {
+     "user": "srgy",
+     "label": "none",
+     "score": 0.5533
+    },
+    {
+     "user": "casm",
+     "label": "none",
+     "score": 0.3745
+    },
+    {
+     "user": "hungchang",
+     "label": "none",
+     "score": 0.4233
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.5447
+    }
+   ],
+   "suspicion": 0.25
   },
   {
    "url": "https://anond.hatelabo.jp/20261029094613",
