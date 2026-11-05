@@ -2,6 +2,150 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261104111755",
+   "title": "パン屋でフランスパンを買ったんだよ",
+   "bookmark_count": 33,
+   "bookmarked_at": "2026-11-04T02:28:37+00:00",
+   "first_seen": "2026-11-04T19:45:17.874474+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2077,
+     "fact": 0.7923
+    }
+   },
+   "crowd": {
+    "fiction": 0.3157894736842105,
+    "fact": 0.6842105263157895
+   },
+   "mentions": 19,
+   "comment_count": 24,
+   "gap": 0.10808947368421051,
+   "narrative": 0.978,
+   "comments": [
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.5033
+    },
+    {
+     "user": "greenbow",
+     "label": "fiction",
+     "score": 0.7677
+    },
+    {
+     "user": "BBBBBBBBB",
+     "label": "fact",
+     "score": 0.6807
+    },
+    {
+     "user": "honeybe",
+     "label": "fiction",
+     "score": 0.4354
+    },
+    {
+     "user": "srng",
+     "label": "fact",
+     "score": 0.388
+    },
+    {
+     "user": "MooH",
+     "label": "none",
+     "score": 0.5444
+    },
+    {
+     "user": "cent16",
+     "label": "fact",
+     "score": 0.4383
+    },
+    {
+     "user": "turanukimaru",
+     "label": "fiction",
+     "score": 0.4266
+    },
+    {
+     "user": "Shinwiki",
+     "label": "fact",
+     "score": 0.5277
+    },
+    {
+     "user": "rickt",
+     "label": "none",
+     "score": 0.4044
+    },
+    {
+     "user": "nejipico",
+     "label": "fiction",
+     "score": 0.8519
+    },
+    {
+     "user": "minaminoani",
+     "label": "fiction",
+     "score": 0.449
+    },
+    {
+     "user": "gimonfu_usr",
+     "label": "none",
+     "score": 0.4741
+    },
+    {
+     "user": "gui1",
+     "label": "fact",
+     "score": 0.4745
+    },
+    {
+     "user": "kenzy_n",
+     "label": "fact",
+     "score": 0.6509
+    },
+    {
+     "user": "sny22015",
+     "label": "none",
+     "score": 0.4461
+    },
+    {
+     "user": "harsh88",
+     "label": "fact",
+     "score": 0.4285
+    },
+    {
+     "user": "h-hirai",
+     "label": "fact",
+     "score": 0.5507
+    },
+    {
+     "user": "mats3003",
+     "label": "fact",
+     "score": 0.499
+    },
+    {
+     "user": "srgy",
+     "label": "fact",
+     "score": 0.4755
+    },
+    {
+     "user": "nankichi",
+     "label": "fact",
+     "score": 0.367
+    },
+    {
+     "user": "frothmouth",
+     "label": "fact",
+     "score": 0.5986
+    },
+    {
+     "user": "ilktm",
+     "label": "fiction",
+     "score": 0.4554
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.3777
+    }
+   ],
+   "suspicion": 0.25
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261102222552",
    "title": "みんなは自分の親に弱音吐ける？",
    "bookmark_count": 33,
