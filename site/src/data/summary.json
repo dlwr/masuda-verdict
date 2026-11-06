@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261105205811",
+   "title": "　 腐女子はロシアと一緒で、もう何を言っても作品への攻撃を止めないんだ..",
+   "bookmark_count": 65,
+   "bookmarked_at": "2026-11-05T11:59:49+00:00",
+   "first_seen": "2026-11-06T06:45:57.402804+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2988,
+     "fact": 0.7012
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0545,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261105201223",
+   "title": "オタク男達がレジスタを批判された仕返しに、組織的に生理用品を買い占める予定を立てているらしい。",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-11-05T11:12:55+00:00",
+   "first_seen": "2026-11-06T19:24:28.182479+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.6632,
+     "fact": 0.3368
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0522,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261105051615",
    "title": "私の推し活の末路がこれ",
    "bookmark_count": 91,
