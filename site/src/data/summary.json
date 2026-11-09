@@ -2,6 +2,66 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261108205123",
+   "title": "最近流行りの「フレネミー」とか 本当の敵は夫だったとかいう「エネ夫」と..",
+   "bookmark_count": 55,
+   "bookmarked_at": "2026-11-08T11:52:48+00:00",
+   "first_seen": "2026-11-09T06:28:42.616797+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1615,
+     "fact": 0.8385
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0559,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261108174809",
+   "title": "警告:ジャンプルーキーはそのうちAI漫画で埋まる",
+   "bookmark_count": 45,
+   "bookmarked_at": "2026-11-08T08:51:31+00:00",
+   "first_seen": "2026-11-08T13:24:45.475470+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0395,
+     "fact": 0.9605
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0322,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261108174807",
+   "title": "女性向け同人は別に「とんでも無い奴が暴れるから」ではなく、最初から自..",
+   "bookmark_count": 53,
+   "bookmarked_at": "2026-11-08T08:48:18+00:00",
+   "first_seen": "2026-11-08T13:24:45.475470+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0628,
+     "fact": 0.9372
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0211,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261106202606",
    "title": "自分しかブクマしてない漫画おしえて",
    "bookmark_count": 89,
