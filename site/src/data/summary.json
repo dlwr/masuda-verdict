@@ -2,6 +2,86 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261106202606",
+   "title": "自分しかブクマしてない漫画おしえて",
+   "bookmark_count": 89,
+   "bookmarked_at": "2026-11-08T04:52:45+00:00",
+   "first_seen": "2026-11-08T13:24:45.475470+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.5996,
+     "fact": 0.4004
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0342,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261108085429",
+   "title": "女子が自認してると痛いキャラもっと知りたい",
+   "bookmark_count": 32,
+   "bookmarked_at": "2026-11-08T00:12:23+00:00",
+   "first_seen": "2026-11-09T06:28:42.616797+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.5713,
+     "fact": 0.4287
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0342,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261108082911",
+   "title": "ココアが何なのか、君は知らない",
+   "bookmark_count": 70,
+   "bookmarked_at": "2026-11-07T23:37:23+00:00",
+   "first_seen": "2026-11-08T06:00:17.545338+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.431,
+     "fact": 0.569
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0216,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261104011532",
+   "title": "ロシアは10人の兵士に突撃せよと命じ、全員が拒否すると2人を銃殺して残りの8人を突撃させた",
+   "bookmark_count": 76,
+   "bookmarked_at": "2026-11-07T23:16:52+00:00",
+   "first_seen": "2026-11-08T06:00:17.545338+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4213,
+     "fact": 0.5787
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0189,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261107231021",
    "title": "腐女子だけど意見を書きます 追記・おい",
    "bookmark_count": 39,
