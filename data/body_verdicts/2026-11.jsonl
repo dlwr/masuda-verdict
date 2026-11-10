@@ -39,3 +39,6 @@
 {"url": "https://anond.hatelabo.jp/20261108174809", "model": "clef", "probs": {"fiction": 0.0395, "fact": 0.9605}}
 {"url": "https://anond.hatelabo.jp/20261108174807", "model": "clef", "probs": {"fiction": 0.0628, "fact": 0.9372}}
 {"url": "https://anond.hatelabo.jp/20261108205123", "model": "clef", "probs": {"fiction": 0.1615, "fact": 0.8385}}
+{"url": "https://anond.hatelabo.jp/20261109151744", "model": "clef", "probs": {"fiction": 0.4508, "fact": 0.5492}}
+{"url": "https://anond.hatelabo.jp/20261109134447", "model": "clef", "probs": {"fiction": 0.0331, "fact": 0.9669}}
+{"url": "https://anond.hatelabo.jp/20261109080149", "model": "clef", "probs": {"fiction": 0.0249, "fact": 0.9751}}
