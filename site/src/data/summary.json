@@ -2,6 +2,86 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261111013828",
+   "title": "レジスタと薬屋：「志乃崎純」の不在と、主体性の本当の在り処",
+   "bookmark_count": 93,
+   "bookmarked_at": "2026-11-10T16:50:49+00:00",
+   "first_seen": "2026-11-11T06:20:47.718191+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0993,
+     "fact": 0.9007
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0205,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20240426200440",
+   "title": "暇空界隈のメールボム事件について記者会見が開かれる",
+   "bookmark_count": 31,
+   "bookmarked_at": "2026-11-10T12:53:03+00:00",
+   "first_seen": "2026-11-11T06:20:47.718191+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.3179,
+     "fact": 0.6821
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0565,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261110212134",
+   "title": "レジスタと薬屋を一緒にするな",
+   "bookmark_count": 123,
+   "bookmarked_at": "2026-11-10T12:22:49+00:00",
+   "first_seen": "2026-11-10T19:44:30.073076+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2137,
+     "fact": 0.7863
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0282,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261110173211",
+   "title": "はてな民用ハニートラップチェックシート",
+   "bookmark_count": 100,
+   "bookmarked_at": "2026-11-10T08:32:40+00:00",
+   "first_seen": "2026-11-11T06:20:47.718191+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.9661,
+     "fact": 0.0339
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0494,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261109151744",
    "title": "ていうか、「これはフィクションなんだから、現実じゃないんだから」で擁..",
    "bookmark_count": 204,
