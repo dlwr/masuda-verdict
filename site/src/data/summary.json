@@ -2,6 +2,240 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261112202809",
+   "title": "ほんまごめんみんな　俺がデブだから",
+   "bookmark_count": 64,
+   "bookmarked_at": "2026-11-12T11:30:13+00:00",
+   "first_seen": "2026-11-13T19:42:24.527175+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0752,
+     "fact": 0.9248
+    }
+   },
+   "crowd": {
+    "fiction": 0.05,
+    "fact": 0.95
+   },
+   "mentions": 20,
+   "comment_count": 35,
+   "gap": 0.0252,
+   "narrative": 0.9776,
+   "comments": [
+    {
+     "user": "greenbuddha138",
+     "label": "none",
+     "score": 0.4474
+    },
+    {
+     "user": "pondelion232",
+     "label": "fact",
+     "score": 0.5295
+    },
+    {
+     "user": "trippypi",
+     "label": "fact",
+     "score": 0.3937
+    },
+    {
+     "user": "fluoride",
+     "label": "none",
+     "score": 0.4728
+    },
+    {
+     "user": "whale916",
+     "label": "none",
+     "score": 0.5282
+    },
+    {
+     "user": "hkdn",
+     "label": "none",
+     "score": 0.4716
+    },
+    {
+     "user": "DropOutSurf_JOY",
+     "label": "none",
+     "score": 0.3827
+    },
+    {
+     "user": "iiko_1115",
+     "label": "none",
+     "score": 0.5133
+    },
+    {
+     "user": "yoiIT",
+     "label": "fact",
+     "score": 0.6047
+    },
+    {
+     "user": "wei_wei_weeei",
+     "label": "none",
+     "score": 0.4755
+    },
+    {
+     "user": "kanimaster",
+     "label": "fact",
+     "score": 0.5071
+    },
+    {
+     "user": "muimuim",
+     "label": "fact",
+     "score": 0.6167
+    },
+    {
+     "user": "ultimatebreak",
+     "label": "none",
+     "score": 0.4562
+    },
+    {
+     "user": "mats3003",
+     "label": "fact",
+     "score": 0.6335
+    },
+    {
+     "user": "hhungry",
+     "label": "none",
+     "score": 0.384
+    },
+    {
+     "user": "gomentic",
+     "label": "none",
+     "score": 0.4071
+    },
+    {
+     "user": "sslazio0824",
+     "label": "fact",
+     "score": 0.5945
+    },
+    {
+     "user": "takanagi1225",
+     "label": "fact",
+     "score": 0.4583
+    },
+    {
+     "user": "turanukimaru",
+     "label": "fact",
+     "score": 0.431
+    },
+    {
+     "user": "mutinomuti",
+     "label": "fact",
+     "score": 0.4216
+    },
+    {
+     "user": "cinq_na",
+     "label": "none",
+     "score": 0.4829
+    },
+    {
+     "user": "poponponpon",
+     "label": "fact",
+     "score": 0.7464
+    },
+    {
+     "user": "chobihige0725",
+     "label": "fiction",
+     "score": 0.4008
+    },
+    {
+     "user": "ultrabox",
+     "label": "none",
+     "score": 0.3488
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "none",
+     "score": 0.402
+    },
+    {
+     "user": "oyamissa",
+     "label": "fact",
+     "score": 0.4763
+    },
+    {
+     "user": "neogratche",
+     "label": "fact",
+     "score": 0.7105
+    },
+    {
+     "user": "theatrical",
+     "label": "fact",
+     "score": 0.4464
+    },
+    {
+     "user": "hunglysheep1",
+     "label": "fact",
+     "score": 0.795
+    },
+    {
+     "user": "salt100g",
+     "label": "fact",
+     "score": 0.4068
+    },
+    {
+     "user": "ysk77",
+     "label": "fact",
+     "score": 0.476
+    },
+    {
+     "user": "figu",
+     "label": "fact",
+     "score": 0.7016
+    },
+    {
+     "user": "Akech_ergo",
+     "label": "none",
+     "score": 0.5007
+    },
+    {
+     "user": "koujisasamiya",
+     "label": "fact",
+     "score": 0.5466
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.3731
+    }
+   ],
+   "suspicion": 0.02857142857142857
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261112182831",
+   "title": "レジスタを擁護してる中年男性って自分の娘や息子の彼女がバイト先でおぢアタックされても嫌じゃないの？",
+   "bookmark_count": 49,
+   "bookmarked_at": "2026-11-12T09:29:48+00:00",
+   "first_seen": "2026-11-12T19:54:13.605778+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1096,
+     "fact": 0.8904
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0871,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261112170232",
+   "title": "BLを燃やすぞとかいってるけど結局男って口ばっかりだよね",
+   "bookmark_count": 97,
+   "bookmarked_at": "2026-11-12T08:05:10+00:00",
+   "first_seen": "2026-11-12T19:54:13.605778+00:00",
+   "models": {},
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": null,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261112050914",
    "title": "「30代でカバンにちいかわ人形付けるか、普通？」←「何歳でも人に迷惑かけてなければ良いよね」←コレ",
    "bookmark_count": 36,
