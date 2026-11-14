@@ -2,6 +2,66 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261113200707",
+   "title": "#反戦サッカー部がなんでこんなに反発を受けたのか",
+   "bookmark_count": 79,
+   "bookmarked_at": "2026-11-13T11:10:47+00:00",
+   "first_seen": "2026-11-13T19:42:24.527175+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0869,
+     "fact": 0.9131
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0275,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20260627192007",
+   "title": "「BL無罪論」「女性の性表現免責論」批判",
+   "bookmark_count": 31,
+   "bookmarked_at": "2026-11-13T10:31:10+00:00",
+   "first_seen": "2026-11-13T19:42:24.527175+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.3252,
+     "fact": 0.6748
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0157,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261113170700",
+   "title": "表現の自由云々のアレ（1/2）",
+   "bookmark_count": 42,
+   "bookmarked_at": "2026-11-13T08:17:36+00:00",
+   "first_seen": "2026-11-13T19:42:24.527175+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0491,
+     "fact": 0.9509
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0319,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261113092029",
    "title": "「みんな戦争には反対してる」はたぶん間違い",
    "bookmark_count": 311,
