@@ -2,6 +2,86 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261114235117",
+   "title": "BLのセックスシーンは尊いだけで卑猥ではないんだよね",
+   "bookmark_count": 157,
+   "bookmarked_at": "2026-11-14T14:59:39+00:00",
+   "first_seen": "2026-11-15T06:31:40.013997+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2467,
+     "fact": 0.7533
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0369,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261114231126",
+   "title": "フェミニズムが社会に浸透した結果",
+   "bookmark_count": 109,
+   "bookmarked_at": "2026-11-14T14:14:51+00:00",
+   "first_seen": "2026-11-15T06:31:40.013997+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7279,
+     "fact": 0.2721
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0343,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261114214550",
+   "title": "昔から地味に誤用されまくってるなと思う言葉がある。「定期的」だ。 「..",
+   "bookmark_count": 113,
+   "bookmarked_at": "2026-11-14T12:46:48+00:00",
+   "first_seen": "2026-11-15T18:51:15.081039+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0646,
+     "fact": 0.9354
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.084,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261111154929",
+   "title": "お前らはネトウヨをわかっていない",
+   "bookmark_count": 65,
+   "bookmarked_at": "2026-11-14T12:35:08+00:00",
+   "first_seen": "2026-11-15T06:31:40.013997+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4509,
+     "fact": 0.5491
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0204,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261114133215",
    "title": "豊臣兄弟、登場人物がいちいち現代人みたいに葛藤するから見ていてイライ..",
    "bookmark_count": 86,
