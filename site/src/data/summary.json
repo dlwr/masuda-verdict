@@ -2,6 +2,444 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261115143430",
+   "title": "失業者・引きこもりの社会復帰支援事業としての北方領土問題",
+   "bookmark_count": 48,
+   "bookmarked_at": "2026-11-15T05:40:30+00:00",
+   "first_seen": "2026-11-15T18:51:15.081039+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.9222,
+     "fact": 0.0778
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0162,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261115114309",
+   "title": "反戦オタクに共通する特徴がある",
+   "bookmark_count": 55,
+   "bookmarked_at": "2026-11-15T02:49:38+00:00",
+   "first_seen": "2026-11-16T06:29:43.035057+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0346,
+     "fact": 0.9654
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 6,
+   "comment_count": 31,
+   "gap": 0.03459999999999998,
+   "narrative": 0.8464,
+   "comments": [
+    {
+     "user": "pochi-taro00",
+     "label": "none",
+     "score": 0.4887
+    },
+    {
+     "user": "Fondriest",
+     "label": "none",
+     "score": 0.6803
+    },
+    {
+     "user": "emanontan",
+     "label": "fact",
+     "score": 0.5607
+    },
+    {
+     "user": "proverb",
+     "label": "none",
+     "score": 0.4825
+    },
+    {
+     "user": "takahire_hatene",
+     "label": "none",
+     "score": 0.6555
+    },
+    {
+     "user": "gmochein",
+     "label": "none",
+     "score": 0.5867
+    },
+    {
+     "user": "colonoe",
+     "label": "none",
+     "score": 0.654
+    },
+    {
+     "user": "nanamino",
+     "label": "fact",
+     "score": 0.5014
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.79
+    },
+    {
+     "user": "take-it",
+     "label": "fact",
+     "score": 0.6084
+    },
+    {
+     "user": "town2town",
+     "label": "none",
+     "score": 0.5794
+    },
+    {
+     "user": "hidari_kiki",
+     "label": "none",
+     "score": 0.7592
+    },
+    {
+     "user": "yujimi-daifuku-2222",
+     "label": "none",
+     "score": 0.7993
+    },
+    {
+     "user": "gewaa",
+     "label": "fact",
+     "score": 0.6849
+    },
+    {
+     "user": "Putinpo",
+     "label": "none",
+     "score": 0.6495
+    },
+    {
+     "user": "praty559",
+     "label": "none",
+     "score": 0.7799
+    },
+    {
+     "user": "izure",
+     "label": "none",
+     "score": 0.5305
+    },
+    {
+     "user": "crimson_diamond",
+     "label": "none",
+     "score": 0.5524
+    },
+    {
+     "user": "buluffel_branche",
+     "label": "none",
+     "score": 0.6321
+    },
+    {
+     "user": "punkgame",
+     "label": "none",
+     "score": 0.5134
+    },
+    {
+     "user": "poko_pen",
+     "label": "none",
+     "score": 0.4792
+    },
+    {
+     "user": "auto_chan",
+     "label": "none",
+     "score": 0.6424
+    },
+    {
+     "user": "Domino-R",
+     "label": "fact",
+     "score": 0.5179
+    },
+    {
+     "user": "gegegepo",
+     "label": "none",
+     "score": 0.613
+    },
+    {
+     "user": "karagenkig",
+     "label": "fact",
+     "score": 0.5965
+    },
+    {
+     "user": "taruhachi",
+     "label": "none",
+     "score": 0.7121
+    },
+    {
+     "user": "dollarss",
+     "label": "none",
+     "score": 0.7103
+    },
+    {
+     "user": "misafusa",
+     "label": "none",
+     "score": 0.7152
+    },
+    {
+     "user": "mirakux",
+     "label": "none",
+     "score": 0.543
+    },
+    {
+     "user": "anmin7",
+     "label": "none",
+     "score": 0.7942
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.6331
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261115084550",
+   "title": "数年じゃ呪いは解けない",
+   "bookmark_count": 84,
+   "bookmarked_at": "2026-11-14T23:53:44+00:00",
+   "first_seen": "2026-11-16T06:29:43.035057+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0126,
+     "fact": 0.9874
+    }
+   },
+   "crowd": {
+    "fiction": 0.04,
+    "fact": 0.96
+   },
+   "mentions": 25,
+   "comment_count": 43,
+   "gap": 0.027400000000000046,
+   "narrative": 0.9872,
+   "comments": [
+    {
+     "user": "taxman_1972",
+     "label": "fact",
+     "score": 0.7284
+    },
+    {
+     "user": "zeromoon0",
+     "label": "fiction",
+     "score": 0.5022
+    },
+    {
+     "user": "jou2",
+     "label": "fact",
+     "score": 0.5517
+    },
+    {
+     "user": "heaco65",
+     "label": "fact",
+     "score": 0.6175
+    },
+    {
+     "user": "hry64",
+     "label": "fact",
+     "score": 0.5957
+    },
+    {
+     "user": "tasknow",
+     "label": "none",
+     "score": 0.7047
+    },
+    {
+     "user": "oyamissa",
+     "label": "fact",
+     "score": 0.7714
+    },
+    {
+     "user": "flatfive",
+     "label": "none",
+     "score": 0.5098
+    },
+    {
+     "user": "neogratche",
+     "label": "fact",
+     "score": 0.6596
+    },
+    {
+     "user": "rci",
+     "label": "none",
+     "score": 0.5188
+    },
+    {
+     "user": "nandenandechan",
+     "label": "fact",
+     "score": 0.7908
+    },
+    {
+     "user": "karusika",
+     "label": "none",
+     "score": 0.4872
+    },
+    {
+     "user": "m-kawato",
+     "label": "none",
+     "score": 0.5752
+    },
+    {
+     "user": "sds-page",
+     "label": "none",
+     "score": 0.6399
+    },
+    {
+     "user": "IndigoBlue_Bird",
+     "label": "fact",
+     "score": 0.5698
+    },
+    {
+     "user": "chambersan",
+     "label": "fact",
+     "score": 0.6069
+    },
+    {
+     "user": "nina19",
+     "label": "fact",
+     "score": 0.6235
+    },
+    {
+     "user": "aathen",
+     "label": "fact",
+     "score": 0.7455
+    },
+    {
+     "user": "kazukan",
+     "label": "none",
+     "score": 0.4971
+    },
+    {
+     "user": "spmilk",
+     "label": "fact",
+     "score": 0.714
+    },
+    {
+     "user": "corux",
+     "label": "fact",
+     "score": 0.7286
+    },
+    {
+     "user": "tottotto2009",
+     "label": "fact",
+     "score": 0.6943
+    },
+    {
+     "user": "town2town",
+     "label": "fact",
+     "score": 0.648
+    },
+    {
+     "user": "hunglysheep1",
+     "label": "fact",
+     "score": 0.5867
+    },
+    {
+     "user": "jerryb",
+     "label": "none",
+     "score": 0.4593
+    },
+    {
+     "user": "fycw",
+     "label": "none",
+     "score": 0.5293
+    },
+    {
+     "user": "marumori2212",
+     "label": "fact",
+     "score": 0.8815
+    },
+    {
+     "user": "mkotatsu",
+     "label": "none",
+     "score": 0.4968
+    },
+    {
+     "user": "SndOp",
+     "label": "none",
+     "score": 0.3965
+    },
+    {
+     "user": "R3Clipper",
+     "label": "none",
+     "score": 0.4741
+    },
+    {
+     "user": "aeka",
+     "label": "none",
+     "score": 0.5064
+    },
+    {
+     "user": "vlxst1224",
+     "label": "none",
+     "score": 0.3884
+    },
+    {
+     "user": "M54it",
+     "label": "fact",
+     "score": 0.6103
+    },
+    {
+     "user": "eggplantte",
+     "label": "fact",
+     "score": 0.6602
+    },
+    {
+     "user": "hagetar",
+     "label": "fact",
+     "score": 0.725
+    },
+    {
+     "user": "circled",
+     "label": "none",
+     "score": 0.5813
+    },
+    {
+     "user": "peketamin",
+     "label": "fact",
+     "score": 0.5261
+    },
+    {
+     "user": "narukami",
+     "label": "fact",
+     "score": 0.7679
+    },
+    {
+     "user": "ROYGB",
+     "label": "none",
+     "score": 0.6016
+    },
+    {
+     "user": "anmin7",
+     "label": "none",
+     "score": 0.503
+    },
+    {
+     "user": "lacucaracha",
+     "label": "none",
+     "score": 0.5669
+    },
+    {
+     "user": "bnckmnj",
+     "label": "fact",
+     "score": 0.8042
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.6557
+    }
+   ],
+   "suspicion": 0.023255813953488372
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261114235117",
    "title": "BLのセックスシーンは尊いだけで卑猥ではないんだよね",
    "bookmark_count": 157,
