@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261116120807",
+   "title": "「中国の脅威を直視しろ！！！」「平和ボケから目を覚ませ！！！」⇒「えっ、軍拡ってお金かかるんですか……？」「あっ、防衛増税はちょっと……」「誰かが無料で守ってくれるはず！！！」",
+   "bookmark_count": 38,
+   "bookmarked_at": "2026-11-16T03:08:22+00:00",
+   "first_seen": "2026-11-17T07:55:33.401999+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7289,
+     "fact": 0.2711
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0163,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261116035910",
+   "title": "GPTって教えないくせに根掘り葉掘り聞くよね",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-11-15T22:55:08+00:00",
+   "first_seen": "2026-11-16T22:01:47.164016+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1808,
+     "fact": 0.8192
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.1226,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261115234106",
    "title": "15年間恋人からDVを受けたが、もうダメかもしれない",
    "bookmark_count": 175,
