@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261117151240",
+   "title": "おじさん、おばさん以上を満たすコンテンツが無い問題",
+   "bookmark_count": 77,
+   "bookmarked_at": "2026-11-17T06:13:48+00:00",
+   "first_seen": "2026-11-18T07:28:52.264935+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0501,
+     "fact": 0.9499
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0388,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261117065559",
+   "title": "必ず見たいシュワちゃん映画5選",
+   "bookmark_count": 168,
+   "bookmarked_at": "2026-11-16T21:56:48+00:00",
+   "first_seen": "2026-11-18T07:28:52.264935+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1511,
+     "fact": 0.8489
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0164,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261116120807",
    "title": "「中国の脅威を直視しろ！！！」「平和ボケから目を覚ませ！！！」⇒「えっ、軍拡ってお金かかるんですか……？」「あっ、防衛増税はちょっと……」「誰かが無料で守ってくれるはず！！！」",
    "bookmark_count": 38,
@@ -522,6 +562,26 @@
    "comment_count": 0,
    "gap": null,
    "narrative": 0.1719,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261115160235",
+   "title": "表自界隈もアンフェ界隈もツイフェミになってしまった",
+   "bookmark_count": 30,
+   "bookmarked_at": "2026-11-15T07:06:11+00:00",
+   "first_seen": "2026-11-18T07:28:52.264935+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1007,
+     "fact": 0.8993
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0894,
    "comments": [],
    "suspicion": null
   },
