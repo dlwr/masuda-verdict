@@ -2,6 +2,689 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261117202745",
+   "title": "交際経験0回、性交経験1回のアラサー",
+   "bookmark_count": 116,
+   "bookmarked_at": "2026-11-17T12:04:35+00:00",
+   "first_seen": "2026-11-17T20:55:20.698800+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0439,
+     "fact": 0.9561
+    }
+   },
+   "crowd": {
+    "fiction": 0.13333333333333333,
+    "fact": 0.8666666666666667
+   },
+   "mentions": 30,
+   "comment_count": 106,
+   "gap": 0.0894333333333333,
+   "narrative": 0.9747,
+   "comments": [
+    {
+     "user": "Domino-R",
+     "label": "none",
+     "score": 0.6316
+    },
+    {
+     "user": "Ayrtonism",
+     "label": "fact",
+     "score": 0.5901
+    },
+    {
+     "user": "zauberberg",
+     "label": "none",
+     "score": 0.3666
+    },
+    {
+     "user": "semimaru",
+     "label": "none",
+     "score": 0.6672
+    },
+    {
+     "user": "allezvous",
+     "label": "none",
+     "score": 0.6694
+    },
+    {
+     "user": "kanikanidokokani",
+     "label": "none",
+     "score": 0.7367
+    },
+    {
+     "user": "pptppc2",
+     "label": "none",
+     "score": 0.5898
+    },
+    {
+     "user": "healthyhiroshi",
+     "label": "none",
+     "score": 0.5411
+    },
+    {
+     "user": "heaco65",
+     "label": "fact",
+     "score": 0.7098
+    },
+    {
+     "user": "nina19",
+     "label": "fact",
+     "score": 0.6347
+    },
+    {
+     "user": "differential",
+     "label": "none",
+     "score": 0.514
+    },
+    {
+     "user": "Habatsuka",
+     "label": "none",
+     "score": 0.6018
+    },
+    {
+     "user": "junjun777",
+     "label": "fact",
+     "score": 0.5408
+    },
+    {
+     "user": "onesplat",
+     "label": "none",
+     "score": 0.6124
+    },
+    {
+     "user": "hanamichi36",
+     "label": "none",
+     "score": 0.4959
+    },
+    {
+     "user": "irimodi",
+     "label": "none",
+     "score": 0.4678
+    },
+    {
+     "user": "hecaton55",
+     "label": "none",
+     "score": 0.7075
+    },
+    {
+     "user": "ani11",
+     "label": "fiction",
+     "score": 0.5981
+    },
+    {
+     "user": "kiwamaru100",
+     "label": "none",
+     "score": 0.4857
+    },
+    {
+     "user": "alovesun",
+     "label": "none",
+     "score": 0.5616
+    },
+    {
+     "user": "pochi-taro00",
+     "label": "none",
+     "score": 0.6237
+    },
+    {
+     "user": "mujou03",
+     "label": "none",
+     "score": 0.6097
+    },
+    {
+     "user": "uouox",
+     "label": "none",
+     "score": 0.5342
+    },
+    {
+     "user": "stracciatella",
+     "label": "none",
+     "score": 0.6194
+    },
+    {
+     "user": "kiku-chan",
+     "label": "none",
+     "score": 0.4889
+    },
+    {
+     "user": "RIP-1202",
+     "label": "none",
+     "score": 0.4853
+    },
+    {
+     "user": "jackson24",
+     "label": "none",
+     "score": 0.7115
+    },
+    {
+     "user": "dubdubchinchin",
+     "label": "none",
+     "score": 0.5892
+    },
+    {
+     "user": "narukami",
+     "label": "fiction",
+     "score": 0.7835
+    },
+    {
+     "user": "sakahashi",
+     "label": "none",
+     "score": 0.5862
+    },
+    {
+     "user": "atoh",
+     "label": "fact",
+     "score": 0.5458
+    },
+    {
+     "user": "Kenju",
+     "label": "none",
+     "score": 0.6996
+    },
+    {
+     "user": "ywdcn",
+     "label": "none",
+     "score": 0.5367
+    },
+    {
+     "user": "fujiriko59",
+     "label": "none",
+     "score": 0.5841
+    },
+    {
+     "user": "kettkett",
+     "label": "none",
+     "score": 0.6223
+    },
+    {
+     "user": "sukekyo",
+     "label": "none",
+     "score": 0.6086
+    },
+    {
+     "user": "cinefuk",
+     "label": "none",
+     "score": 0.5012
+    },
+    {
+     "user": "mozukuyummy",
+     "label": "none",
+     "score": 0.6337
+    },
+    {
+     "user": "nightgazer",
+     "label": "fact",
+     "score": 0.6675
+    },
+    {
+     "user": "erya",
+     "label": "none",
+     "score": 0.4452
+    },
+    {
+     "user": "sub_low",
+     "label": "fact",
+     "score": 0.5114
+    },
+    {
+     "user": "miscmisc",
+     "label": "none",
+     "score": 0.6502
+    },
+    {
+     "user": "tsu_nyan",
+     "label": "fiction",
+     "score": 0.6324
+    },
+    {
+     "user": "inks",
+     "label": "none",
+     "score": 0.4538
+    },
+    {
+     "user": "iphone",
+     "label": "none",
+     "score": 0.5812
+    },
+    {
+     "user": "alivekanade",
+     "label": "fact",
+     "score": 0.6744
+    },
+    {
+     "user": "TETSUYA01",
+     "label": "none",
+     "score": 0.6337
+    },
+    {
+     "user": "aw18831945",
+     "label": "fact",
+     "score": 0.5222
+    },
+    {
+     "user": "mogitatec",
+     "label": "fact",
+     "score": 0.5201
+    },
+    {
+     "user": "yunotanoro",
+     "label": "none",
+     "score": 0.5168
+    },
+    {
+     "user": "soreso",
+     "label": "none",
+     "score": 0.5206
+    },
+    {
+     "user": "spaixi",
+     "label": "none",
+     "score": 0.655
+    },
+    {
+     "user": "munioka303",
+     "label": "none",
+     "score": 0.5354
+    },
+    {
+     "user": "kazoo_keeper2",
+     "label": "none",
+     "score": 0.659
+    },
+    {
+     "user": "dtg8",
+     "label": "fact",
+     "score": 0.5384
+    },
+    {
+     "user": "shields-pikes",
+     "label": "fact",
+     "score": 0.7379
+    },
+    {
+     "user": "akashi735",
+     "label": "none",
+     "score": 0.5106
+    },
+    {
+     "user": "duckt",
+     "label": "none",
+     "score": 0.7857
+    },
+    {
+     "user": "cinq_na",
+     "label": "fact",
+     "score": 0.4843
+    },
+    {
+     "user": "yoiIT",
+     "label": "none",
+     "score": 0.6739
+    },
+    {
+     "user": "strange",
+     "label": "none",
+     "score": 0.6272
+    },
+    {
+     "user": "wumf0701",
+     "label": "fact",
+     "score": 0.4949
+    },
+    {
+     "user": "higutti3",
+     "label": "none",
+     "score": 0.5022
+    },
+    {
+     "user": "kaminashiko",
+     "label": "none",
+     "score": 0.6113
+    },
+    {
+     "user": "hunglysheep1",
+     "label": "fact",
+     "score": 0.4877
+    },
+    {
+     "user": "s17er",
+     "label": "none",
+     "score": 0.5145
+    },
+    {
+     "user": "kanimaster",
+     "label": "none",
+     "score": 0.6884
+    },
+    {
+     "user": "waaaatsuko",
+     "label": "none",
+     "score": 0.598
+    },
+    {
+     "user": "motiaya",
+     "label": "fiction",
+     "score": 0.914
+    },
+    {
+     "user": "docking765",
+     "label": "none",
+     "score": 0.6542
+    },
+    {
+     "user": "movesinthefield",
+     "label": "none",
+     "score": 0.6036
+    },
+    {
+     "user": "yzkuma",
+     "label": "none",
+     "score": 0.6876
+    },
+    {
+     "user": "murlock",
+     "label": "fact",
+     "score": 0.4749
+    },
+    {
+     "user": "mermaidtan",
+     "label": "fact",
+     "score": 0.6099
+    },
+    {
+     "user": "nihano",
+     "label": "fact",
+     "score": 0.5013
+    },
+    {
+     "user": "zzrx",
+     "label": "fact",
+     "score": 0.7602
+    },
+    {
+     "user": "iiko_1115",
+     "label": "none",
+     "score": 0.5998
+    },
+    {
+     "user": "hatebu_admin",
+     "label": "none",
+     "score": 0.509
+    },
+    {
+     "user": "FreeCatWork",
+     "label": "none",
+     "score": 0.4981
+    },
+    {
+     "user": "remoteworker",
+     "label": "none",
+     "score": 0.5445
+    },
+    {
+     "user": "SilverHead247",
+     "label": "fact",
+     "score": 0.5908
+    },
+    {
+     "user": "yamadadadada2",
+     "label": "none",
+     "score": 0.6612
+    },
+    {
+     "user": "entryno001",
+     "label": "none",
+     "score": 0.7048
+    },
+    {
+     "user": "Goldenduck",
+     "label": "none",
+     "score": 0.575
+    },
+    {
+     "user": "tsubo1",
+     "label": "none",
+     "score": 0.4799
+    },
+    {
+     "user": "atoshimatsu",
+     "label": "fact",
+     "score": 0.6201
+    },
+    {
+     "user": "scavenger-folk99",
+     "label": "none",
+     "score": 0.5375
+    },
+    {
+     "user": "ho4416",
+     "label": "none",
+     "score": 0.6279
+    },
+    {
+     "user": "harist",
+     "label": "none",
+     "score": 0.5041
+    },
+    {
+     "user": "nikutetu",
+     "label": "none",
+     "score": 0.6503
+    },
+    {
+     "user": "yujimi-daifuku-2222",
+     "label": "fact",
+     "score": 0.6864
+    },
+    {
+     "user": "mawhata",
+     "label": "fact",
+     "score": 0.511
+    },
+    {
+     "user": "byaa0001",
+     "label": "none",
+     "score": 0.4802
+    },
+    {
+     "user": "aburakoujichang",
+     "label": "none",
+     "score": 0.6219
+    },
+    {
+     "user": "takamurasachi",
+     "label": "none",
+     "score": 0.4467
+    },
+    {
+     "user": "sawasawa12",
+     "label": "none",
+     "score": 0.6198
+    },
+    {
+     "user": "pandaman47",
+     "label": "none",
+     "score": 0.6588
+    },
+    {
+     "user": "b9rantan8",
+     "label": "fact",
+     "score": 0.5319
+    },
+    {
+     "user": "oyamissa",
+     "label": "fact",
+     "score": 0.5965
+    },
+    {
+     "user": "ustam",
+     "label": "none",
+     "score": 0.6211
+    },
+    {
+     "user": "cha16",
+     "label": "fact",
+     "score": 0.4895
+    },
+    {
+     "user": "naozane2",
+     "label": "none",
+     "score": 0.5436
+    },
+    {
+     "user": "AspergerSyndrome",
+     "label": "none",
+     "score": 0.5508
+    },
+    {
+     "user": "mutinomuti",
+     "label": "none",
+     "score": 0.6976
+    },
+    {
+     "user": "versatile",
+     "label": "none",
+     "score": 0.5538
+    },
+    {
+     "user": "sextremely",
+     "label": "none",
+     "score": 0.5054
+    }
+   ],
+   "suspicion": 0.03773584905660377
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261117170506",
+   "title": "現役ホストの友人に聞いた若いメンヘラ攻略法",
+   "bookmark_count": 34,
+   "bookmarked_at": "2026-11-17T08:09:34+00:00",
+   "first_seen": "2026-11-18T20:31:21.919936+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7643,
+     "fact": 0.2357
+    }
+   },
+   "crowd": {
+    "fiction": 0.4,
+    "fact": 0.6
+   },
+   "mentions": 5,
+   "comment_count": 21,
+   "gap": 0.36429999999999996,
+   "narrative": 0.8548,
+   "comments": [
+    {
+     "user": "fluoride",
+     "label": "fiction",
+     "score": 0.3545
+    },
+    {
+     "user": "Lamit",
+     "label": "fact",
+     "score": 0.51
+    },
+    {
+     "user": "differential",
+     "label": "none",
+     "score": 0.5077
+    },
+    {
+     "user": "UhoNiceGuy",
+     "label": "none",
+     "score": 0.4982
+    },
+    {
+     "user": "inazuma2073",
+     "label": "none",
+     "score": 0.621
+    },
+    {
+     "user": "hecaton55",
+     "label": "none",
+     "score": 0.5639
+    },
+    {
+     "user": "Akech_ergo",
+     "label": "none",
+     "score": 0.4561
+    },
+    {
+     "user": "njsjn",
+     "label": "none",
+     "score": 0.4716
+    },
+    {
+     "user": "outalaw",
+     "label": "none",
+     "score": 0.5188
+    },
+    {
+     "user": "pptppc2",
+     "label": "fact",
+     "score": 0.4726
+    },
+    {
+     "user": "hachibeechan",
+     "label": "none",
+     "score": 0.5084
+    },
+    {
+     "user": "camellow",
+     "label": "none",
+     "score": 0.5267
+    },
+    {
+     "user": "hazel_pluto",
+     "label": "none",
+     "score": 0.4993
+    },
+    {
+     "user": "cinefuk",
+     "label": "fact",
+     "score": 0.7724
+    },
+    {
+     "user": "Ayrtonism",
+     "label": "none",
+     "score": 0.5664
+    },
+    {
+     "user": "chambersan",
+     "label": "none",
+     "score": 0.5984
+    },
+    {
+     "user": "pandaman47",
+     "label": "none",
+     "score": 0.5906
+    },
+    {
+     "user": "yujimi-daifuku-2222",
+     "label": "none",
+     "score": 0.4818
+    },
+    {
+     "user": "takanq",
+     "label": "none",
+     "score": 0.5931
+    },
+    {
+     "user": "swex",
+     "label": "none",
+     "score": 0.5708
+    },
+    {
+     "user": "gyurugyurun",
+     "label": "fiction",
+     "score": 0.4918
+    }
+   ],
+   "suspicion": 0.09523809523809523
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261117151240",
    "title": "おじさん、おばさん以上を満たすコンテンツが無い問題",
    "bookmark_count": 77,
