@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261118121918",
+   "title": "こういうのブラインドでやらないの科学教育の敗北だよな",
+   "bookmark_count": 33,
+   "bookmarked_at": "2026-11-18T03:20:49+00:00",
+   "first_seen": "2026-11-18T20:31:21.919936+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0516,
+     "fact": 0.9484
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.2462,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261118112136",
+   "title": "アイドルオタクの人が特に言う「育ちがいい」とか「親に愛されて育った」とかの褒め言葉、大っ嫌い",
+   "bookmark_count": 214,
+   "bookmarked_at": "2026-11-18T02:38:16+00:00",
+   "first_seen": "2026-11-18T20:31:21.919936+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.028,
+     "fact": 0.972
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0462,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261117202745",
    "title": "交際経験0回、性交経験1回のアラサー",
    "bookmark_count": 116,
