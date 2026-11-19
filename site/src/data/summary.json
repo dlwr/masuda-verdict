@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261118164246",
+   "title": "性行為したことないから聞きたいんだけど",
+   "bookmark_count": 119,
+   "bookmarked_at": "2026-11-18T07:44:49+00:00",
+   "first_seen": "2026-11-19T07:25:54.799518+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.6538,
+     "fact": 0.3462
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0605,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261118121918",
    "title": "こういうのブラインドでやらないの科学教育の敗北だよな",
    "bookmark_count": 33,
