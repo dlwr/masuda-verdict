@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261120115625",
+   "title": "宇崎ちゃん→漫画自体は大学生同士のラブコメなので何ら問題ない。献血の..",
+   "bookmark_count": 32,
+   "bookmarked_at": "2026-11-20T02:56:51+00:00",
+   "first_seen": "2026-11-20T07:16:08.959125+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0276,
+     "fact": 0.9724
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0321,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261119204627",
+   "title": "白菜のない鍋料理って、存在しなくないか？",
+   "bookmark_count": 34,
+   "bookmarked_at": "2026-11-19T21:57:40+00:00",
+   "first_seen": "2026-11-20T07:16:08.959125+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.2405,
+     "fact": 0.7595
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.1025,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261119233504",
    "title": "情報漏洩・不正アクセスでやばい会社TOP5",
    "bookmark_count": 30,
@@ -20,6 +60,100 @@
    "narrative": 0.0174,
    "comments": [],
    "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261119213702",
+   "title": "高卒就職したての18歳の時に 「もう社会人になったからスマホは自分で契約..",
+   "bookmark_count": 31,
+   "bookmarked_at": "2026-11-19T12:38:51+00:00",
+   "first_seen": "2026-11-21T07:07:47.705885+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.012,
+     "fact": 0.988
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 5,
+   "comment_count": 14,
+   "gap": 0.012000000000000005,
+   "narrative": 0.9812,
+   "comments": [
+    {
+     "user": "ROYGB",
+     "label": "none",
+     "score": 0.5843
+    },
+    {
+     "user": "nakakzs",
+     "label": "fact",
+     "score": 0.7281
+    },
+    {
+     "user": "WildWideWeb",
+     "label": "fact",
+     "score": 0.7572
+    },
+    {
+     "user": "inks",
+     "label": "fact",
+     "score": 0.8567
+    },
+    {
+     "user": "ffrog",
+     "label": "none",
+     "score": 0.6083
+    },
+    {
+     "user": "ultimatebreak",
+     "label": "none",
+     "score": 0.5791
+    },
+    {
+     "user": "differential",
+     "label": "none",
+     "score": 0.5604
+    },
+    {
+     "user": "Tomosugi",
+     "label": "none",
+     "score": 0.4695
+    },
+    {
+     "user": "yosiro",
+     "label": "fact",
+     "score": 0.6546
+    },
+    {
+     "user": "natumeuashi",
+     "label": "none",
+     "score": 0.504
+    },
+    {
+     "user": "cinq_na",
+     "label": "fact",
+     "score": 0.6301
+    },
+    {
+     "user": "zonke",
+     "label": "none",
+     "score": 0.5477
+    },
+    {
+     "user": "moxtaka",
+     "label": "none",
+     "score": 0.5215
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "none",
+     "score": 0.4744
+    }
+   ],
+   "suspicion": 0.0
   },
   {
    "url": "https://anond.hatelabo.jp/20261118164246",

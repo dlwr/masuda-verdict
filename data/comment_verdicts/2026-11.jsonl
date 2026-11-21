@@ -1676,3 +1676,17 @@
 {"url": "https://anond.hatelabo.jp/20261117170506", "user": "takanq", "timestamp": "2026/11/18 11:11", "model": "clef", "probs": {"fiction": 0.168, "fact": 0.2389, "none": 0.5931}}
 {"url": "https://anond.hatelabo.jp/20261117170506", "user": "swex", "timestamp": "2026/11/17 17:34", "model": "clef", "probs": {"fiction": 0.2269, "fact": 0.2023, "none": 0.5708}}
 {"url": "https://anond.hatelabo.jp/20261117170506", "user": "gyurugyurun", "timestamp": "2026/11/17 17:15", "model": "clef", "probs": {"fiction": 0.4918, "fact": 0.0921, "none": 0.4161}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "ROYGB", "timestamp": "2026/11/21 10:27", "model": "clef", "probs": {"fiction": 0.0386, "fact": 0.3771, "none": 0.5843}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "nakakzs", "timestamp": "2026/11/21 10:02", "model": "clef", "probs": {"fiction": 0.0223, "fact": 0.7281, "none": 0.2496}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "WildWideWeb", "timestamp": "2026/11/21 06:50", "model": "clef", "probs": {"fiction": 0.026, "fact": 0.7572, "none": 0.2168}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "inks", "timestamp": "2026/11/21 06:33", "model": "clef", "probs": {"fiction": 0.0247, "fact": 0.8567, "none": 0.1186}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "ffrog", "timestamp": "2026/11/20 23:58", "model": "clef", "probs": {"fiction": 0.0409, "fact": 0.3508, "none": 0.6083}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "ultimatebreak", "timestamp": "2026/11/20 21:05", "model": "clef", "probs": {"fiction": 0.0621, "fact": 0.3588, "none": 0.5791}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "differential", "timestamp": "2026/11/20 19:39", "model": "clef", "probs": {"fiction": 0.0548, "fact": 0.3848, "none": 0.5604}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "Tomosugi", "timestamp": "2026/11/20 17:47", "model": "clef", "probs": {"fiction": 0.0719, "fact": 0.4586, "none": 0.4695}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "yosiro", "timestamp": "2026/11/20 17:46", "model": "clef", "probs": {"fiction": 0.0253, "fact": 0.6546, "none": 0.3201}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "natumeuashi", "timestamp": "2026/11/20 17:18", "model": "clef", "probs": {"fiction": 0.0993, "fact": 0.3967, "none": 0.504}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "cinq_na", "timestamp": "2026/11/20 16:34", "model": "clef", "probs": {"fiction": 0.0292, "fact": 0.6301, "none": 0.3407}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "zonke", "timestamp": "2026/11/20 16:33", "model": "clef", "probs": {"fiction": 0.0512, "fact": 0.4011, "none": 0.5477}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "moxtaka", "timestamp": "2026/11/20 14:54", "model": "clef", "probs": {"fiction": 0.0821, "fact": 0.3964, "none": 0.5215}}
+{"url": "https://anond.hatelabo.jp/20261119213702", "user": "nguyen-oi", "timestamp": "2026/11/19 21:50", "model": "clef", "probs": {"fiction": 0.112, "fact": 0.4136, "none": 0.4744}}
