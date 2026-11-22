@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261121113049",
+   "title": "元ジャンポケの人が出ていたラジオ",
+   "bookmark_count": 42,
+   "bookmarked_at": "2026-11-21T02:31:48+00:00",
+   "first_seen": "2026-11-22T06:47:37.164839+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0536,
+     "fact": 0.9464
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0748,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261120131919",
+   "title": "女性にAED問題は、男性のグロテスクさが表に出過ぎていて同じ男性としてキツい",
+   "bookmark_count": 40,
+   "bookmarked_at": "2026-11-20T06:27:04+00:00",
+   "first_seen": "2026-11-22T06:47:37.164839+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1831,
+     "fact": 0.8169
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0372,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261120115625",
    "title": "宇崎ちゃん→漫画自体は大学生同士のラブコメなので何ら問題ない。献血の..",
    "bookmark_count": 32,
