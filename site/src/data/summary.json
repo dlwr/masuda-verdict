@@ -2,6 +2,190 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261122140104",
+   "title": "工学系プログラマー絵描きが生成AIでイラストや漫画を生成してみた感想",
+   "bookmark_count": 112,
+   "bookmarked_at": "2026-11-22T05:01:52+00:00",
+   "first_seen": "2026-11-23T07:38:54.970389+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.013,
+     "fact": 0.987
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 20,
+   "comment_count": 29,
+   "gap": 0.013000000000000005,
+   "narrative": 0.9536,
+   "comments": [
+    {
+     "user": "tettekete37564",
+     "label": "fact",
+     "score": 0.7798
+    },
+    {
+     "user": "tigercaffe",
+     "label": "fact",
+     "score": 0.8013
+    },
+    {
+     "user": "kuzumaji",
+     "label": "fact",
+     "score": 0.5434
+    },
+    {
+     "user": "isrc",
+     "label": "fact",
+     "score": 0.8445
+    },
+    {
+     "user": "wonodas",
+     "label": "none",
+     "score": 0.6137
+    },
+    {
+     "user": "cinq_na",
+     "label": "none",
+     "score": 0.594
+    },
+    {
+     "user": "yarumato",
+     "label": "fact",
+     "score": 0.7722
+    },
+    {
+     "user": "meganeya3",
+     "label": "none",
+     "score": 0.6151
+    },
+    {
+     "user": "manamanaba",
+     "label": "fact",
+     "score": 0.7565
+    },
+    {
+     "user": "oyamissa",
+     "label": "fact",
+     "score": 0.6033
+    },
+    {
+     "user": "u_u_u",
+     "label": "fact",
+     "score": 0.5597
+    },
+    {
+     "user": "Rikerike",
+     "label": "fact",
+     "score": 0.6128
+    },
+    {
+     "user": "vlxst1224",
+     "label": "none",
+     "score": 0.5989
+    },
+    {
+     "user": "mopx",
+     "label": "fact",
+     "score": 0.4911
+    },
+    {
+     "user": "gewaa",
+     "label": "fact",
+     "score": 0.7086
+    },
+    {
+     "user": "oO_TOJIMAME_Oo",
+     "label": "fact",
+     "score": 0.6917
+    },
+    {
+     "user": "edamametomato",
+     "label": "fact",
+     "score": 0.5802
+    },
+    {
+     "user": "takuver4",
+     "label": "fact",
+     "score": 0.6358
+    },
+    {
+     "user": "trace22",
+     "label": "none",
+     "score": 0.5334
+    },
+    {
+     "user": "hanninyasu",
+     "label": "none",
+     "score": 0.6614
+    },
+    {
+     "user": "uotocs",
+     "label": "fact",
+     "score": 0.5333
+    },
+    {
+     "user": "pochi-taro00",
+     "label": "none",
+     "score": 0.6492
+    },
+    {
+     "user": "kei_1010",
+     "label": "fact",
+     "score": 0.5678
+    },
+    {
+     "user": "preciar",
+     "label": "fact",
+     "score": 0.7964
+    },
+    {
+     "user": "n2sz",
+     "label": "none",
+     "score": 0.5596
+    },
+    {
+     "user": "kenzy_n",
+     "label": "none",
+     "score": 0.598
+    },
+    {
+     "user": "morimarii",
+     "label": "fact",
+     "score": 0.5792
+    },
+    {
+     "user": "zsehnuy_cohriy",
+     "label": "fact",
+     "score": 0.5949
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.7003
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261122095858",
+   "title": "裁判傍聴マニアだが闇バ〇ト事件が限界突破しすぎていてどんだけヤバイか書く",
+   "bookmark_count": 330,
+   "bookmarked_at": "2026-11-22T01:12:04+00:00",
+   "first_seen": "2026-11-22T06:47:37.164839+00:00",
+   "models": {},
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": null,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261122011458",
    "title": "なんでみんなそんなにセルフレジに戸惑うんだ？ UIや導線が統一されてない..",
    "bookmark_count": 48,
