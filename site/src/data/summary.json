@@ -2,6 +2,160 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261122225729",
+   "title": "裁判傍聴マニアだが何故か記事運営削除されたので追記を供養替わりに書く",
+   "bookmark_count": 72,
+   "bookmarked_at": "2026-11-22T14:05:46+00:00",
+   "first_seen": "2026-11-23T07:38:54.970389+00:00",
+   "models": {},
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": null,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261122173609",
+   "title": "アラフィフのおっさんが、初めて服をオーダーした話 (1)",
+   "bookmark_count": 40,
+   "bookmarked_at": "2026-11-22T08:45:34+00:00",
+   "first_seen": "2026-11-23T07:38:54.970389+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0392,
+     "fact": 0.9608
+    }
+   },
+   "crowd": {
+    "fiction": 0.0,
+    "fact": 1.0
+   },
+   "mentions": 15,
+   "comment_count": 19,
+   "gap": 0.039200000000000006,
+   "narrative": 0.9854,
+   "comments": [
+    {
+     "user": "arrack",
+     "label": "fact",
+     "score": 0.7472
+    },
+    {
+     "user": "poliphilus",
+     "label": "fact",
+     "score": 0.608
+    },
+    {
+     "user": "aquatofana",
+     "label": "none",
+     "score": 0.7043
+    },
+    {
+     "user": "pikopikopan",
+     "label": "none",
+     "score": 0.4938
+    },
+    {
+     "user": "watapoco",
+     "label": "fact",
+     "score": 0.6645
+    },
+    {
+     "user": "kou-qana",
+     "label": "fact",
+     "score": 0.7355
+    },
+    {
+     "user": "greenbuddha138",
+     "label": "none",
+     "score": 0.4963
+    },
+    {
+     "user": "y-pak",
+     "label": "fact",
+     "score": 0.7905
+    },
+    {
+     "user": "HDPE",
+     "label": "fact",
+     "score": 0.7095
+    },
+    {
+     "user": "moke222",
+     "label": "none",
+     "score": 0.4504
+    },
+    {
+     "user": "nonsect",
+     "label": "fact",
+     "score": 0.7202
+    },
+    {
+     "user": "seachikin",
+     "label": "fact",
+     "score": 0.8073
+    },
+    {
+     "user": "kamiokando",
+     "label": "fact",
+     "score": 0.8312
+    },
+    {
+     "user": "iori_min",
+     "label": "fact",
+     "score": 0.8386
+    },
+    {
+     "user": "room661",
+     "label": "fact",
+     "score": 0.6414
+    },
+    {
+     "user": "nowa_s",
+     "label": "fact",
+     "score": 0.7886
+    },
+    {
+     "user": "laranjeiras",
+     "label": "fact",
+     "score": 0.7702
+    },
+    {
+     "user": "blackwatch",
+     "label": "fact",
+     "score": 0.6735
+    },
+    {
+     "user": "nguyen-oi",
+     "label": "fact",
+     "score": 0.7191
+    }
+   ],
+   "suspicion": 0.0
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20211214103503",
+   "title": "安易に「Youtuberになるな」と言わないでほしい",
+   "bookmark_count": 303,
+   "bookmarked_at": "2026-11-22T07:45:08+00:00",
+   "first_seen": "2026-11-22T19:40:20.810469+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0258,
+     "fact": 0.9742
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0514,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261122140104",
    "title": "工学系プログラマー絵描きが生成AIでイラストや漫画を生成してみた感想",
    "bookmark_count": 112,
