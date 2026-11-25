@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261124083126",
+   "title": "はてブのAndroidアプリからPR記事や広告を消す非公式パッチ「Hoshiori」を更新。コメント詳細から記事を開けるようにした",
+   "bookmark_count": 35,
+   "bookmarked_at": "2026-11-23T23:34:00+00:00",
+   "first_seen": "2026-11-24T09:54:16.663049+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0248,
+     "fact": 0.9752
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.2901,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261123200802",
    "title": "夫婦が子を持つという共通利益を得るにあたり、女だけが肉体的&経済的不利..",
    "bookmark_count": 31,
@@ -2710,6 +2730,26 @@
    "comment_count": 0,
    "gap": null,
    "narrative": 0.0174,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261123131649",
+   "title": "レイプファンタジーは、あります",
+   "bookmark_count": 32,
+   "bookmarked_at": "2026-11-23T04:32:43+00:00",
+   "first_seen": "2026-11-25T08:34:21.541067+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4804,
+     "fact": 0.5196
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0484,
    "comments": [],
    "suspicion": null
   },
