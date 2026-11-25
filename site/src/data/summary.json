@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261121084231",
+   "title": "はてブで投資系のブクマにスター付けまくってる謎のアカウント",
+   "bookmark_count": 71,
+   "bookmarked_at": "2026-11-24T13:49:03+00:00",
+   "first_seen": "2026-11-25T08:34:21.541067+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4549,
+     "fact": 0.5451
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.1368,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261124083126",
    "title": "はてブのAndroidアプリからPR記事や広告を消す非公式パッチ「Hoshiori」を更新。コメント詳細から記事を開けるようにした",
    "bookmark_count": 35,
