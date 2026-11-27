@@ -2,6 +2,66 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261126144022",
+   "title": "CLAUDE.md / AGENTS.md を Claude Codeに継続的に書かせる",
+   "bookmark_count": 177,
+   "bookmarked_at": "2026-11-26T05:40:51+00:00",
+   "first_seen": "2026-11-26T21:31:44.970630+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0195,
+     "fact": 0.9805
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.4955,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261126074202",
+   "title": "すごくいいこと思いついたんだけど、小麦粉で作った生地を細く切って茹で..",
+   "bookmark_count": 37,
+   "bookmarked_at": "2026-11-25T22:42:48+00:00",
+   "first_seen": "2026-11-26T08:17:45.101008+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7418,
+     "fact": 0.2582
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0507,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261126073406",
+   "title": "AEDの件、結局はてなのブコメでも「配慮なんていいから助けてほしい」とい..",
+   "bookmark_count": 49,
+   "bookmarked_at": "2026-11-25T22:35:48+00:00",
+   "first_seen": "2026-11-26T21:31:44.970630+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.1316,
+     "fact": 0.8684
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0553,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261125191321",
    "title": "Not Found",
    "bookmark_count": 67,
