@@ -2,6 +2,26 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261126200243",
+   "title": "これから高齢独身男性に襲ってくる地獄",
+   "bookmark_count": 237,
+   "bookmarked_at": "2026-11-26T11:54:22+00:00",
+   "first_seen": "2026-11-26T21:31:44.970630+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.4833,
+     "fact": 0.5167
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0314,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261126144022",
    "title": "CLAUDE.md / AGENTS.md を Claude Codeに継続的に書かせる",
    "bookmark_count": 177,
