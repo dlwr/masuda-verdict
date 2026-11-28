@@ -2,6 +2,46 @@
  "primary_model": "clef",
  "entries": [
   {
+   "url": "https://anond.hatelabo.jp/20261127093828",
+   "title": "なぜ、売名で熊狩りする人が居ないのか",
+   "bookmark_count": 165,
+   "bookmarked_at": "2026-11-27T00:39:48+00:00",
+   "first_seen": "2026-11-28T07:48:46.333982+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.7009,
+     "fact": 0.2991
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0151,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261127090618",
+   "title": "史上空前、ウラジミール・プーチン　チンギス・ハン、ハンニバル、アレクサンドロス大王、ナポレオンに比肩すべき天才",
+   "bookmark_count": 68,
+   "bookmarked_at": "2026-11-27T00:13:38+00:00",
+   "first_seen": "2026-11-27T21:17:30.512534+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.9033,
+     "fact": 0.0967
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0145,
+   "comments": [],
+   "suspicion": null
+  },
+  {
    "url": "https://anond.hatelabo.jp/20261126200243",
    "title": "これから高齢独身男性に襲ってくる地獄",
    "bookmark_count": 237,
@@ -18,6 +58,26 @@
    "comment_count": 0,
    "gap": null,
    "narrative": 0.0314,
+   "comments": [],
+   "suspicion": null
+  },
+  {
+   "url": "https://anond.hatelabo.jp/20261126184704",
+   "title": "ピクリエの二次創作政治禁止の声明は筋が悪い",
+   "bookmark_count": 126,
+   "bookmarked_at": "2026-11-26T09:47:26+00:00",
+   "first_seen": "2026-11-28T07:48:46.333982+00:00",
+   "models": {
+    "clef": {
+     "fiction": 0.0296,
+     "fact": 0.9704
+    }
+   },
+   "crowd": null,
+   "mentions": 0,
+   "comment_count": 0,
+   "gap": null,
+   "narrative": 0.0201,
    "comments": [],
    "suspicion": null
   },
